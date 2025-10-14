@@ -6,10 +6,12 @@
 #include <istream>
 #include <vector>
 #include "Vehiculo.h"
+#include "Frog.h"
 
 // Declaraciones anticipadas
 class Texture;
 class Vehiculo;
+class Frog;
 
 /**
  * Clase principal del juego.
@@ -47,6 +49,7 @@ private:
 	std::array<Texture*, NUM_TEXTURES> textures;
 
 	Vehiculo* v1;
+	Frog* frog;
 
 	void render() const;
 	void update();

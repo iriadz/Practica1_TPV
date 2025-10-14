@@ -94,11 +94,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Frog.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Frog.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="texture.h" />
     <ClInclude Include="vector2D.h" />

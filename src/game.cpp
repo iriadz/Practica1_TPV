@@ -7,6 +7,7 @@
 #include "texture.h"
 #include "Vehiculo.h"
 #include "vector2D.h"
+#include "Frog.h"
 //rana(0), fondo(1)
 
 using namespace std;
@@ -67,6 +68,7 @@ Game::Game()
 	}
 
 	v1 = new Vehiculo(this, getTexture(CAR1), Point2D(410, 372), Vector2D<float>(-7, 0));
+	frog = new Frog(this, textures[0]);
 	// Configura que se pueden utilizar capas translúci
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
@@ -86,6 +88,8 @@ Game::render() const
 	textures[1]->render(); //FONDO
 	// Llamar a pintar un coche
 	v1->render();
+	// Pinta una rana
+	frog->render();
 
 	SDL_RenderPresent(renderer);
 }
@@ -95,6 +99,7 @@ Game::update()
 {
 	// TODO
 	v1->update();
+	frog->update();
 }
 
 void
@@ -102,6 +107,7 @@ Game::run()
 {
 	while (!exit) {
 		update();
+		handleEvents();
 		render();
 		SDL_Delay(30);
 		// TODO: implementar bucle del juego
@@ -122,6 +128,7 @@ Game::handleEvents()
 			exit = true;
 
 		// TODO
+		frog->handleEvent(event);
 	}
 }
 
