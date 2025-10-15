@@ -188,7 +188,6 @@ Game::checkCollision(const SDL_FRect& rect) const
 	}
 	if (frog->getPosition() <= 170 && frog->getPosition() >= 20) // solo comprueba las posiciones de los troncos si esta en el rio
 	{
-		
 		if (!troncos[j]->checkCollision(rect)) {
 			return Collision::Type::ENEMY;
 		}

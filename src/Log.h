@@ -29,8 +29,8 @@ public:
 	{
 		SDL_FRect log = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
 		//return ;
-		if (SDL_HasRectIntersectionFloat(&ref, &log)) return true;
-		else return false; 
+		return SDL_HasRectIntersectionFloat(&ref, &log);
+	 
 	}
 
 private:
