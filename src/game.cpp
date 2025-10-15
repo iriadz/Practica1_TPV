@@ -79,7 +79,8 @@ Game::Game()
 	}
 	
 	//Carga rana
-	frog = new Frog(this, textures[0]);
+	Point2D iniPos(WINDOW_WIDTH/2 - 16, WINDOW_HEIGHT - 32);
+	frog = new Frog(this, textures[0], iniPos);
 
 	// Configura que se pueden utilizar capas translúci
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
@@ -126,12 +127,14 @@ void
 Game::run()
 {
 	while (!exit) {
+		// Bucle principal del juego
 		update();
 		handleEvents();
 		render();
-		SDL_Delay(30);
-		// TODO: implementar bucle del juego
-		
+		if (frog->getLifes() <= 0) {
+			exit = true;
+		}
+		SDL_Delay(30);		
 	}
 }
 

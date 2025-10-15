@@ -7,9 +7,10 @@ class Frog
 {
 public:
     Frog() { }
-    Frog(Game* g, Texture* t) :
+    Frog(Game* g, Texture* t, Point2D p) :
         juego(g),
         textura(t),
+        posicion(p),
         vidas(3)
     { }
 
@@ -17,6 +18,7 @@ public:
     void update();
     void handleEvent(const SDL_Event&);
     void loseLife();
+    int getLifes() const;
     SDL_FRect frogHitbox() const;
 
 private:

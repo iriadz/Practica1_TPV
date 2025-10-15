@@ -31,9 +31,13 @@ void Frog::handleEvent(const SDL_Event& event) {
 
 void Frog::loseLife() {
     vidas--;
-    //Point2D p(juego->WINDOW_HEIGHT, juego->WINDOW_WIDTH / 2);
-    Point2D p(0, 0);
+    Point2D p(juego->WINDOW_WIDTH / 2 - 16, juego->WINDOW_HEIGHT - 32);
+    //Point2D p(0, 0);
     posicion = p;
+}
+
+int Frog::getLifes() const {
+    return vidas;
 }
 
 SDL_FRect Frog::frogHitbox() const {
