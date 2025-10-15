@@ -7,11 +7,13 @@
 #include <vector>
 #include "Vehiculo.h"
 #include "Frog.h"
+#include "HomedFrog.h"
 
 // Declaraciones anticipadas
 class Texture;
 class Vehiculo;
 class Frog;
+class HomedFrog;
 
 /**
  * Clase principal del juego.
@@ -52,6 +54,7 @@ private:
 	std::array<Vehiculo*, 5> coches;
 	//Vehiculo* v1; 
 	Frog* frog;
+	HomedFrog* homedFrog;
 
 	void render() const;
 	void update();
