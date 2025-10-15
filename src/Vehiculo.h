@@ -7,9 +7,6 @@ class Game;
 
 class Vehiculo
 {
-	//Contiene un puntero al juego, a su textura, una posición (tipo Point2D) y una velocidad (tipo Vector2D).
-	//Implementa un constructor y métodos para dibujarse (void render() const), actualizarse (void update()) 
-	// y detectar colisiones (bool checkCollision(const SDL_FRect&)).
 public:
 	Vehiculo(Game* j, Texture* t, Point2D p, Vector2D<float> v) : juego(j), textura(t), posicion(p), velocidad(v) {};
 
@@ -23,8 +20,11 @@ public:
 		//Suamas velocidad si quieres q avance
 		posicion = posicion + Point2D(velocidad.getX(), velocidad.getY());
 
+		//Recalcular posicion si llegan al limite
 		if (posicion.getX() <= -150) posicion = posicion + Point2D(748, 0);
+		if (posicion.getX() >= 750) posicion = posicion - Point2D(748, 0);
 	}
+	//detectar colisiones(bool checkCollision(const SDL_FRect&)).
 	bool checkCollision(const SDL_FRect& ref)
 	{
 	

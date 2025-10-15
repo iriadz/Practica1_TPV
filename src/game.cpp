@@ -61,14 +61,25 @@ Game::Game()
 	if (renderer == nullptr)
 		throw "renderer: "s + SDL_GetError();
 
+	
 	// Carga las texturas al inicio
 	for (size_t i = 0; i < textures.size(); i++) {
 		auto [name, nrows, ncols] = textureList[i];
 		textures[i] = new Texture(renderer, (string(imgBase) + name).c_str(), nrows, ncols);
 	}
 
-	v1 = new Vehiculo(this, getTexture(CAR1), Point2D(410, 372), Vector2D<float>(-7, 0));
+	//CARGAR ELEMENTOS ---- COCHES/RANA/TORTUGAS/TRONCOS --------------
+
+	//Carga los coches. fala inicializar varios de cada tipo 
+	for (int i = 0; i < CAR_NUM; i++)
+	{
+		if (i % 2 == 0)coches[i] = new Vehiculo(this, getTexture(static_cast<TextureName>(i + 2)), Point2D(410, 372 - (i * 30)), Vector2D<float>(-6 - i, 0));
+		else coches[i] = new Vehiculo(this, getTexture(static_cast<TextureName>(i + 2)), Point2D(0, 372 - (i * 30)), Vector2D<float>(6 + i, 0));
+	}
+	
+	//Carga rana
 	frog = new Frog(this, textures[0]);
+
 	// Configura que se pueden utilizar capas translúci
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
@@ -87,7 +98,11 @@ Game::render() const
 	// TODO
 	textures[1]->render(); //FONDO
 	// Llamar a pintar un coche
-	v1->render();
+	//coches[0]->render();
+	for (int i = 0; i < CAR_NUM; i++)
+	{
+		coches[i]->render();
+	}
 	// Pinta una rana
 	frog->render();
 
@@ -98,7 +113,11 @@ void
 Game::update()
 {
 	// TODO
-	v1->update();
+	//coches[0]->update();
+	for (int i = 0; i < CAR_NUM; i++)
+	{
+		coches[i]->update();
+	}
 	frog->update();
 }
 

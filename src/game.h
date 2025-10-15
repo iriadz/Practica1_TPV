@@ -26,7 +26,8 @@ public:
 	static constexpr int WINDOW_HEIGHT = 484;
 	// Extremo inferior del río
 	static constexpr int RIVER_LOW = 210;
-
+	//Coches. Ahora mismo esta a 5 (uno de cada) pero tienen q ser mas 
+	static constexpr int CAR_NUM = 5;
 	enum TextureName
 	{
 		FROG = 0,
@@ -48,7 +49,8 @@ private:
 	SDL_Renderer* renderer;
 	std::array<Texture*, NUM_TEXTURES> textures;
 
-	Vehiculo* v1;
+	std::array<Vehiculo*, 5> coches;
+	//Vehiculo* v1; 
 	Frog* frog;
 
 	void render() const;
