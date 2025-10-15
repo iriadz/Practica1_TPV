@@ -16,6 +16,7 @@ public:
     void render();
     void update();
     void handleEvent(const SDL_Event&);
+    void loseLife();
     SDL_FRect frogHitbox() const;
 
 private:

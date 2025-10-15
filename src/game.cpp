@@ -8,6 +8,7 @@
 #include "Vehiculo.h"
 #include "vector2D.h"
 #include "Frog.h"
+#include "Collision.h"
 //rana(0), fondo(1)
 
 using namespace std;
@@ -151,9 +152,16 @@ Game::handleEvents()
 	}
 }
 
-bool
+Collision::Type
 Game::checkCollision(const SDL_FRect& rect) const
 {
 	// TODO: cambiar el tipo de retorno a Collision e implementar
-	return false;
+	int i = 0;
+	while (!coches[i]->checkCollision(rect) && i < CAR_NUM - 1) {
+		i++;
+	}
+	if (coches[i]->checkCollision(rect)) {
+		return Collision::Type::ENEMY;
+	}
+	return Collision::Type::NONE;
 }

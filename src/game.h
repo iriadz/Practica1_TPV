@@ -8,12 +8,14 @@
 #include "Vehiculo.h"
 #include "Frog.h"
 #include "HomedFrog.h"
+#include "Collision.h"
 
 // Declaraciones anticipadas
 class Texture;
 class Vehiculo;
 class Frog;
 class HomedFrog;
+class Collision;
 
 /**
  * Clase principal del juego.
@@ -76,7 +78,7 @@ public:
 	void run();
 
 	// Comprueba si hay algún objeto colocado en ese rectángulo
-	bool checkCollision(const SDL_FRect& rect) const;
+	Collision::Type checkCollision(const SDL_FRect& rect) const;
 };
 
 inline Texture*
