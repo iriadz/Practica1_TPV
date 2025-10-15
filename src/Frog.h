@@ -16,6 +16,7 @@ public:
     void render();
     void update();
     void handleEvent(const SDL_Event&);
+    SDL_FRect frogHitbox() const;
 
 private:
     Game* juego;         // Referencia al juego principal

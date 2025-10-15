@@ -23,3 +23,8 @@ void Frog::handleEvent(const SDL_Event& event) {
         }
     }
 }
+
+SDL_FRect Frog::frogHitbox() const {
+    SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth() / 2, textura->getFrameHeight() };
+    return rana;
+}
