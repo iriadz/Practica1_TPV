@@ -10,6 +10,10 @@ void Frog::render() {
 
 void Frog::update() {
     posicion = posicion + direccion * 32;
+
+    // Cambiar posicion con los troncos
+
+    if (posicion.getY() <= juego->RIVER_LOW && posicion.getY() >= juego->RIVER_HIGH) posicion = posicion + Vector2D<int>(-6, 0);
     SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
     if (juego->checkCollision(rana) == Collision::Type::ENEMY) {
         loseLife();
@@ -40,6 +44,9 @@ int Frog::getLifes() const {
     return vidas;
 }
 
+float Frog::getPosition() const {
+    return posicion.getY();
+}
 SDL_FRect Frog::frogHitbox() const {
     SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth() / 2, textura->getFrameHeight() };
     return rana;

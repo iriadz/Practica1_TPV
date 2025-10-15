@@ -7,6 +7,7 @@
 #include "texture.h"
 #include "Vehiculo.h"
 #include "vector2D.h"
+#include "Log.h"
 #include "Frog.h"
 #include "Collision.h"
 //rana(0), fondo(1)
@@ -74,14 +75,22 @@ Game::Game()
 	//Carga los coches. fala inicializar varios de cada tipo 
 	for (int i = 0; i < CAR_NUM; i++)
 	{
-		if (i % 2 == 0)coches[i] = new Vehiculo(this, getTexture(static_cast<TextureName>(i + 2)), Point2D(410, 372 - (i * 30)), Vector2D<float>(-6 - i, 0));
-		else coches[i] = new Vehiculo(this, getTexture(static_cast<TextureName>(i + 2)), Point2D(0, 372 - (i * 30)), Vector2D<float>(6 + i, 0));
+		if (i % 2 == 0)coches[i] = new Vehiculo(this, getTexture(static_cast<TextureName>(i + 2)), Point2D(410, 372 - (i * 30)), Vector2D<float>(-6, 0));
+		else coches[i] = new Vehiculo(this, getTexture(static_cast<TextureName>(i + 2)), Point2D(0, 372 - (i * 30)), Vector2D<float>(6, 0));
 	}
 	
 	//Carga rana
 	Point2D iniPos(WINDOW_WIDTH/2 - 16, WINDOW_HEIGHT - 32);
 	frog = new Frog(this, textures[0], iniPos);
 
+	//Cargar troncos
+	for (int i = 0; i < LOG_NUM; i++)
+	{
+		//troncos[i] = new Log(this, getTexture(static_cast<TextureName>(i + 7)), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
+
+		if (i % 2 == 0)troncos[i] = new Log(this, getTexture(LOG1), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
+		else troncos[i] = new Log(this, getTexture(LOG2), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
+	}
 	// Configura que se pueden utilizar capas translúci
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
@@ -98,12 +107,14 @@ Game::render() const
 	SDL_RenderClear(renderer);
 
 	// TODO
-	textures[1]->render(); //FONDO
-	// Llamar a pintar un coche
-	//coches[0]->render();
+	textures[1]->render();
 	for (int i = 0; i < CAR_NUM; i++)
 	{
 		coches[i]->render();
+	}
+	for (int i = 0; i < LOG_NUM; i++)
+	{
+		troncos[i]->render();
 	}
 	// Pinta una rana
 	frog->render();
@@ -119,6 +130,11 @@ Game::update()
 	for (int i = 0; i < CAR_NUM; i++)
 	{
 		coches[i]->update();
+	}
+
+	for (int i = 0; i < LOG_NUM; i++)
+	{
+		troncos[i]->update();
 	}
 	frog->update();
 }
@@ -159,12 +175,24 @@ Collision::Type
 Game::checkCollision(const SDL_FRect& rect) const
 {
 	// TODO: cambiar el tipo de retorno a Collision e implementar
-	int i = 0;
+	int i = 0; int j = 0;
 	while (!coches[i]->checkCollision(rect) && i < CAR_NUM - 1) {
 		i++;
 	}
 	if (coches[i]->checkCollision(rect)) {
 		return Collision::Type::ENEMY;
 	}
+	
+	while (!troncos[j]->checkCollision(rect) && j < LOG_NUM - 1) {
+		j++;
+	}
+	if (frog->getPosition() <= 170 && frog->getPosition() >= 20) // solo comprueba las posiciones de los troncos si esta en el rio
+	{
+		
+		if (!troncos[j]->checkCollision(rect)) {
+			return Collision::Type::ENEMY;
+		}
+	}
+	
 	return Collision::Type::NONE;
 }

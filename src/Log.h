@@ -27,8 +27,10 @@ public:
 	//detectar colisiones(bool checkCollision(const SDL_FRect&)).
 	bool checkCollision(const SDL_FRect& ref)
 	{
-		SDL_FRect coche = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
-		return SDL_HasRectIntersectionFloat(&ref, &coche);
+		SDL_FRect log = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
+		//return ;
+		if (SDL_HasRectIntersectionFloat(&ref, &log)) return true;
+		else return false; 
 	}
 
 private:
