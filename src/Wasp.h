@@ -18,13 +18,14 @@ public:
 
     void render();
     void update();
-    bool isAlive();
+    bool isAlive() const;
+    bool checkCollision(const SDL_FRect&);
     
 
 private:
     Game* juego;         // Referencia al juego principal
     Texture* textura;    // Textura de la rana
     Point2D posicion;    // Posición actual (en píxeles)
-    Point2D direccion;   // Dirección actual del movimiento
+   
     float vida; // Vidas restantes
 };

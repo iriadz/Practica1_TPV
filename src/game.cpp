@@ -7,6 +7,7 @@
 #include "texture.h"
 #include "Vehiculo.h"
 #include "vector2D.h"
+#include "Wasp.h"
 #include "Log.h"
 #include "Frog.h"
 #include "Collision.h"
@@ -91,7 +92,17 @@ Game::Game()
 		if (i % 2 == 0)troncos[i] = new Log(this, getTexture(LOG1), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
 		else troncos[i] = new Log(this, getTexture(LOG2), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
 	}
-	// Configura que se pueden utilizar capas translúci
+
+	//Cargar avispas
+
+	for (int i = 0; i < WASP_NUM; i++)
+	{
+		wasps[i] = new Wasp(this, getTexture(WASP), Point2D(0, 0), 100);
+	}
+	
+
+
+	// Configura que se pueden utilizar capas translúcidas
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
 
@@ -99,6 +110,10 @@ Game::Game()
 Game::~Game()
 {
 	// TODO: liberar memoria reservada por la clase
+	delete[] coches[0];
+	delete[]troncos[0];
+	delete frog;
+	delete[] wasps[0];
 }
 
 void
@@ -116,8 +131,13 @@ Game::render() const
 	{
 		troncos[i]->render();
 	}
-	// Pinta una rana
+	
 	frog->render();
+
+	for (int i = 0; i < WASP_NUM; i++)
+	{
+		wasps[i]->render();
+	}
 
 	SDL_RenderPresent(renderer);
 }
@@ -126,7 +146,7 @@ void
 Game::update()
 {
 	// TODO
-	//coches[0]->update();
+	
 	for (int i = 0; i < CAR_NUM; i++)
 	{
 		coches[i]->update();
@@ -136,7 +156,15 @@ Game::update()
 	{
 		troncos[i]->update();
 	}
+
 	frog->update();
+
+	for (int i = 0; i < WASP_NUM; i++)
+	{
+		wasps[i]->update();
+		if (!wasps[i]->isAlive()) delete wasps[i]; // Borrar de la memoria las avispas muertas
+	}
+
 }
 
 void

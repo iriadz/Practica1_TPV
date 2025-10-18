@@ -18,6 +18,7 @@ class Log;
 class Frog;
 class HomedFrog;
 class Collision;
+class Wasp;
 
 /**
  * Clase principal del juego.
@@ -30,13 +31,16 @@ public:
 	// Tamaño real de la ventana
 	static constexpr int WINDOW_WIDTH = 448;
 	static constexpr int WINDOW_HEIGHT = 484;
-	// Extremo inferior del río
+	// Extremo inferior del río LO HE AJUSTADO
 	//static constexpr int RIVER_LOW = 210;
 	static constexpr int RIVER_LOW = 180;
-	static constexpr int RIVER_HIGH = 50;
+	static constexpr int RIVER_HIGH = 50; // me lo he inventado
+
+	//QUITAR LEER ARCHIVOS
 	//Coches. Ahora mismo esta a 5 (uno de cada) pero tienen q ser mas 
 	static constexpr int CAR_NUM = 5;
 	static constexpr int LOG_NUM = 4;
+	static constexpr int WASP_NUM = 1;
 	enum TextureName
 	{
 		FROG = 0,
@@ -58,20 +62,19 @@ private:
 	SDL_Renderer* renderer;
 	std::array<Texture*, NUM_TEXTURES> textures;
 
+	// Elementos del juego
 	std::array<Vehiculo*, CAR_NUM> coches;
 	std::array<Log*, LOG_NUM> troncos;
-	//Vehiculo* v1; 
 	Frog* frog;
 	HomedFrog* homedFrog;
+	std::array<Wasp*, WASP_NUM> wasps;
 
+	//Metodos game
 	void render() const;
 	void update();
 	void handleEvents();
 
 	bool exit;
-
-	// Elemento del juego
-	// TODO: añadir atributos para los objetos del juego
 
 public:
 	Game();
