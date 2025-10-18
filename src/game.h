@@ -68,12 +68,15 @@ private:
 	Frog* frog;
 	HomedFrog* homedFrog;
 	std::array<Wasp*, WASP_NUM> wasps;
+	//Generador numeros aleatorios
+	std::random_device rd;
+	std::mt19937 generator;
 
 	//Metodos game
 	void render() const;
 	void update();
 	void handleEvents();
-
+	
 	bool exit;
 
 public:
@@ -85,6 +88,8 @@ public:
 
 	// Ejecuta el bucle principal del juego
 	void run();
+
+	int getRandomRange(int min, int max);
 
 	// Comprueba si hay algún objeto colocado en ese rectángulo
 	Collision::Type checkCollision(const SDL_FRect& rect) const;

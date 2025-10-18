@@ -1,7 +1,7 @@
 #include "game.h"
 
 #include <string>
-
+#include <random>
 #include <SDL3_image/SDL_image.h>
 
 #include "texture.h"
@@ -100,7 +100,7 @@ Game::Game()
 		wasps[i] = new Wasp(this, getTexture(WASP), Point2D(0, 0), 100);
 	}
 	
-
+	
 
 	// Configura que se pueden utilizar capas translúcidas
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
@@ -182,6 +182,10 @@ Game::run()
 	}
 }
 
+int 
+Game::getRandomRange(int min, int max) {
+	return uniform_int_distribution<int>(min, max)(generator);
+}
 
 
 void
