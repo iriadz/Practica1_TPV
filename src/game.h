@@ -5,6 +5,8 @@
 #include <array>
 #include <istream>
 #include <vector>
+#include <string>
+#include <random>
 #include "Vehiculo.h"
 #include "Log.h"
 #include "Frog.h"
@@ -86,6 +88,9 @@ public:
 	// Obtiene una textura por su nombre
 	Texture* getTexture(TextureName name) const;
 
+	//Lee archivo datos
+	void leeArchivo(std::ifstream&);
+
 	// Ejecuta el bucle principal del juego
 	void run();
 
@@ -93,6 +98,8 @@ public:
 
 	// Comprueba si hay algún objeto colocado en ese rectángulo
 	Collision::Type checkCollision(const SDL_FRect& rect) const;
+
+	
 };
 
 inline Texture*

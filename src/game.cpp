@@ -116,6 +116,15 @@ Game::~Game()
 	delete[] wasps[0];
 }
 
+//Lee archivo datos
+void
+Game:: leeArchivo(std::ifstream& is)
+{
+	//char i; is >> i;
+	//if (i == '#') is.ignore();
+	////LLamar a las constructoras por lectura
+}
+
 void
 Game::render() const
 {
