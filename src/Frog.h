@@ -14,6 +14,12 @@ public:
         vidas(3)
     { }
 
+    //Constructora por lectura de archivo
+    Frog(Game* g, std::istream& in, Texture* t) : juego(g), textura(t) {
+        float x, y;
+        in >> x >> y >> vidas;
+        posicion = { x, y };
+    }
     void render();
     void update();
     void handleEvent(const SDL_Event&);

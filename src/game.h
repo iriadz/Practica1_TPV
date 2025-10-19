@@ -4,8 +4,13 @@
 #include <SDL3/SDL.h>
 #include <array>
 #include <istream>
+#include <iostream>
+#include <fstream>
+#include <stdexcept>
+#include <ctime>
 #include <vector>
 #include <string>
+#include <memory>
 #include <random>
 #include "Vehiculo.h"
 #include "Log.h"
@@ -37,6 +42,8 @@ public:
 	//static constexpr int RIVER_LOW = 210;
 	static constexpr int RIVER_LOW = 180;
 	static constexpr int RIVER_HIGH = 50; // me lo he inventado
+
+	static constexpr char MAP_PATH[] = "../assets/maps/default.txt";
 
 	//QUITAR LEER ARCHIVOS
 	//Coches. Ahora mismo esta a 5 (uno de cada) pero tienen q ser mas 
@@ -70,8 +77,8 @@ private:
 	Frog* frog;
 	HomedFrog* homedFrog;
 	std::array<Wasp*, WASP_NUM> wasps;
+
 	//Generador numeros aleatorios
-	std::random_device rd;
 	std::mt19937 generator;
 
 	//Metodos game
@@ -88,8 +95,8 @@ public:
 	// Obtiene una textura por su nombre
 	Texture* getTexture(TextureName name) const;
 
-	//Lee archivo datos
-	void leeArchivo(std::ifstream&);
+	void loadElems();
+	void loadMap(const std::string& path);
 
 	// Ejecuta el bucle principal del juego
 	void run();

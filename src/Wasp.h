@@ -16,6 +16,10 @@ public:
     {
     }
 
+    //Constructora por lectura de archivo
+    Wasp(Game* j, std::istream& in) : juego(j){
+
+    }
     void render();
     void update();
     bool isAlive() const;

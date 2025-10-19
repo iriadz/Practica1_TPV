@@ -10,6 +10,23 @@ class Vehiculo
 public:
 	Vehiculo(Game* j, Texture* t, Point2D p, Vector2D<float> v) : juego(j), textura(t), posicion(p), velocidad(v) {};
 
+	//Constructora por lectura de archivo
+	Vehiculo(Game* j, std::istream& in) : juego(j) {
+		float x, y;
+		int vel, tipo;
+		in >> x >> y >> vel >> tipo;
+		posicion = { x, y };
+		velocidad = { static_cast<float>(vel), 0.0f };
+
+		switch (tipo) {
+		case 1: textura = juego->getTexture(Game::CAR1); break;
+		case 2: textura = juego->getTexture(Game::CAR2); break;
+		case 3: textura = juego->getTexture(Game::CAR3); break;
+		case 4: textura = juego->getTexture(Game::CAR4); break;
+		default: textura = juego->getTexture(Game::CAR1); break;
+		}
+	}
+
 	void render()const
 	{
 		SDL_FRect coche = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() }; // AJUSTAR
