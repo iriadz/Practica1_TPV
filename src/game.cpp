@@ -2,6 +2,11 @@
 
 #include <string>
 #include <random>
+#include <memory>
+#include <iostream>
+#include <fstream>
+#include <stdexcept>
+#include <ctime>
 #include <SDL3_image/SDL_image.h>
 
 #include "texture.h"
@@ -11,7 +16,6 @@
 #include "Log.h"
 #include "Frog.h"
 #include "Collision.h"
-//rana(0), fondo(1)
 
 using namespace std;
 
@@ -71,36 +75,9 @@ Game::Game()
 		textures[i] = new Texture(renderer, (string(imgBase) + name).c_str(), nrows, ncols);
 	}
 
-	//CARGAR ELEMENTOS ---- COCHES/RANA/TORTUGAS/TRONCOS --------------
-
-	//Carga los coches. fala inicializar varios de cada tipo 
-	for (int i = 0; i < CAR_NUM; i++)
-	{
-		if (i % 2 == 0)coches[i] = new Vehiculo(this, getTexture(static_cast<TextureName>(i + 2)), Point2D(410, 372 - (i * 30)), Vector2D<float>(-6, 0));
-		else coches[i] = new Vehiculo(this, getTexture(static_cast<TextureName>(i + 2)), Point2D(0, 372 - (i * 30)), Vector2D<float>(6, 0));
-	}
-	
-	//Carga rana
-	Point2D iniPos(WINDOW_WIDTH/2 - 16, WINDOW_HEIGHT - 32);
-	frog = new Frog(this, textures[0], iniPos);
-
-	//Cargar troncos
-	for (int i = 0; i < LOG_NUM; i++)
-	{
-		//troncos[i] = new Log(this, getTexture(static_cast<TextureName>(i + 7)), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
-
-		if (i % 2 == 0)troncos[i] = new Log(this, getTexture(LOG1), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
-		else troncos[i] = new Log(this, getTexture(LOG2), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
-	}
-
-	//Cargar avispas
-
-	for (int i = 0; i < WASP_NUM; i++)
-	{
-		wasps[i] = new Wasp(this, getTexture(WASP), Point2D(0, 0), 100);
-	}
-	
-	
+	//Cargar elementos -> rana, coches, troncos y avispas por archivo o a mano
+	loadElems();
+	//loadMap(MAP_PATH);
 
 	// Configura que se pueden utilizar capas translúcidas
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
@@ -109,44 +86,27 @@ Game::Game()
 
 Game::~Game()
 {
-	// TODO: liberar memoria reservada por la clase
 	delete[] coches[0];
 	delete[]troncos[0];
 	delete frog;
 	delete[] wasps[0];
 }
 
-//Lee archivo datos
-void
-Game:: leeArchivo(std::ifstream& is)
-{
-	//char i; is >> i;
-	//if (i == '#') is.ignore();
-	////LLamar a las constructoras por lectura
-}
 
 void
 Game::render() const
 {
 	SDL_RenderClear(renderer);
 
-	// TODO
-	textures[1]->render();
-	for (int i = 0; i < CAR_NUM; i++)
-	{
-		coches[i]->render();
-	}
-	for (int i = 0; i < LOG_NUM; i++)
-	{
-		troncos[i]->render();
-	}
-	
+	textures[1]->render(); // fondo
+
+	for (int i = 0; i < CAR_NUM; i++) coches[i]->render();
+
+	for (int i = 0; i < LOG_NUM; i++) troncos[i]->render();
+
 	frog->render();
 
-	for (int i = 0; i < WASP_NUM; i++)
-	{
-		wasps[i]->render();
-	}
+	for (int i = 0; i < WASP_NUM; i++) wasps[i]->render();
 
 	SDL_RenderPresent(renderer);
 }
@@ -154,17 +114,9 @@ Game::render() const
 void
 Game::update()
 {
-	// TODO
-	
-	for (int i = 0; i < CAR_NUM; i++)
-	{
-		coches[i]->update();
-	}
+	for (int i = 0; i < CAR_NUM; i++) coches[i]->update();
 
-	for (int i = 0; i < LOG_NUM; i++)
-	{
-		troncos[i]->update();
-	}
+	for (int i = 0; i < LOG_NUM; i++) troncos[i]->update();
 
 	frog->update();
 
@@ -179,8 +131,7 @@ Game::update()
 void
 Game::run()
 {
-	while (!exit) {
-		// Bucle principal del juego
+	while (!exit) { // Bucle principal del juego
 		update();
 		handleEvents();
 		render();
@@ -235,4 +186,58 @@ Game::checkCollision(const SDL_FRect& rect) const
 	}
 	
 	return Collision::Type::NONE;
+}
+
+//Carga el mapa desde el archivo default, llamando a las constructoras correspondientes de cada elemento
+void 
+Game::loadMap(const std::string& path) {
+	std::ifstream file(path);
+	if (!file.is_open())
+		throw std::string("No se encuentra el mapa: ") + path;
+
+	char id;
+	while (file >> id) {
+		if (id == '#') { file.ignore(1000, '\n'); continue; }
+
+		switch (id) {
+		case 'F': frog = new Frog(this, file, textures[0]); break;
+		case 'V': {
+
+		
+		}; break;
+		case 'L': {
+
+
+		}; break;
+	
+		default: throw std::string("Formato erroneo");
+		}
+	}
+}
+
+//Carga los elementos en el mapa con valores dados por nosotros
+void
+Game::loadElems() {
+
+	for (int i = 0; i < CAR_NUM; i++) // Cargar coches
+	{
+		if (i % 2 == 0)coches[i] = new Vehiculo(this, getTexture(static_cast<TextureName>(i + 2)), Point2D(410, 372 - (i * 30)), Vector2D<float>(-6, 0));
+		else coches[i] = new Vehiculo(this, getTexture(static_cast<TextureName>(i + 2)), Point2D(0, 372 - (i * 30)), Vector2D<float>(6, 0));
+	}
+
+	//Carga rana
+	Point2D iniPos(WINDOW_WIDTH / 2 - 16, WINDOW_HEIGHT - 32);
+	frog = new Frog(this, textures[0], iniPos);
+	
+	for (int i = 0; i < LOG_NUM; i++) //Cargar troncos
+	{
+		if (i % 2 == 0)troncos[i] = new Log(this, getTexture(LOG1), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
+		else troncos[i] = new Log(this, getTexture(LOG2), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
+	}
+
+	for (int i = 0; i < WASP_NUM; i++) //Cargar avispas
+	{
+		wasps[i] = new Wasp(this, getTexture(WASP), Point2D(0, 0), 100);
+	}
+
 }
