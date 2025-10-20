@@ -4,7 +4,6 @@
 #include "vector2D.h"
 
 class Game;
-
 class Vehiculo
 {
 public:
@@ -12,24 +11,24 @@ public:
 
 	//Constructora por lectura de archivo
 	Vehiculo(Game* j, std::istream& in) : juego(j) {
-		float x, y;
+		/*int x, y;
 		int vel, tipo;
 		in >> x >> y >> vel >> tipo;
-		posicion = { x, y };
+		posicion = { (int)x, (int)y };
 		velocidad = { static_cast<float>(vel), 0.0f };
 
 		switch (tipo) {
-		case 1: textura = juego->getTexture(Game::CAR1); break;
-		case 2: textura = juego->getTexture(Game::CAR2); break;
-		case 3: textura = juego->getTexture(Game::CAR3); break;
-		case 4: textura = juego->getTexture(Game::CAR4); break;
-		default: textura = juego->getTexture(Game::CAR1); break;
-		}
+		case 1: textura = j->getTexture(j-> CAR1); break;
+		case 2: textura = juego->getTexture(juego->CAR2); break;
+		case 3: textura = juego->getTexture(juego->CAR3); break;
+		case 4: textura = juego->getTexture(juego->CAR4); break;
+		default: textura = juego->getTexture(juego->CAR1); break;
+		}*/
 	}
 
 	void render()const
 	{
-		SDL_FRect coche = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() }; // AJUSTAR
+		SDL_FRect coche = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
 		textura->render(coche);
 	}
 	void update()

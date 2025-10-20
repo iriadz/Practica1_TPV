@@ -72,10 +72,13 @@ private:
 	std::array<Texture*, NUM_TEXTURES> textures;
 
 	// Elementos del juego
+	//std::vector<Vehiculo*> coches;
 	std::array<Vehiculo*, CAR_NUM> coches;
+	//std::vector<Log*> troncos;
 	std::array<Log*, LOG_NUM> troncos;
 	Frog* frog;
 	HomedFrog* homedFrog;
+	//std::vector<Wasp*> wasps;
 	std::array<Wasp*, WASP_NUM> wasps;
 
 	//Generador numeros aleatorios

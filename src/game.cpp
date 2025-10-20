@@ -1,5 +1,6 @@
 #include "game.h"
 
+
 #include <string>
 #include <random>
 #include <memory>
@@ -100,13 +101,13 @@ Game::render() const
 
 	textures[1]->render(); // fondo
 
-	for (int i = 0; i < CAR_NUM; i++) coches[i]->render();
+	for (int i = 0; i < coches.size(); i++) coches[i]->render();
 
-	for (int i = 0; i < LOG_NUM; i++) troncos[i]->render();
+	for (int i = 0; i < troncos.size(); i++) troncos[i]->render();
 
 	frog->render();
 
-	for (int i = 0; i < WASP_NUM; i++) wasps[i]->render();
+	/*for (int i = 0; i < wasps.size(); i++) wasps[i]->render();*/
 
 	SDL_RenderPresent(renderer);
 }
@@ -114,17 +115,17 @@ Game::render() const
 void
 Game::update()
 {
-	for (int i = 0; i < CAR_NUM; i++) coches[i]->update();
+	for (int i = 0; i < coches.size(); i++) coches[i]->update();
 
-	for (int i = 0; i < LOG_NUM; i++) troncos[i]->update();
+	for (int i = 0; i < troncos.size(); i++) troncos[i]->update();
 
 	frog->update();
 
-	for (int i = 0; i < WASP_NUM; i++)
-	{
-		wasps[i]->update();
-		if (!wasps[i]->isAlive()) delete wasps[i]; // Borrar de la memoria las avispas muertas
-	}
+	//for (int i = 0; i < wasps.size(); i++)
+	//{
+	//	wasps[i]->update();
+	//	if (!wasps[i]->isAlive()) delete wasps[i]; // Borrar de la memoria las avispas muertas
+	//}
 
 }
 
@@ -201,14 +202,8 @@ Game::loadMap(const std::string& path) {
 
 		switch (id) {
 		case 'F': frog = new Frog(this, file, textures[0]); break;
-		case 'V': {
-
-		
-		}; break;
-		case 'L': {
-
-
-		}; break;
+	//	case 'V': coches.push_back(new Vehiculo(this, file)); break;
+	//	case 'L': troncos.push_back(new Log(this, file));; break;
 	
 		default: throw std::string("Formato erroneo");
 		}
@@ -235,9 +230,9 @@ Game::loadElems() {
 		else troncos[i] = new Log(this, getTexture(LOG2), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
 	}
 
-	for (int i = 0; i < WASP_NUM; i++) //Cargar avispas
-	{
-		wasps[i] = new Wasp(this, getTexture(WASP), Point2D(0, 0), 100);
-	}
+	//for (int i = 0; i < WASP_NUM; i++) //Cargar avispas
+	//{
+	//	wasps[i] = new Wasp(this, getTexture(WASP), Point2D(0, 0), 100);
+	//}
 
 }

@@ -11,7 +11,7 @@ public:
 	Log(Game* j, Texture* t, Point2D p, Vector2D<float> v) : juego(j), textura(t), posicion(p), velocidad(v) {};
 
 	//Constructora por lectura de archivo
-	Log(Game* j, std::istream& in, Texture* t) : juego(j), textura(t) {
+	Log(Game* j, std::istream& in) : juego(j) {
 		
 	}
 	void render()const

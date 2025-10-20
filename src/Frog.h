@@ -2,7 +2,7 @@
 #include "game.h"
 #include "texture.h"
 #include "Vector2D.h"
-
+class Game;
 class Frog
 {
 public:
@@ -16,9 +16,9 @@ public:
 
     //Constructora por lectura de archivo
     Frog(Game* g, std::istream& in, Texture* t) : juego(g), textura(t) {
-        float x, y;
+        int x, y;
         in >> x >> y >> vidas;
-        posicion = { x, y };
+        posicion = { (int)x,(int) y };
     }
     void render();
     void update();
