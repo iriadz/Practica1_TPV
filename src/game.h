@@ -40,9 +40,8 @@ public:
 	static constexpr int WINDOW_HEIGHT = 484;
 	// Extremo inferior del río LO HE AJUSTADO
 	//static constexpr int RIVER_LOW = 210;
-	static constexpr int RIVER_LOW = 180;
-	static constexpr int RIVER_HIGH = 50; // me lo he inventado
-
+	static constexpr int RIVER_LOW = 200;
+	
 	static constexpr char MAP_PATH[] = "../assets/maps/default.txt";
 
 	//QUITAR LEER ARCHIVOS

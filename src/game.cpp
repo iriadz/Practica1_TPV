@@ -86,10 +86,10 @@ Game::Game()
 
 Game::~Game()
 {
-	delete[] coches[0];
-	delete[]troncos[0];
+	/*for (Vehiculo* c : coches) delete c;
+	for (Log* t : troncos) delete t;
 	delete frog;
-	delete[] wasps[0];
+	for (Wasp* w : wasps) delete w;*/
 }
 
 
@@ -178,13 +178,9 @@ Game::checkCollision(const SDL_FRect& rect) const
 	while (!troncos[j]->checkCollision(rect) && j < LOG_NUM - 1) {
 		j++;
 	}
-	if (frog->getPosition() <= 170 && frog->getPosition() >= 20) // solo comprueba las posiciones de los troncos si esta en el rio
-	{
-		if (!troncos[j]->checkCollision(rect)) {
-			return Collision::Type::PLATFORM;
-		}
+	if (troncos[j]->checkCollision(rect)) {
+		return Collision::Type::PLATFORM;
 	}
-
 	return Collision::Type::NONE;
 }
 
@@ -218,7 +214,7 @@ Game::loadElems() {
 	}
 
 	//Carga rana
-	Point2D iniPos(WINDOW_WIDTH / 2 - 16, WINDOW_HEIGHT - 32);
+	Point2D iniPos(205, 402);
 	frog = new Frog(this, textures[0], iniPos);
 
 	for (int i = 0; i < LOG_NUM; i++) //Cargar troncos

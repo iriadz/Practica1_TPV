@@ -26,5 +26,6 @@ private:
     Point2D direccion;   // Dirección actual del movimiento
     int vidas;           // Vidas restantes
     Point2D lastPosition;
-    bool jump;
+    int sprite;
+    int angle; 
 };
