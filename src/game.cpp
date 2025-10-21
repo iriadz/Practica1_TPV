@@ -86,11 +86,16 @@ Game::Game()
 
 Game::~Game()
 {
-	for (Vehiculo* c : coches) delete c;
-	for (Log* t : troncos) delete t;
 	delete frog;
-	for (Wasp* w : wasps) delete w;
-   //DESTRUIR TEXTURAS
+	for (Texture* tex : textures) {
+		delete tex;   // Libera las texturas individualmente
+	}
+	for (Vehiculo* c : coches) {
+		delete c;   // Libera los coches individualmente
+	}
+	for (Log* t : troncos) {
+		delete t;   // Libera el objeto al que apunta
+	}
 }
 
 
