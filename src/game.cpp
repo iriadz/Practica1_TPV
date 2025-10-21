@@ -219,8 +219,8 @@ Game::loadElems() {
 
 	for (int i = 0; i < LOG_NUM; i++) //Cargar troncos
 	{
-		if (i % 2 == 0)troncos[i] = new Log(this, getTexture(LOG1), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
-		else troncos[i] = new Log(this, getTexture(LOG2), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
+		if (i % 2 == 0)troncos[i] = new Log(this, getTexture(LOG1), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6, 0));
+		else troncos[i] = new Log(this, getTexture(LOG2), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6, 0));
 	}
 
 	//for (int i = 0; i < WASP_NUM; i++) //Cargar avispas
