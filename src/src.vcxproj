@@ -101,6 +101,7 @@
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="texture.cpp" />
+    <ClCompile Include="Vehiculo.cpp" />
     <ClCompile Include="Wasp.cpp" />
   </ItemGroup>
   <ItemGroup>

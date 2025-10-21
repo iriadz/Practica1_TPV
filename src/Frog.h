@@ -7,19 +7,10 @@ class Frog
 {
 public:
     Frog() { }
-    Frog(Game* g, Texture* t, Point2D p) :
-        juego(g),
-        textura(t),
-        posicion(p),
-        vidas(3)
-    { }
+    Frog(Game* g, Texture* t, Point2D p);
 
     //Constructora por lectura de archivo
-    Frog(Game* g, std::istream& in, Texture* t) : juego(g), textura(t) {
-        int x, y;
-        in >> x >> y >> vidas;
-        posicion = { (int)x,(int) y };
-    }
+    Frog(Game* g, std::istream& in, Texture* t);
     void render();
     void update();
     void handleEvent(const SDL_Event&);
@@ -29,9 +20,11 @@ public:
     SDL_FRect frogHitbox() const;
 
 private:
-    Game* juego;         // Referencia al juego principal
-    Texture* textura;    // Textura de la rana
+    Game* juego = nullptr;         // Referencia al juego principal
+    Texture* textura = nullptr;    // Textura de la rana
     Point2D posicion;    // Posición actual (en píxeles)
     Point2D direccion;   // Dirección actual del movimiento
     int vidas;           // Vidas restantes
+    Point2D lastPosition;
+    bool jump;
 };

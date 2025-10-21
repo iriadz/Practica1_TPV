@@ -8,34 +8,13 @@ class Game;
 class Log
 {
 public:
-	Log(Game* j, Texture* t, Point2D p, Vector2D<float> v) : juego(j), textura(t), posicion(p), velocidad(v) {};
+	Log(Game* j, Texture* t, Point2D p, Vector2D<float> v);
 
 	//Constructora por lectura de archivo
-	Log(Game* j, std::istream& in) : juego(j) {
-		
-	}
-	void render()const
-	{
-		SDL_FRect tronco = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() }; // AJUSTAR
-		textura->render(tronco);
-	}
-	void update()
-	{
-		//Suamas velocidad si quieres q avance
-		posicion = posicion + Point2D(velocidad.getX(), velocidad.getY());
-
-		//Recalcular posicion si llegan al limite
-		if (posicion.getX() <= -150) posicion = posicion + Point2D(748, 0);
-		if (posicion.getX() >= 750) posicion = posicion - Point2D(748, 0);
-	}
-	//detectar colisiones(bool checkCollision(const SDL_FRect&)).
-	bool checkCollision(const SDL_FRect& ref)
-	{
-		SDL_FRect log = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
-		//return ;
-		return SDL_HasRectIntersectionFloat(&ref, &log);
-	 
-	}
+	Log(Game* j, std::istream& in);
+	void render()const;
+	void update();
+	bool checkCollision(const SDL_FRect& ref);
 
 private:
 	Game* juego;
@@ -43,4 +22,3 @@ private:
 	Point2D posicion;
 	Vector2D<float> velocidad;
 };
-

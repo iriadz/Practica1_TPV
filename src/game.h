@@ -99,7 +99,7 @@ public:
 	Texture* getTexture(TextureName name) const;
 
 	void loadElems();
-	void loadMap(const std::string& path);
+	void loadMap();
 
 	// Ejecuta el bucle principal del juego
 	void run();

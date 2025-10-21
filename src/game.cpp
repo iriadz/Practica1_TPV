@@ -1,9 +1,7 @@
 #include "game.h"
-
-
 #include <string>
 #include <random>
-#include <memory>
+#include <vector>
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
@@ -51,15 +49,15 @@ constexpr array<TextureSpec, Game::NUM_TEXTURES> textureList{
 };
 
 Game::Game()
-  : exit(false)
+	: exit(false)
 {
 	// Carga SDL y sus bibliotecas auxiliares
 	SDL_Init(SDL_INIT_VIDEO);
 
 	window = SDL_CreateWindow(WINDOW_TITLE,
-	                          WINDOW_WIDTH,
-	                          WINDOW_HEIGHT,
-	                          0);
+		WINDOW_WIDTH,
+		WINDOW_HEIGHT,
+		0);
 
 	if (window == nullptr)
 		throw "window: "s + SDL_GetError();
@@ -69,7 +67,7 @@ Game::Game()
 	if (renderer == nullptr)
 		throw "renderer: "s + SDL_GetError();
 
-	
+
 	// Carga las texturas al inicio
 	for (size_t i = 0; i < textures.size(); i++) {
 		auto [name, nrows, ncols] = textureList[i];
@@ -78,7 +76,8 @@ Game::Game()
 
 	//Cargar elementos -> rana, coches, troncos y avispas por archivo o a mano
 	loadElems();
-	//loadMap(MAP_PATH);
+
+	//loadMap();
 
 	// Configura que se pueden utilizar capas translúcidas
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
@@ -139,11 +138,11 @@ Game::run()
 		if (frog->getLifes() <= 0) {
 			exit = true;
 		}
-		SDL_Delay(30);		
+		SDL_Delay(30);
 	}
 }
 
-int 
+int
 Game::getRandomRange(int min, int max) {
 	return uniform_int_distribution<int>(min, max)(generator);
 }
@@ -175,38 +174,36 @@ Game::checkCollision(const SDL_FRect& rect) const
 	if (coches[i]->checkCollision(rect)) {
 		return Collision::Type::ENEMY;
 	}
-	
+
 	while (!troncos[j]->checkCollision(rect) && j < LOG_NUM - 1) {
 		j++;
 	}
 	if (frog->getPosition() <= 170 && frog->getPosition() >= 20) // solo comprueba las posiciones de los troncos si esta en el rio
 	{
 		if (!troncos[j]->checkCollision(rect)) {
-			return Collision::Type::ENEMY;
+			return Collision::Type::PLATFORM;
 		}
 	}
-	
+
 	return Collision::Type::NONE;
 }
 
 //Carga el mapa desde el archivo default, llamando a las constructoras correspondientes de cada elemento
-void 
-Game::loadMap(const std::string& path) {
-	std::ifstream file(path);
+void
+Game::loadMap() {
+	std::ifstream file; file.open(MAP_FILE);
 	if (!file.is_open())
-		throw std::string("No se encuentra el mapa: ") + path;
+		throw std::string("No se encuentra el mapa: ");
 
 	char id;
 	while (file >> id) {
-		if (id == '#') { file.ignore(1000, '\n'); continue; }
+		//if (id == '#') { file.ignore(11, '\n'); }
+		if (id == 'F') frog = new Frog(this, file, textures[0]);
+	//	else if (id == 'V') coches.push_back(new Vehiculo(this, file));
+	//	else if (id == 'L') troncos.push_back(new Log(this, file));
+		else file.ignore('#', '\n');
+		//else throw std::string("Formato erroneo");
 
-		switch (id) {
-		case 'F': frog = new Frog(this, file, textures[0]); break;
-	//	case 'V': coches.push_back(new Vehiculo(this, file)); break;
-	//	case 'L': troncos.push_back(new Log(this, file));; break;
-	
-		default: throw std::string("Formato erroneo");
-		}
 	}
 }
 
@@ -223,7 +220,7 @@ Game::loadElems() {
 	//Carga rana
 	Point2D iniPos(WINDOW_WIDTH / 2 - 16, WINDOW_HEIGHT - 32);
 	frog = new Frog(this, textures[0], iniPos);
-	
+
 	for (int i = 0; i < LOG_NUM; i++) //Cargar troncos
 	{
 		if (i % 2 == 0)troncos[i] = new Log(this, getTexture(LOG1), Point2D(410, 170 - (i * 30)), Vector2D<float>(-6 - i, 0));
