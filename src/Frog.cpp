@@ -47,7 +47,7 @@ void Frog::update() {
 
         if (posicion.getY() < juego->RIVER_LOW) loseLife();
     }
-    if (juego->checkCollision(rana) == Collision::Type::PLATFORM) posicion = posicion + Vector2D<int>(-6, 0);
+    if (juego->checkCollision(rana) == Collision::Type::PLATFORM) posicion = posicion + Vector2D<int>(2, 0);
     if (juego->checkCollision(rana) == Collision::Type::ENEMY) {
         loseLife();
     }

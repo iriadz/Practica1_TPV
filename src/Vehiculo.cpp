@@ -27,7 +27,7 @@ void Vehiculo::render()const
 
 void Vehiculo::update()
 {
-	posicion = posicion + Point2D(velocidad.getX(), velocidad.getY());
+	posicion = posicion + Point2D(velocidad.getX() /15, velocidad.getY() /15);
 
 	//Recalcular posicion si llegan al limite
 	if (posicion.getX() <= -150) posicion = posicion + Point2D(748, 0);

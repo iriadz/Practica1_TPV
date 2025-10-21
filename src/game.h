@@ -46,8 +46,8 @@ public:
 
 	//QUITAR LEER ARCHIVOS
 	//Coches. Ahora mismo esta a 5 (uno de cada) pero tienen q ser mas 
-	static constexpr int CAR_NUM = 5;
-	static constexpr int LOG_NUM = 4;
+	static constexpr int CAR_NUM = 14;
+	static constexpr int LOG_NUM = 15;
 	static constexpr int WASP_NUM = 1;
 	enum TextureName
 	{
