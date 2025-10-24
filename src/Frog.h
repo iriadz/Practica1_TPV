@@ -10,7 +10,8 @@ public:
     Frog(Game* g, Texture* t, Point2D p);
 
     //Constructora por lectura de archivo
-    Frog(Game* g, std::istream& in, Texture* t);
+    Frog(Game* g, std::istream& in);
+
     void render();
     void update();
     void handleEvent(const SDL_Event&);

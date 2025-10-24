@@ -2,12 +2,12 @@
 
 Log::Log(Game* j, Texture* t, Point2D p, Vector2D<float> v) : juego(j), textura(t), posicion(p), velocidad(v) {};
 Log::Log(Game* j, std::istream& in) : juego(j) {
-	int x, y;
-	int vel, tipo;
+	int x, y, tipo;
+	float vel;
 	in >> x >> y >> vel >> tipo;
 	posicion = Point2D((int)x, (int)y);
 	//velocidad = { static_cast<float>(vel), 0.0f };
-	velocidad = Vector2D<float>(1.0f, 0.0f);
+	velocidad = Vector2D<float>(vel, 0.0f);
 	switch (tipo) {
 	case 1: textura = j->getTexture(juego->LOG1); break;
 	case 2: textura = juego->getTexture(juego->LOG2); break;

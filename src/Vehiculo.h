@@ -7,7 +7,7 @@ class Game;
 class Vehiculo
 {
 public:
-	Vehiculo(Game* j, Texture* t, Point2D p, Vector2D<float> v);
+	Vehiculo(Game* j, Texture* t, Point2D p, Point2D v);
 
 	//Constructora por lectura de archivo
 	Vehiculo(Game* j, std::istream& in);
@@ -21,5 +21,6 @@ private:
 	Game* juego;
 	Texture* textura;
 	Point2D posicion;
-	Vector2D<float> velocidad;
+	Point2D velocidad;
+	
 };

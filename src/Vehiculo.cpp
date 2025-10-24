@@ -1,14 +1,13 @@
 #include "Vehiculo.h"
 
-Vehiculo::Vehiculo(Game* j, Texture* t, Point2D p, Vector2D<float> v) : juego(j), textura(t), posicion(p), velocidad(v) {};
+Vehiculo::Vehiculo(Game* j, Texture* t, Point2D p, Point2D v) : juego(j), textura(t), posicion(p), velocidad(v) {};
 
 Vehiculo::Vehiculo(Game* j, std::istream& in) : juego(j) {
-	int x, y, tipo;
-	float vel;
+	int x, y, tipo, vel;
 	in >> x >> y >> vel >> tipo;
 	posicion = Point2D((int)x, (int)y);
 	//velocidad = Vector2D<float>(vel, 0);ç
-	velocidad = Vector2D<float>(1.0f, 0.0f);
+	velocidad = Point2D((int)vel, 0);
 
 	switch (tipo) {
 	case 1: textura = j->getTexture(juego->CAR1); break;

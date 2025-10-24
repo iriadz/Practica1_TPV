@@ -16,14 +16,15 @@ Frog::Frog(Game* g, Texture* t, Point2D p) :
 }
 
 
-Frog::Frog(Game* g, std::istream& in, Texture* t) : juego(g), textura(t) {
+Frog::Frog(Game* g, std::istream& in) : juego(g) {
     int x, y;
-    // direccion = Point2D(0, 0);
+     direccion = Point2D(0, 0);
     in >> x >> y;
     posicion = Point2D(x, y);
+    textura = juego->getTexture(juego->FROG);
     vidas = 3;
-    lastPosition = posicion;
     sprite = 0;
+    angle = 0;
 }
 void Frog::render() {
     SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
