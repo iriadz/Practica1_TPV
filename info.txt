@@ -1,0 +1,5 @@
+G25
+Alejandro García Díaz
+Iria Docampo Zotes
+
+Todas las partes obligatorias del enunciado están implementadas correctamente, no se ha hecho ningún apartado opcional.

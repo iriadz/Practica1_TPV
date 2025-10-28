@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "game.h"
 #include "texture.h"
 #include "Vector2D.h"
@@ -20,12 +20,11 @@ public:
     int getLifes() const;
     float getPosition() const;
     SDL_FRect frogHitbox() const;
-
 private:
     Game* juego = nullptr;         // Referencia al juego principal
     Texture* textura = nullptr;    // Textura de la rana
-    Point2D posicion;    // Posición actual (en píxeles)
-    Point2D direccion;   // Dirección actual del movimiento
+    Point2D posicion;    // PosiciÃ³n actual (en pÃ­xeles)
+    Point2D direccion;   // DirecciÃ³n actual del movimiento
     int vidas;           // Vidas restantes
     Point2D lastPosition;
     int sprite;

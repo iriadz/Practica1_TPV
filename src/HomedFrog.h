@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "game.h"
 #include "texture.h"
 #include "Vector2D.h"
@@ -6,7 +6,6 @@
 class HomedFrog
 {
 public:
-    HomedFrog() {}
     HomedFrog(Game* g, Texture* t, Point2D p) :
         juego(g),
         textura(t),
@@ -15,19 +14,15 @@ public:
     { }
 
     void render();
-
     bool getOcupado() const;
-
     Point2D getPos() const;
-
     void onOcupar();
-
     bool checkCollision(const SDL_FRect& ref);
 
 
 private:
     Game* juego;         // Referencia al juego principal
     Texture* textura;    // Textura de la rana
-    Point2D posicion;    // Posición actual (en píxeles)
+    Point2D posicion;    // PosiciÃ³n actual (en pÃ­xeles)
     bool ocupado;        // si hay una rana
 };

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "game.h"
 #include "texture.h"
 #include "Vector2D.h"
@@ -13,6 +13,7 @@ public:
         posicion(p),
         tiempoVidaMax(SDL_GetTicks() + v)
     { }
+
     void render();
     bool isAlive() const;
     bool checkCollision(const SDL_FRect&);
@@ -21,7 +22,7 @@ public:
 private:
     Game* juego;         // Referencia al juego principal
     Texture* textura;    // Textura de la rana
-    Point2D posicion;    // Posición actual (en píxeles)
+    Point2D posicion;    // PosiciÃ³n actual (en pÃ­xeles)
    
     int tiempoVidaMax;
 };
