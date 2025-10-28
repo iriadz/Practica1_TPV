@@ -16,6 +16,7 @@ public:
     void update();
     void handleEvent(const SDL_Event&);
     void loseLife();
+    void resetPosition();
     int getLifes() const;
     float getPosition() const;
     SDL_FRect frogHitbox() const;

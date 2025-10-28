@@ -96,6 +96,9 @@ Game::~Game()
 	for (Log* t : troncos) {
 		delete t;   // Libera el objeto al que apunta
 	}
+	for (HomedFrog* h : homedFrogs) {
+		delete h;   // Libera el objeto al que apunta
+	}
 }
 
 
@@ -110,7 +113,9 @@ Game::render() const
 
 	for (int i = 0; i < troncos.size(); i++) troncos[i]->render();
 
+	for (int i = 0; i < homedFrogs.size(); i++) if (homedFrogs[i]->getOcupado()) { homedFrogs[i]->render(); }
 	frog->render();
+
 
 	/*for (int i = 0; i < wasps.size(); i++) wasps[i]->render();*/
 
@@ -144,6 +149,13 @@ Game::run()
 		if (frog->getLifes() <= 0) {
 			exit = true;
 		}
+		int i = 0;
+		while (i < HOMED_NUM - 1 && !homedFrogs[i]->getOcupado()) {
+			i++;
+		}
+		if (homedFrogs[i]->getOcupado() && i == HOMED_NUM - 1) {
+			exit = true;
+		}
 		SDL_Delay(30);
 	}
 }
@@ -173,7 +185,7 @@ Collision::Type
 Game::checkCollision(const SDL_FRect& rect) const
 {
 	// TODO: cambiar el tipo de retorno a Collision e implementar
-	int i = 0; int j = 0;
+	int i = 0, j = 0, k = 0;
 	while (!coches[i]->checkCollision(rect) && i < CAR_NUM - 1) {
 		i++;
 	}
@@ -186,6 +198,16 @@ Game::checkCollision(const SDL_FRect& rect) const
 	}
 	if (troncos[j]->checkCollision(rect)) {
 		return Collision::Type::PLATFORM;
+	}
+	while (!homedFrogs[k]->checkCollision(rect) && k < HOMED_NUM - 1) {
+		k++;
+	}
+	if (homedFrogs[k]->checkCollision(rect)) {
+		if (homedFrogs[k]->getOcupado()) {
+			return Collision::Type::ENEMY;
+		}
+		homedFrogs[k]->onOcupar();
+		return Collision::Type::HOME;
 	}
 	return Collision::Type::NONE;
 }
@@ -206,6 +228,12 @@ Game::loadMap() {
 		else file.ignore('#', '\n');
 		//else throw std::string("Formato erroneo");
 
+	}
+	
+	Point2D pos(14, 22); // posicion del primer nenufar
+	for (int i = 0; i < HOMED_NUM; i++) {
+		homedFrogs.push_back(new HomedFrog(this, textures[0], pos));
+		pos = pos + Point2D(96, 0); // va al siguiente nenufar
 	}
 }
 

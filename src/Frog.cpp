@@ -39,17 +39,20 @@ void Frog::update() {
 
 
     // Cambiar posicion con los troncos
-    if (juego->checkCollision(rana) == Collision::Type::NONE)
+    if (juego->checkCollision(rana) == Collision::Type::HOME) {
+        resetPosition();
+    }
+    else if (juego->checkCollision(rana) == Collision::Type::NONE)
     {
         // BORDES
         if (posicion.getX() < 0) posicion = Point2D(0, posicion.getY()); //izq
         if (posicion.getX() > 420) posicion = Point2D(420, posicion.getY()); //der
         if (posicion.getY() > 402) posicion =Point2D(posicion.getX(), 402); //der
 
-        if (posicion.getY() < juego->RIVER_LOW) loseLife();
+        if (posicion.getY() < juego->RIVER_LOW && posicion.getY() > 30) loseLife();
     }
-    if (juego->checkCollision(rana) == Collision::Type::PLATFORM) posicion = posicion + Vector2D<int>(2, 0);
-    if (juego->checkCollision(rana) == Collision::Type::ENEMY) {
+    else if (juego->checkCollision(rana) == Collision::Type::PLATFORM) posicion = posicion + Vector2D<int>(2, 0);
+    else if (juego->checkCollision(rana) == Collision::Type::ENEMY && posicion.getX() != 200 && posicion.getY() != 402) {
         loseLife();
     }
        Point2D p(0, 0);
@@ -63,31 +66,31 @@ void Frog::update() {
 void Frog::handleEvent(const SDL_Event& event) {
     if (event.type == SDL_EVENT_KEY_DOWN) {
         switch (event.key.key) {
-        case SDLK_UP: {
-            direccion = { 0, -1 };
-            sprite = 1;
-            angle = 0; 
-            //posicion = posicion + Vector2D<int>(0, -10);
-        } break;
-        case SDLK_DOWN: {
-            direccion = { 0, 1 }; 
-            sprite = 1;
-            angle = 180;
-            //posicion = posicion + Vector2D<int>(0, 32);
-        } break;
-        case SDLK_LEFT: {
-           direccion = { -1, 0 };
-            sprite = 1;
-            angle = -90;
-            //posicion = posicion + Vector2D<int>(-32, 0);
-        } break;
-        case SDLK_RIGHT: {
-            direccion = { 1, 0 };
-            sprite = 1;
-            angle = 90;
-            //posicion = posicion + Vector2D<int>(32, 0);
-            break;
-        }
+            case SDLK_UP: {
+                direccion = { 0, -1 };
+                sprite = 1;
+                angle = 0; 
+                //posicion = posicion + Vector2D<int>(0, -10);
+            } break;
+            case SDLK_DOWN: {
+                direccion = { 0, 1 }; 
+                sprite = 1;
+                angle = 180;
+                //posicion = posicion + Vector2D<int>(0, 32);
+            } break;
+            case SDLK_LEFT: {
+               direccion = { -1, 0 };
+                sprite = 1;
+                angle = -90;
+                //posicion = posicion + Vector2D<int>(-32, 0);
+            } break;
+            case SDLK_RIGHT: {
+                direccion = { 1, 0 };
+                sprite = 1;
+                angle = 90;
+                //posicion = posicion + Vector2D<int>(32, 0);
+                break;
+            }
         }
     }
     else sprite = 0;
@@ -100,6 +103,12 @@ void Frog::loseLife() {
     posicion = p;
 }
 
+void Frog::resetPosition() {
+    Point2D p(205, 402);
+    //Point2D p(0, 0);
+    posicion = p;
+}
+
 int Frog::getLifes() const {
     return vidas;
 }
@@ -107,6 +116,7 @@ int Frog::getLifes() const {
 float Frog::getPosition() const {
     return posicion.getY();
 }
+
 SDL_FRect Frog::frogHitbox() const {
     SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth() / 2, textura->getFrameHeight() };
     return rana;

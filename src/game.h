@@ -48,6 +48,7 @@ public:
 	//Coches. Ahora mismo esta a 5 (uno de cada) pero tienen q ser mas 
 	static constexpr int CAR_NUM = 14;
 	static constexpr int LOG_NUM = 15;
+	static constexpr int HOMED_NUM = 5;
 	static constexpr int WASP_NUM = 1;
 	enum TextureName
 	{
@@ -76,7 +77,7 @@ private:
 	std::vector<Log*> troncos;
 	//std::array<Log*, LOG_NUM> troncos;
 	Frog* frog;
-	HomedFrog* homedFrog;
+	std::vector<HomedFrog*> homedFrogs;
 	std::vector<Wasp*> wasps;
 	//std::array<Wasp*, WASP_NUM> wasps;
 
