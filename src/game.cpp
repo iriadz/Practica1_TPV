@@ -88,16 +88,19 @@ Game::~Game()
 {
 	delete frog;
 	for (Texture* tex : textures) {
-		delete tex;   // Libera las texturas individualmente
+		delete tex;   // Libera las texturas
 	}
 	for (Vehiculo* c : coches) {
-		delete c;   // Libera los coches individualmente
+		delete c;   // Libera los coches
 	}
 	for (Log* t : troncos) {
-		delete t;   // Libera el objeto al que apunta
+		delete t;   // Libera los troncos
 	}
 	for (HomedFrog* h : homedFrogs) {
-		delete h;   // Libera el objeto al que apunta
+		delete h;   // Libera las ranas salvadas
+	}
+	for (Wasp* w : wasps) {
+		delete w;   // Libera las avispas
 	}
 }
 
@@ -114,6 +117,9 @@ Game::render() const
 	for (int i = 0; i < troncos.size(); i++) troncos[i]->render();
 
 	for (int i = 0; i < homedFrogs.size(); i++) if (homedFrogs[i]->getOcupado()) { homedFrogs[i]->render(); }
+
+	for (int i = 0; i < wasps.size(); i++) wasps[i]->render();
+
 	frog->render();
 
 
@@ -144,6 +150,7 @@ Game::run()
 {
 	while (!exit) { // Bucle principal del juego
 		update();
+		loadElems();
 		handleEvents();
 		render();
 		if (frog->getLifes() <= 0) {
@@ -203,11 +210,11 @@ Game::checkCollision(const SDL_FRect& rect) const
 		k++;
 	}
 	if (homedFrogs[k]->checkCollision(rect)) {
-		if (homedFrogs[k]->getOcupado()) {
-			return Collision::Type::ENEMY;
+		if (!homedFrogs[k]->getOcupado() && !wasps[k]->checkCollision(rect)) {
+			homedFrogs[k]->onOcupar();
+			return Collision::Type::HOME;
 		}
-		homedFrogs[k]->onOcupar();
-		return Collision::Type::HOME;
+		return Collision::Type::ENEMY;
 	}
 	return Collision::Type::NONE;
 }
@@ -240,6 +247,15 @@ Game::loadMap() {
 //Carga los elementos en el mapa con valores dados por nosotros
 void
 Game::loadElems() {
-
-	
+	if (wasps.size() == 0) {
+		int i = getRandomRange(0, 4);
+		Point2D p;
+		p = p + homedFrogs[i]->getPos();
+		wasps.push_back(new Wasp(this, textures[10], p, getRandomRange(1000, 3000))); // Crea una avispa en posicion aleatoria
+																					  // con duracion aleatoria entre 1 y 3 secs
+	}
+	else if (wasps[0]->isAlive()) {
+		delete wasps[0];
+		wasps.pop_back();
+	}
 }

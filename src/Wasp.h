@@ -6,22 +6,14 @@
 class Wasp
 {
 public:
-    static constexpr float CADUCIDAD = 30;
     Wasp() {}
-    Wasp(Game* g, Texture* t, Point2D p, float v) :
+    Wasp(Game* g, Texture* t, Point2D p, int v) :
         juego(g),
         textura(t),
         posicion(p),
-        vida(v)
-    {
-    }
-
-    //Constructora por lectura de archivo
-    Wasp(Game* j, std::istream& in) : juego(j){
-
-    }
+        tiempoVidaMax(SDL_GetTicks() + v)
+    { }
     void render();
-    void update();
     bool isAlive() const;
     bool checkCollision(const SDL_FRect&);
     
@@ -31,5 +23,5 @@ private:
     Texture* textura;    // Textura de la rana
     Point2D posicion;    // Posición actual (en píxeles)
    
-    float vida; // Vidas restantes
+    int tiempoVidaMax;
 };

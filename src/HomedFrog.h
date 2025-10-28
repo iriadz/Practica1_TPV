@@ -18,6 +18,8 @@ public:
 
     bool getOcupado() const;
 
+    Point2D getPos() const;
+
     void onOcupar();
 
     bool checkCollision(const SDL_FRect& ref);

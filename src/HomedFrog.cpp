@@ -1,4 +1,5 @@
 #include "HomedFrog.h"
+#include "vector2D.h"
 
 void HomedFrog::render() {
 	SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
@@ -7,6 +8,10 @@ void HomedFrog::render() {
 
 bool HomedFrog::getOcupado() const {
 	return ocupado;
+}
+
+Point2D HomedFrog::getPos() const {
+	return posicion;
 }
 
 void HomedFrog::onOcupar() {

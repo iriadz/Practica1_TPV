@@ -8,20 +8,9 @@ void Wasp::render() {
     textura->render(avispa);
 }
 
-void Wasp::update() {
 
-
-    //1. Bajar contador vida
-    //2. MOver aleatorialiemte dentro de la pantalla
-    //posicion = posicion + direccion * 32;
-
-   
-}
-
-
-
-bool Wasp::isAlive() const{
-    return vida < CADUCIDAD ;
+bool Wasp::isAlive() const {
+    return SDL_GetTicks() >= tiempoVidaMax;
 }
 
 //detectar colisiones(bool checkCollision(const SDL_FRect&)).
