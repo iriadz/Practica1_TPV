@@ -210,7 +210,7 @@ Game::checkCollision(const SDL_FRect& rect) const
 		k++;
 	}
 	if (homedFrogs[k]->checkCollision(rect)) {
-		if (!homedFrogs[k]->getOcupado() && !wasps[k]->checkCollision(rect)) {
+		if (!homedFrogs[k]->getOcupado() && !wasps[0]->checkCollision(rect)) {
 			homedFrogs[k]->onOcupar();
 			return Collision::Type::HOME;
 		}
@@ -249,6 +249,9 @@ void
 Game::loadElems() {
 	if (wasps.size() == 0) {
 		int i = getRandomRange(0, 4);
+		while (homedFrogs[i]->getOcupado()) {
+			i = getRandomRange(0, 4);
+		}
 		Point2D p;
 		p = p + homedFrogs[i]->getPos();
 		wasps.push_back(new Wasp(this, textures[10], p, getRandomRange(1000, 3000))); // Crea una avispa en posicion aleatoria
