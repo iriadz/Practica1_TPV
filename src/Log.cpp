@@ -1,13 +1,14 @@
-#include "Log.h"
+﻿#include "Log.h"
+#include "Collision.h"
 
-Log::Log(Game* j, Texture* t, Point2D p, Vector2D<float> v) : juego(j), textura(t), posicion(p), velocidad(v) {};
+Log::Log(Game* j, Texture* t, Point2D p, Vector2D<int> v) : juego(j), textura(t), posicion(p), velocidad(v) {};
 Log::Log(Game* j, std::istream& in) : juego(j) {
 	int x, y, tipo;
 	float vel;
 	in >> x >> y >> vel >> tipo;
 	posicion = Point2D((int)x, (int)y);
 	//velocidad = { static_cast<float>(vel), 0.0f };
-	velocidad = Vector2D<float>(vel, 0.0f);
+	velocidad = Vector2D<int>(vel/20, 0.0f);
 	switch (tipo) {
 	case 1: textura = j->getTexture(juego->LOG1); break;
 	case 2: textura = juego->getTexture(juego->LOG2); break;
@@ -17,7 +18,7 @@ Log::Log(Game* j, std::istream& in) : juego(j) {
 void Log::update()
 {
 	//Suamas velocidad si quieres q avance
-	posicion = posicion + Point2D(velocidad.getX()/20, velocidad.getY()/20);
+	posicion = posicion + Point2D(velocidad.getX(), velocidad.getY());
 
 	//Recalcular posicion si llegan al limite
 //	if (posicion.getX() <= -150) posicion = posicion + Point2D(600, 0);
@@ -30,10 +31,15 @@ void Log::render() const
 	textura->render(tronco);
 }
 
-bool Log::checkCollision(const SDL_FRect& ref)
+Collision Log::checkCollision(const SDL_FRect& ref)
 {
 	SDL_FRect log = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
 	//return ;
-	return SDL_HasRectIntersectionFloat(&ref, &log);
+	if (SDL_HasRectIntersectionFloat(&ref, &log)) {
+		Collision col(PLATFORM, velocidad);
+		return col;
+	}
+
+	return Collision(ENEMY, Vector2D<int>(0,0));
 
 }

@@ -2,6 +2,7 @@
 #include "game.h"
 #include "texture.h"
 #include "Vector2D.h"
+#include "Collision.h"
 
 class Wasp
 {
@@ -16,7 +17,7 @@ public:
 
     void render();
     bool isAlive() const;
-    bool checkCollision(const SDL_FRect&);
+    Collision checkCollision(const SDL_FRect&);
     
 
 private:

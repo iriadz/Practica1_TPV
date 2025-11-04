@@ -1,4 +1,4 @@
-#ifndef GAME_H
+﻿#ifndef GAME_H
 #define GAME_H
 
 #include <SDL3/SDL.h>
@@ -107,7 +107,7 @@ public:
 	int getRandomRange(int min, int max);
 
 	// Comprueba si hay algún objeto colocado en ese rectángulo
-	Collision::Type checkCollision(const SDL_FRect& rect) const;
+	Collision checkCollision(const SDL_FRect& rect) const;
 
 	
 };

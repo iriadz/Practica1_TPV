@@ -18,7 +18,7 @@ public:
     void loseLife();
     void resetPosition();
     int getLifes() const;
-    float getPosition() const;
+    Point2D getPosition() const;
     SDL_FRect frogHitbox() const;
 private:
     Game* juego = nullptr;         // Referencia al juego principal

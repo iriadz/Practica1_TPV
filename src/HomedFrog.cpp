@@ -1,4 +1,4 @@
-#include "HomedFrog.h"
+﻿#include "HomedFrog.h"
 #include "vector2D.h"
 
 void HomedFrog::render() {
@@ -18,10 +18,15 @@ void HomedFrog::onOcupar() {
 	ocupado = true;
 }
 
-bool HomedFrog::checkCollision(const SDL_FRect& ref)
+Collision HomedFrog::checkCollision(const SDL_FRect& ref)
 {
-	SDL_FRect frog = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
+	SDL_FRect home = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
 	//return ;
-	return SDL_HasRectIntersectionFloat(&ref, &frog);
+	if (SDL_HasRectIntersectionFloat(&ref, &home)) {
+		Collision col(HOME, Vector2D<int>(0, 0));
+		return col;
+	}
+
+	return Collision(NONE, Vector2D<int>(0, 0));
 
 }

@@ -22,6 +22,8 @@ using namespace std;
 constexpr const char* const WINDOW_TITLE = "Frogger 1.0";
 constexpr const char* const MAP_FILE = "../assets/maps/default.txt";
 
+uint64_t startTime, frameTime;
+
 // Estructura para especificar las texturas que hay que
 // cargar y el tamaño de su matriz de frames
 struct TextureSpec
@@ -86,22 +88,23 @@ Game::Game()
 
 Game::~Game()
 {
-	delete frog;
-	for (Texture* tex : textures) {
-		delete tex;   // Libera las texturas
-	}
-	for (Vehiculo* c : coches) {
-		delete c;   // Libera los coches
-	}
-	for (Log* t : troncos) {
-		delete t;   // Libera los troncos
+	for (Wasp* w : wasps) {
+		delete w;   // Libera las avispas
 	}
 	for (HomedFrog* h : homedFrogs) {
 		delete h;   // Libera las ranas salvadas
 	}
-	for (Wasp* w : wasps) {
-		delete w;   // Libera las avispas
+	for (Log* t : troncos) {
+		delete t;   // Libera los troncos
 	}
+	for (Vehiculo* c : coches) {
+		delete c;   // Libera los coches
+	}
+	delete frog;	// Libera la rana
+	for (Texture* tex : textures) {
+		delete tex; // Libera las texturas
+	}
+	SDL_Quit();
 }
 
 
@@ -137,33 +140,29 @@ Game::update()
 
 	frog->update();
 
-	//for (int i = 0; i < wasps.size(); i++)
-	//{
-	//	wasps[i]->update();
-	//	if (!wasps[i]->isAlive()) delete wasps[i]; // Borrar de la memoria las avispas muertas
-	//}
-
+	if (frog->getLifes() <= 0) {
+		exit = true;
+	}
+	int i = 0;
+	while (i < HOMED_NUM - 1 && !homedFrogs[i]->getOcupado()) {
+		i++;
+	}
+	if (homedFrogs[i]->getOcupado() && i == HOMED_NUM - 1) {
+		exit = true;
+	}
 }
 
 void
 Game::run()
 {
 	while (!exit) { // Bucle principal del juego
+		startTime = SDL_GetTicks();
 		update();
 		loadElems();
 		handleEvents();
 		render();
-		if (frog->getLifes() <= 0) {
-			exit = true;
-		}
-		int i = 0;
-		while (i < HOMED_NUM - 1 && !homedFrogs[i]->getOcupado()) {
-			i++;
-		}
-		if (homedFrogs[i]->getOcupado() && i == HOMED_NUM - 1) {
-			exit = true;
-		}
-		SDL_Delay(30);
+		frameTime = SDL_GetTicks() - startTime;
+		if (frameTime < FRAME_RATE) SDL_Delay(FRAME_RATE - frameTime);
 	}
 }
 
@@ -188,35 +187,34 @@ Game::handleEvents()
 	}
 }
 
-Collision::Type
+Collision
 Game::checkCollision(const SDL_FRect& rect) const
 {
 	// TODO: cambiar el tipo de retorno a Collision e implementar
 	int i = 0, j = 0, k = 0;
-	while (!coches[i]->checkCollision(rect) && i < CAR_NUM - 1) {
+	while (coches[i]->checkCollision(rect).tipo != ENEMY && i < CAR_NUM - 1) {
 		i++;
 	}
-	if (coches[i]->checkCollision(rect)) {
-		return Collision::Type::ENEMY;
+	if (coches[i]->checkCollision(rect).tipo == ENEMY) {
+		return coches[i]->checkCollision(rect);
 	}
 
-	while (!troncos[j]->checkCollision(rect) && j < LOG_NUM - 1) {
+	while (troncos[j]->checkCollision(rect).tipo != PLATFORM && j < LOG_NUM - 1) {
 		j++;
 	}
-	if (troncos[j]->checkCollision(rect)) {
-		return Collision::Type::PLATFORM;
+	if (troncos[j]->checkCollision(rect).tipo == PLATFORM || frog->getPosition().getY() < RIVER_LOW) {
+		return troncos[j]->checkCollision(rect);
 	}
-	while (!homedFrogs[k]->checkCollision(rect) && k < HOMED_NUM - 1) {
+	while (homedFrogs[k]->checkCollision(rect).tipo != HOME && k < HOMED_NUM - 1) {
 		k++;
 	}
-	if (homedFrogs[k]->checkCollision(rect)) {
-		if (!homedFrogs[k]->getOcupado() && !wasps[0]->checkCollision(rect)) {
+	if (homedFrogs[k]->checkCollision(rect).tipo == HOME) {
+		if (!homedFrogs[k]->getOcupado() && wasps[0]->checkCollision(rect).tipo != ENEMY) {
 			homedFrogs[k]->onOcupar();
-			return Collision::Type::HOME;
 		}
-		return Collision::Type::ENEMY;
+		return homedFrogs[k]->checkCollision(rect);
 	}
-	return Collision::Type::NONE;
+	return Collision(NONE, Vector2D<int>(0,0));
 }
 
 //Carga el mapa desde el archivo default, llamando a las constructoras correspondientes de cada elemento

@@ -1,7 +1,8 @@
-#pragma once
+﻿#pragma once
 #include "game.h"
 #include "texture.h"
 #include "vector2D.h"
+#include "Collision.h"
 
 class Game;
 class Vehiculo
@@ -15,7 +16,7 @@ public:
 	void render()const;
 	void update();
 	//detectar colisiones(bool checkCollision(const SDL_FRect&)).
-	bool checkCollision(const SDL_FRect& ref);
+	Collision checkCollision(const SDL_FRect& ref);
 
 private:
 	Game* juego;

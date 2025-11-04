@@ -1,8 +1,10 @@
-#include "Frog.h"
+﻿#include "Frog.h"
 #include "Vector2D.h"
 #include "game.h"
 #include "Collision.h"
 #include "Log.h"
+#include <iostream>
+
 
 Frog::Frog(Game* g, Texture* t, Point2D p) :
     juego(g),
@@ -32,35 +34,26 @@ void Frog::render() {
 }
 
 void Frog::update() {
+    SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
+    Collision col = juego->checkCollision(rana);
 
+    // Actualiza la posicion
     posicion = posicion + direccion * 32;
 
-    SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
+    // Reinicia la direccion a 0
+    direccion = Point2D(0, 0); 
+    
+    // Mata a la rana si se sale de los bordes
+    if (posicion.getX() < 0 || posicion.getX() > juego->WINDOW_WIDTH || posicion.getY() < 0 || posicion.getY() > juego->WINDOW_HEIGHT) loseLife();
 
-
-    // Cambiar posicion con los troncos
-    if (juego->checkCollision(rana) == Collision::Type::HOME) {
+    // Update dependiendo del tipo de colision
+    if (col.tipo == HOME) {
         resetPosition();
     }
-    else if (juego->checkCollision(rana) == Collision::Type::NONE)
-    {
-        // BORDES
-        if (posicion.getX() < 0) posicion = Point2D(0, posicion.getY()); //izq
-        if (posicion.getX() > 420) posicion = Point2D(420, posicion.getY()); //der
-        if (posicion.getY() > 402) posicion =Point2D(posicion.getX(), 402); //der
-
-        if (posicion.getY() < juego->RIVER_LOW && posicion.getY() > 30) loseLife();
-    }
-    else if (juego->checkCollision(rana) == Collision::Type::PLATFORM) posicion = posicion + Vector2D<int>(2, 0);
-    else if (juego->checkCollision(rana) == Collision::Type::ENEMY && posicion.getX() != 200 && posicion.getY() != 402) {
+    else if (col.tipo == PLATFORM) posicion = posicion + col.velocidad;
+    else if (col.tipo == ENEMY) {
         loseLife();
     }
-       Point2D p(0, 0);
-       direccion = p;
-
-   /* if (lastPosition.getX() != posicion.getX() && lastPosition.getY() != posicion.getY()) {
-        lastPosition = posicion;
-    }*/
 }
 
 void Frog::handleEvent(const SDL_Event& event) {
@@ -113,8 +106,8 @@ int Frog::getLifes() const {
     return vidas;
 }
 
-float Frog::getPosition() const {
-    return posicion.getY();
+Point2D Frog::getPosition() const {
+    return posicion;
 }
 
 SDL_FRect Frog::frogHitbox() const {

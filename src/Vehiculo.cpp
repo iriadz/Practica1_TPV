@@ -1,4 +1,5 @@
 ﻿#include "Vehiculo.h"
+#include "Collision.h"
 
 Vehiculo::Vehiculo(Game* j, Texture* t, Point2D p, Point2D v) : juego(j), textura(t), posicion(p), velocidad(v) {};
 
@@ -33,8 +34,14 @@ void Vehiculo::update()
 	if (posicion.getX() >= 750) posicion = posicion - Point2D(748, 0);
 }
 
-bool Vehiculo::checkCollision(const SDL_FRect& ref)
+Collision Vehiculo::checkCollision(const SDL_FRect& ref)
 {
 	SDL_FRect coche = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
-	return SDL_HasRectIntersectionFloat(&ref, &coche);
+	//return ;
+	if (SDL_HasRectIntersectionFloat(&ref, &coche)) {
+		Collision col(ENEMY, Vector2D<int>(0, 0));
+		return col;
+	}
+
+	return Collision(NONE, Vector2D<int>(0, 0));
 }
