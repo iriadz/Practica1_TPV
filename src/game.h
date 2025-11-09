@@ -17,6 +17,8 @@
 #include "Frog.h"
 #include "HomedFrog.h"
 #include "Collision.h"
+#include "InfoBar.h"
+
 
 // Declaraciones anticipadas
 class Texture;
@@ -26,6 +28,7 @@ class Frog;
 class HomedFrog;
 class Collision;
 class Wasp;
+class InfoBar;
 
 /**
  * Clase principal del juego.
@@ -73,13 +76,11 @@ private:
 
 	// Elementos del juego
 	std::vector<Vehiculo*> coches;
-	//std::array<Vehiculo*, CAR_NUM> coches;
 	std::vector<Log*> troncos;
-	//std::array<Log*, LOG_NUM> troncos;
 	Frog* frog;
 	std::vector<HomedFrog*> homedFrogs;
 	std::vector<Wasp*> wasps;
-	//std::array<Wasp*, WASP_NUM> wasps;
+	InfoBar* infoBar;
 
 	//Generador numeros aleatorios
 	std::mt19937 generator;
@@ -98,7 +99,7 @@ public:
 	// Obtiene una textura por su nombre
 	Texture* getTexture(TextureName name) const;
 
-	void loadElems();
+	void manageWasps();
 	void loadMap();
 
 	// Ejecuta el bucle principal del juego

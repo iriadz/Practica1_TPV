@@ -88,6 +88,7 @@ Game::Game()
 
 Game::~Game()
 {
+	delete infoBar;
 	for (Wasp* w : wasps) {
 		delete w;   // Libera las avispas
 	}
@@ -124,6 +125,7 @@ Game::render() const
 	for (int i = 0; i < wasps.size(); i++) wasps[i]->render();
 
 	frog->render();
+	infoBar->render(frog->getLifes());
 
 
 	/*for (int i = 0; i < wasps.size(); i++) wasps[i]->render();*/
@@ -150,6 +152,8 @@ Game::update()
 	if (homedFrogs[i]->getOcupado() && i == HOMED_NUM - 1) {
 		exit = true;
 	}
+
+
 }
 
 void
@@ -158,7 +162,7 @@ Game::run()
 	while (!exit) { // Bucle principal del juego
 		startTime = SDL_GetTicks();
 		update();
-		loadElems();
+		manageWasps();
 		handleEvents();
 		render();
 		frameTime = SDL_GetTicks() - startTime;
@@ -240,11 +244,13 @@ Game::loadMap() {
 		homedFrogs.push_back(new HomedFrog(this, textures[0], pos));
 		pos = pos + Point2D(96, 0); // va al siguiente nenufar
 	}
+
+	infoBar = new InfoBar(textures[0], frog->getLifes());
 }
 
 //Carga los elementos en el mapa con valores dados por nosotros
 void
-Game::loadElems() {
+Game::manageWasps() {
 	if (wasps.size() == 0) {
 		int i = getRandomRange(0, 4);
 		while (homedFrogs[i]->getOcupado()) {

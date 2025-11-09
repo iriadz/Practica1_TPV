@@ -97,7 +97,9 @@
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Frog.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="HomedFrog.cpp" />
+    <ClCompile Include="InfoBar.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="texture.cpp" />
@@ -108,7 +110,9 @@
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Frog.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="HomedFrog.h" />
+    <ClInclude Include="InfoBar.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="texture.h" />
