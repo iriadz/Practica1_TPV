@@ -22,4 +22,6 @@ private:
 	Texture* textura;
 	Point2D posicion;
 	Vector2D<int> velocidad;
+	int estado;
+	float tiempoEstado;
 };
