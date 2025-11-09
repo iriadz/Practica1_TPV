@@ -18,7 +18,7 @@
 #include "HomedFrog.h"
 #include "Collision.h"
 #include "InfoBar.h"
-
+#include "Turtles.h"
 
 // Declaraciones anticipadas
 class Texture;
@@ -29,6 +29,7 @@ class HomedFrog;
 class Collision;
 class Wasp;
 class InfoBar;
+class Turtles;
 
 /**
  * Clase principal del juego.
@@ -81,6 +82,7 @@ private:
 	std::vector<HomedFrog*> homedFrogs;
 	std::vector<Wasp*> wasps;
 	InfoBar* infoBar;
+	std::vector<Turtles*> tortugas;
 
 	//Generador numeros aleatorios
 	std::mt19937 generator;

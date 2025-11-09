@@ -45,7 +45,8 @@ constexpr array<TextureSpec, Game::NUM_TEXTURES> textureList{
 	{"car5.png"},
 	{"log1.png"},
 	{"log2.png"},
-	{"turtle.png", 1, 6},
+	{"turtle.png", 1, 7},
+	//{"turtle.png"},
 	{"wasp.png"},
 
 };
@@ -88,6 +89,9 @@ Game::Game()
 
 Game::~Game()
 {
+	for (Turtles* tor : tortugas) {
+		delete tor;   // Libera las avispas
+	}
 	delete infoBar;
 	for (Wasp* w : wasps) {
 		delete w;   // Libera las avispas
@@ -124,11 +128,13 @@ Game::render() const
 
 	for (int i = 0; i < wasps.size(); i++) wasps[i]->render();
 
+	for (int i = 0; i < tortugas.size(); i++) tortugas[i]->render();
+
 	frog->render();
+
 	infoBar->render(frog->getLifes());
 
-
-	/*for (int i = 0; i < wasps.size(); i++) wasps[i]->render();*/
+	
 
 	SDL_RenderPresent(renderer);
 }
@@ -153,7 +159,7 @@ Game::update()
 		exit = true;
 	}
 
-
+	for (int i = 0; i < tortugas.size(); i++) tortugas[i]->update();
 }
 
 void
@@ -195,21 +201,29 @@ Collision
 Game::checkCollision(const SDL_FRect& rect) const
 {
 	// TODO: cambiar el tipo de retorno a Collision e implementar
-	int i = 0, j = 0, k = 0;
-	while (coches[i]->checkCollision(rect).tipo != ENEMY && i < CAR_NUM - 1) {
+	int i = 0, j = 0, k = 0, x = 0;
+	while (coches[i]->checkCollision(rect).tipo != ENEMY && i < coches.size() - 1) {
 		i++;
 	}
 	if (coches[i]->checkCollision(rect).tipo == ENEMY) {
 		return coches[i]->checkCollision(rect);
 	}
 
-	while (troncos[j]->checkCollision(rect).tipo != PLATFORM && j < LOG_NUM - 1) {
+	while (tortugas[x]->checkCollision(rect).tipo != PLATFORM && x < tortugas.size() - 1) {
+		x++;
+	}
+	if (tortugas[x]->checkCollision(rect).tipo == PLATFORM || frog->getPosition().getY() < RIVER_LOW) {
+		return tortugas[x]->checkCollision(rect);
+	}
+
+	while (troncos[j]->checkCollision(rect).tipo != PLATFORM && j < troncos.size() - 1) {
 		j++;
 	}
 	if (troncos[j]->checkCollision(rect).tipo == PLATFORM || frog->getPosition().getY() < RIVER_LOW) {
 		return troncos[j]->checkCollision(rect);
 	}
-	while (homedFrogs[k]->checkCollision(rect).tipo != HOME && k < HOMED_NUM - 1) {
+
+	while (homedFrogs[k]->checkCollision(rect).tipo != HOME && k < homedFrogs.size() - 1) {
 		k++;
 	}
 	if (homedFrogs[k]->checkCollision(rect).tipo == HOME) {
@@ -234,6 +248,7 @@ Game::loadMap() {
 		if (id == 'F') frog = new Frog(this, file);
 		else if (id == 'V') coches.push_back(new Vehiculo(this, file));
 		else if (id == 'L') troncos.push_back(new Log(this, file));
+		else if (id == 'T') tortugas.push_back(new Turtles(this, file));
 		else file.ignore('#', '\n');
 		//else throw std::string("Formato erroneo");
 

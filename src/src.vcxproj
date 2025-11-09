@@ -103,6 +103,7 @@
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="texture.cpp" />
+    <ClCompile Include="Turtles.cpp" />
     <ClCompile Include="Vehiculo.cpp" />
     <ClCompile Include="Wasp.cpp" />
   </ItemGroup>
@@ -116,6 +117,7 @@
     <ClInclude Include="Log.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="texture.h" />
+    <ClInclude Include="Turtles.h" />
     <ClInclude Include="vector2D.h" />
     <ClInclude Include="Vehiculo.h" />
     <ClInclude Include="Wasp.h" />
