@@ -202,36 +202,40 @@ Game::checkCollision(const SDL_FRect& rect) const
 {
 	// TODO: cambiar el tipo de retorno a Collision e implementar
 	int i = 0, j = 0, k = 0, x = 0;
-	while (coches[i]->checkCollision(rect).tipo != ENEMY && i < coches.size() - 1) {
+	while (i < coches.size() && coches[i]->checkCollision(rect).tipo != ENEMY ) {
 		i++;
 	}
-	if (coches[i]->checkCollision(rect).tipo == ENEMY) {
+	if (i < coches.size()) {
 		return coches[i]->checkCollision(rect);
 	}
 
-	while (tortugas[x]->checkCollision(rect).tipo != PLATFORM && x < tortugas.size() - 1) {
-		x++;
-	}
-	if (tortugas[x]->checkCollision(rect).tipo == PLATFORM || frog->getPosition().getY() < RIVER_LOW) {
-		return tortugas[x]->checkCollision(rect);
-	}
-
-	while (troncos[j]->checkCollision(rect).tipo != PLATFORM && j < troncos.size() - 1) {
-		j++;
-	}
-	if (troncos[j]->checkCollision(rect).tipo == PLATFORM || frog->getPosition().getY() < RIVER_LOW) {
-		return troncos[j]->checkCollision(rect);
-	}
-
-	while (homedFrogs[k]->checkCollision(rect).tipo != HOME && k < homedFrogs.size() - 1) {
+	while (k < homedFrogs.size() && homedFrogs[k]->checkCollision(rect).tipo != HOME) {
 		k++;
 	}
-	if (homedFrogs[k]->checkCollision(rect).tipo == HOME) {
+	if (k < homedFrogs.size()) {
 		if (!homedFrogs[k]->getOcupado() && wasps[0]->checkCollision(rect).tipo != ENEMY) {
 			homedFrogs[k]->onOcupar();
 		}
 		return homedFrogs[k]->checkCollision(rect);
 	}
+
+	while (x < tortugas.size() && tortugas[x]->checkCollision(rect).tipo != PLATFORM) {
+
+		x++;
+	}
+	if (x < tortugas.size() && frog->getPosition().getY() < RIVER_LOW) {
+
+		return tortugas[x]->checkCollision(rect);
+	}
+
+	while (j < troncos.size() - 1 && troncos[j]->checkCollision(rect).tipo != PLATFORM) {
+		j++;
+	}
+	if (j < troncos.size() && frog->getPosition().getY() < RIVER_LOW) {
+		return troncos[j]->checkCollision(rect);
+	}
+
+	
 	return Collision(NONE, Vector2D<int>(0,0));
 }
 
