@@ -2,7 +2,7 @@
 
 InfoBar::InfoBar(Game* g): SceneObject(g), numVidas(3)
 {
-
+	g->getTexture(g->FROG);
 }
 
 void InfoBar::render() const

@@ -17,6 +17,8 @@ Vehiculo::Vehiculo(Game* j, std::istream& in) : Crosser(j) {
 		case 4: textura = j->getTexture(j->CAR4); break;
 		default: textura = j->getTexture(j->CAR1); break;
 	}
+
+	//lanzar excepcion
 }
 
 //void Vehiculo::render()const
