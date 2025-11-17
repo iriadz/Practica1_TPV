@@ -9,7 +9,7 @@ public:
     SceneObject(Game* game, const SDL_FRect& rect, Texture* tex = nullptr);
     virtual ~SceneObject();
 
-    virtual void render(SDL_Renderer* renderer) const override;
+    virtual void render() const override;
     virtual void update(float dt) override = 0;
 
     // devuelve true si colisiona con la caja pasada

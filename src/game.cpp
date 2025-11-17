@@ -120,7 +120,7 @@ Game::render() const
 
 	textures[1]->render(); // fondo
 
-	for (int i = 0; i < coches.size(); i++) coches[i]->render();
+	/*for (int i = 0; i < coches.size(); i++) coches[i]->render();
 
 	for (int i = 0; i < troncos.size(); i++) troncos[i]->render();
 
@@ -130,7 +130,7 @@ Game::render() const
 
 	for (int i = 0; i < tortugas.size(); i++) tortugas[i]->render();
 
-	frog->render();
+	frog->render();*/
 
 	infoBar->render(frog->getLifes());
 
@@ -142,7 +142,7 @@ Game::render() const
 void
 Game::update()
 {
-	for (int i = 0; i < coches.size(); i++) coches[i]->update();
+	/*for (int i = 0; i < coches.size(); i++) coches[i]->update();
 
 	for (int i = 0; i < troncos.size(); i++) troncos[i]->update();
 
@@ -150,7 +150,7 @@ Game::update()
 
 	if (frog->getLifes() <= 0) {
 		exit = true;
-	}
+	}*/
 	int i = 0;
 	while (i < HOMED_NUM - 1 && !homedFrogs[i]->getOcupado()) {
 		i++;
@@ -159,7 +159,7 @@ Game::update()
 		exit = true;
 	}
 
-	for (int i = 0; i < tortugas.size(); i++) tortugas[i]->update();
+	/*for (int i = 0; i < tortugas.size(); i++) tortugas[i]->update();*/
 }
 
 void
@@ -236,27 +236,27 @@ Game::checkCollision(const SDL_FRect& rect) const
 	}
 
 	
-	return Collision(NONE, Vector2D<int>(0,0));
+	return Collision(NONE, Vector2D<float>(0,0));
 }
 
 //Carga el mapa desde el archivo default, llamando a las constructoras correspondientes de cada elemento
 void
 Game::loadMap() {
-	std::ifstream file; file.open(MAP_FILE);
-	if (!file.is_open())
-		throw std::string("No se encuentra el mapa: ");
+	//std::ifstream file; file.open(MAP_FILE);
+	//if (!file.is_open())
+	//	throw std::string("No se encuentra el mapa: ");
 
-	char id;
-	while (file >> id) {
-		//if (id == '#') { file.ignore(11, '\n'); }
-		if (id == 'F') frog = new Frog(this, file);
-		else if (id == 'V') coches.push_back(new Vehiculo(this, file));
-		else if (id == 'L') troncos.push_back(new Log(this, file));
-		else if (id == 'T') tortugas.push_back(new Turtles(this, file));
-		else file.ignore('#', '\n');
-		//else throw std::string("Formato erroneo");
+	//char id;
+	//while (file >> id) {
+	//	//if (id == '#') { file.ignore(11, '\n'); }
+	//	if (id == 'F') frog = new Frog(this, file);
+	//	else if (id == 'V') coches.push_back(new Vehiculo(this, file));
+	//	else if (id == 'L') troncos.push_back(new Log(this, file));
+	//	else if (id == 'T') tortugas.push_back(new Turtles(this, file));
+	//	else file.ignore('#', '\n');
+	//	//else throw std::string("Formato erroneo");
 
-	}
+	//}
 	
 	Point2D pos(14, 22); // posicion del primer nenufar
 	for (int i = 0; i < HOMED_NUM; i++) {
@@ -292,6 +292,6 @@ void Game::addObject(SceneObject* obj) {
 	auto it = m_objects.end();
 	--it;
 	// intentaremos downcast seguro en tiempo de ejecución
-	Wasp* w = dynamic_cast<Wasp*>(obj);
-	if (w) w->setAnchor(it);
+	/*Wasp* w = dynamic_cast<Wasp*>(obj);
+	if (w) w->setAnchor(it);*/
 }

@@ -20,7 +20,7 @@ void Turtles::update(float dt){
 	}
 }
 
-void Turtles::render(SDL_Renderer* renderer) const
+void Turtles::render() const
 {
 	
 	for (int i = 0; i < 5; i++)

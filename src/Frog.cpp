@@ -15,7 +15,7 @@ Frog::Frog(Game* g, const SDL_FRect& rect, Texture* tex) : SceneObject(g, rect, 
 
 Frog::~Frog() {}
 
-void Frog::render(SDL_Renderer* renderer) const {
+void Frog::render() const {
     SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
     textura->renderFrame(rana, 0, sprite, angle);
 }

@@ -6,7 +6,7 @@ SceneObject::SceneObject(Game* game, const SDL_FRect& re, Texture* tex)
 
 SceneObject::~SceneObject() {}
 
-void SceneObject::render(SDL_Renderer* renderer) const {
+void SceneObject::render() const {
     SDL_FRect r = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
     textura->render(r);
 }
@@ -23,10 +23,10 @@ SceneObject::checkCollision(const SDL_FRect& other) const {
    
         
    if (SDL_HasRectIntersectionFloat(&other, &getBoundingBox())) {
-        Collision col(ENEMY, Vector2D<int>(0, 0));
+        Collision col(ENEMY, Vector2D<float>(0, 0));
         return col;
     }
 
-    return Collision(NONE, Vector2D<int>(0, 0));
+    return Collision(NONE, Vector2D<float>(0, 0));
 }
 

@@ -23,10 +23,10 @@ Collision HomedFrog::checkCollision(const SDL_FRect& ref)
 	SDL_FRect home = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
 	//return ;
 	if (SDL_HasRectIntersectionFloat(&ref, &home)) {
-		Collision col(HOME, Vector2D<int>(0, 0));
+		Collision col(HOME, Vector2D<float>(0, 0));
 		return col;
 	}
 
-	return Collision(NONE, Vector2D<int>(0, 0));
+	return Collision(NONE, Vector2D<float>(0, 0));
 
 }

@@ -13,7 +13,7 @@ public:
     virtual ~GameObject() = default;
 
     // render debe ser const según enunciado
-    virtual void render(SDL_Renderer* renderer) const;
+    virtual void render() const;
     virtual void update(float dt);
 
 protected:

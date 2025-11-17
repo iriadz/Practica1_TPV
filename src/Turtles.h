@@ -16,7 +16,7 @@ public:
 	//Constructora por lectura de archivo
 	Turtles(Game* j, std::istream& in);
 	virtual void update(float dt) override;
-	virtual void render(SDL_Renderer* renderer) const override;
+	virtual void render() const override;
 
 	bool isSunk() const { return estado==5; }
 	virtual Collision checkCollision(const SDL_FRect& ref) const override;
