@@ -73,8 +73,9 @@ public:
 
 
 public:
-
-	using Anchor = std::list<SceneObject*>::iterator;
+	std::list<SceneObject*> sceneObjects;
+	using It = std::list<SceneObject*>::iterator;
+	
 
 	Game();
 	~Game();
@@ -87,7 +88,7 @@ public:
 	void manageWasps();
 	void loadMap();
 	void addObject(SceneObject* obj);
-	void deleteAfter(Anchor a); // llamado por un objeto al morir
+	void deleteAfter(It a); // llamado por un objeto al morir
 
 	// Ejecuta el bucle principal del juego
 	void run();
@@ -125,7 +126,7 @@ private:
 
 
 	std::list<SceneObject*> m_objects;
-	std::list<Anchor> m_toDelete; // anchors a borrar al final de update
+	std::list<It> m_toDelete; // anchors a borrar al final de update
 
 	// recursos (texturas)
 	// map<string, SDL_Texture*> m_textures; // opcional

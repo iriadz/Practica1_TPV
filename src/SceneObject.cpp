@@ -1,7 +1,15 @@
 ﻿#include "SceneObject.h"
 #include "Collision.h"
-SceneObject::SceneObject(Game* game, const SDL_FRect& re, Texture* tex)
-    : GameObject(game), rect(re), textura(tex) {
+//SceneObject::SceneObject(Game* game, const SDL_FRect& re, Texture* tex)
+//    : GameObject(game), rect(re), textura(tex) {
+//}
+
+SceneObject::SceneObject(Game* g) : GameObject(g)
+{
+  /*  int x, y, tipo;
+    float vel;
+    is >> x >> y >> vel >> tipo;
+    posicion = Point2D((int)x, (int)y);*/
 }
 
 SceneObject::~SceneObject() {}

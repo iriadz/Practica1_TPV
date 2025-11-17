@@ -6,6 +6,11 @@
 //}
 Turtles::Turtles(Game* g, std::istream& is): Platform(g), m_sinkingPeriod(SDL_GetTicks()), estado(0)
 {
+	int x, y, tipo; float vel;
+	is >> x >> y >> vel >> tipo;
+	posicion = Point2D((int)x, (int)y);
+	//velocidad = Vector2D<float>(vel, 0);ç
+	velocidad = Vector2D<float>(vel, 0);
 }
 
 

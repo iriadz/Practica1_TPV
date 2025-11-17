@@ -89,26 +89,9 @@ Game::Game()
 
 Game::~Game()
 {
-	for (Turtles* tor : tortugas) {
-		delete tor;   // Libera las avispas
-	}
-	delete infoBar;
-	for (Wasp* w : wasps) {
-		delete w;   // Libera las avispas
-	}
-	for (HomedFrog* h : homedFrogs) {
-		delete h;   // Libera las ranas salvadas
-	}
-	for (Log* t : troncos) {
-		delete t;   // Libera los troncos
-	}
-	for (Vehiculo* c : coches) {
-		delete c;   // Libera los coches
-	}
-	delete frog;	// Libera la rana
-	for (Texture* tex : textures) {
-		delete tex; // Libera las texturas
-	}
+	/*for (SceneObject* s )*/
+	if (renderer) SDL_DestroyRenderer(renderer);
+	//igual window
 	SDL_Quit();
 }
 
@@ -168,7 +151,7 @@ Game::run()
 	while (!exit) { // Bucle principal del juego
 		startTime = SDL_GetTicks();
 		update();
-		manageWasps();
+		//manageWasps();
 		handleEvents();
 		render();
 		frameTime = SDL_GetTicks() - startTime;
@@ -242,21 +225,24 @@ Game::checkCollision(const SDL_FRect& rect) const
 //Carga el mapa desde el archivo default, llamando a las constructoras correspondientes de cada elemento
 void
 Game::loadMap() {
-	//std::ifstream file; file.open(MAP_FILE);
-	//if (!file.is_open())
-	//	throw std::string("No se encuentra el mapa: ");
+	std::ifstream file; file.open(MAP_FILE);
+	if (!file.is_open())
+		throw std::string("No se encuentra el mapa: ");
 
-	//char id;
-	//while (file >> id) {
-	//	//if (id == '#') { file.ignore(11, '\n'); }
-	//	if (id == 'F') frog = new Frog(this, file);
-	//	else if (id == 'V') coches.push_back(new Vehiculo(this, file));
-	//	else if (id == 'L') troncos.push_back(new Log(this, file));
-	//	else if (id == 'T') tortugas.push_back(new Turtles(this, file));
-	//	else file.ignore('#', '\n');
-	//	//else throw std::string("Formato erroneo");
+	char id;
+	while (file >> id) {
+		//if (id == '#') { file.ignore(11, '\n'); }
+		if (id == 'F') {
+			Frog* f = new Frog(this, file);
+			sceneObjects.push_back(f);
+		}
+		else if (id == 'V') coches.push_back(new Vehiculo(this, file));
+		else if (id == 'L') troncos.push_back(new Log(this, file));
+		else if (id == 'T') tortugas.push_back(new Turtles(this, file));
+		else file.ignore('#', '\n');
+		//else throw std::string("Formato erroneo");
 
-	//}
+	}
 	
 	Point2D pos(14, 22); // posicion del primer nenufar
 	for (int i = 0; i < HOMED_NUM; i++) {

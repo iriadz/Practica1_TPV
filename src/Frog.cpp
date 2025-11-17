@@ -13,6 +13,11 @@ Frog::Frog(Game* g, const SDL_FRect& rect, Texture* tex) : SceneObject(g, rect, 
     posicion = { rect.x, rect.y };
 }
 
+Frog::Frog(Game* g, std::istream& is) : SceneObject(g, rect, tex), vidas(0), sprite(0), angle(0)
+{
+    posicion = { rect.x, rect.y };
+}
+
 Frog::~Frog() {}
 
 void Frog::render() const {
