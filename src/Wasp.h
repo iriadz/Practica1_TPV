@@ -11,6 +11,7 @@ public:
     virtual ~Wasp() = default;
     //void render();
     bool isAlive() const;
+    void update(float dt);
    /* Collision checkCollision(const SDL_FRect&);*/
 private:
     int tiempoVidaMax;

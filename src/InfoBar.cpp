@@ -14,6 +14,11 @@ void InfoBar::render() const
 	}
 }
 
+void InfoBar::update(float dt)
+{
+
+}
+
 void InfoBar::setLives(int n)
 {
 	numVidas = n;

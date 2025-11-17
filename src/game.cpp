@@ -236,9 +236,15 @@ Game::loadMap() {
 			Frog* f = new Frog(this, file);
 			sceneObjects.push_back(f);
 		}
-		else if (id == 'V') coches.push_back(new Vehiculo(this, file));
-		else if (id == 'L') troncos.push_back(new Log(this, file));
-		else if (id == 'T') tortugas.push_back(new Turtles(this, file));
+		else if (id == 'V') { 
+			sceneObjects.push_back(new Vehiculo(this, file));
+		}
+		else if (id == 'L') { 
+			sceneObjects.push_back(new Log(this, file));
+		}
+		else if (id == 'T') {
+			sceneObjects.push_back(new Turtles(this, file));
+		}
 		else file.ignore('#', '\n');
 		//else throw std::string("Formato erroneo");
 
@@ -246,11 +252,14 @@ Game::loadMap() {
 	
 	Point2D pos(14, 22); // posicion del primer nenufar
 	for (int i = 0; i < HOMED_NUM; i++) {
-		homedFrogs.push_back(new HomedFrog(this, textures[0], pos));
+		sceneObjects.push_back(new HomedFrog(this));
 		pos = pos + Point2D(96, 0); // va al siguiente nenufar
 	}
 
-	infoBar = new InfoBar(textures[0], frog->getLifes());
+	
+	InfoBar* i = new InfoBar(this);
+
+	
 }
 
 //Carga los elementos en el mapa con valores dados por nosotros
@@ -263,7 +272,7 @@ Game::manageWasps() {
 		}
 		Point2D p;
 		p = p + homedFrogs[i]->getPos();
-		wasps.push_back(new Wasp(this, textures[10], p, getRandomRange(1000, 3000))); // Crea una avispa en posicion aleatoria
+		wasps.push_back(new Wasp(this, getRandomRange(1000, 3000))); // Crea una avispa en posicion aleatoria
 																					  // con duracion aleatoria entre 1 y 3 secs
 	}
 	else if (wasps[0]->isAlive()) {

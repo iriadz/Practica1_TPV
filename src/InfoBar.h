@@ -4,16 +4,18 @@
 #include "texture.h"
 #include "vector2D.h"
 #include "Collision.h"
-class InfoBar
+class InfoBar: public GameObject
 {
 public: 
-	InfoBar(Texture* t, int n);
+	//InfoBar(Texture* t, int n);
 	
+	InfoBar(Game* g);
+	virtual void render() const override;
+	virtual void update(float dt) override;
 
-	void render(int lives);
+	void setLives(int n);
 
 private:
-	Texture* textura;
 	int numVidas;
 };
 
