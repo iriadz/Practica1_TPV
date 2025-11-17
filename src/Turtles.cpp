@@ -1,37 +1,26 @@
 ﻿#include "Turtles.h"
-
 #include "Collision.h"
 
-Turtles::Turtles(Game* j, Texture* t, Point2D p, Vector2D<int> v) : juego(j), textura(t), posicion(p), velocidad(v) {};
-Turtles::Turtles(Game* j, std::istream& in) : juego(j) {
-	int x, y, tipo; float vel;
-
-	in >> x >> y >> vel >> tipo;
-
-	posicion = Point2D((int)x, (int)y);
-	velocidad = Vector2D<int>(vel / 20, 0.0f);
-	textura = juego->getTexture(juego->TURTLE);
-
-	estado = 0;
-	tiempoEstado = SDL_GetTicks();
-}
-void Turtles::update()
+Turtles::Turtles(Game* g, const SDL_FRect& rect, Vector2D<float> vx, Texture* tex): Platform(g, rect, vx.getX(), tex), m_sinkingPeriod(SDL_GetTicks()), estado(0)
 {
-	posicion = posicion + Point2D(velocidad.getX(), velocidad.getY());
+}
 
-	//Recalcular posicion si llegan al limite
-//	if (posicion.getX() <= -150) posicion = posicion + Point2D(600, 0);
-	if (posicion.getX() >= 750) posicion = posicion - Point2D(juego->WINDOW_WIDTH * 2, 0);
+Turtles::~Turtles() {}
 
-	if (SDL_GetTicks() >= tiempoEstado + 400)
+void Turtles::update(float dt){
+
+	Platform::update(dt);
+
+
+	if (SDL_GetTicks() >= m_sinkingPeriod + 400)
 	{
 		if (estado != 6) estado++;
 		else estado = 0; 
-		tiempoEstado = SDL_GetTicks();
+		m_sinkingPeriod = SDL_GetTicks();
 	}
 }
 
-void Turtles::render() const
+void Turtles::render(SDL_Renderer* renderer) const
 {
 	
 	for (int i = 0; i < 5; i++)
@@ -43,16 +32,19 @@ void Turtles::render() const
 
 
 
-Collision Turtles::checkCollision(const SDL_FRect& ref)
+Collision Turtles::checkCollision(const SDL_FRect& ref) const
 {
-	Texture* tex = juego->getTexture(juego->LOG2);
+	Texture* tex = game->getTexture(game->LOG2);
 	SDL_FRect log = { posicion.getX(),posicion.getY(), tex->getFrameWidth(), tex->getFrameHeight() };
 	//return ;
 	if (SDL_HasRectIntersectionFloat(&ref, &log) && estado != 5) {
-		Collision col(PLATFORM, velocidad);
-		return col;
+		return Collision(PLATFORM, Vector2D<float>(velocidad.getX(), 0));
+		
 	}
 
-	return Collision(ENEMY, Vector2D<int>(0, 0));
+	return Collision(ENEMY, Vector2D<float>(0, 0));
 
 }
+
+
+

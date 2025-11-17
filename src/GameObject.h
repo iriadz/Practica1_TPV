@@ -1,19 +1,27 @@
 ﻿#pragma once
 #include "game.h"
-class GameObject
-{
-public:
-	GameObject() {};
-	void render();
-	void update();
+#ifndef GAMEOBJECT_H
+#define GAMEOBJECT_H
 
-private:
-	Game* g;
+
+
+class Game; // forward
+
+class GameObject {
+public:
+    explicit GameObject(Game* g) : game(g) {}
+    virtual ~GameObject() = default;
+
+    // render debe ser const según enunciado
+    virtual void render(SDL_Renderer* renderer) const;
+    virtual void update(float dt);
 
 protected:
-	GameObject(Game* game);
+    Game* game;
 };
 
+#endif // GAMEOBJECT_H
 //Clase GameObject : esta clase abstracta es la raíz de la jerarquía de objetos del juego y reúne la funcionalidad común a todos ellos.Su declaración incluye los métodos virtuales puros render y update, además
 //de una destructora virtual, un atributo con un puntero al juego y un constructor protegido que reciba ese
 //puntero.
+

@@ -12,6 +12,7 @@
 #include <string>
 #include <memory>
 #include <random>
+#include <list>
 #include "Vehiculo.h"
 #include "Log.h"
 #include "Frog.h"
@@ -70,10 +71,38 @@ public:
 		NUM_TEXTURES
 	};
 
+
+public:
+
+	using Anchor = std::list<SceneObject*>::iterator;
+
+	Game();
+	~Game();
+
+	// Obtiene una textura por su nombre
+	Texture* getTexture(TextureName name) const;
+
+	
+
+	void manageWasps();
+	void loadMap();
+	void addObject(SceneObject* obj);
+	void deleteAfter(Anchor a); // llamado por un objeto al morir
+
+	// Ejecuta el bucle principal del juego
+	void run();
+
+	int getRandomRange(int min, int max);
+
+	// Comprueba si hay algún objeto colocado en ese rectángulo
+	Collision checkCollision(const SDL_FRect& rect) const;
+
 private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	std::array<Texture*, NUM_TEXTURES> textures;
+
+
 
 	// Elementos del juego
 	std::vector<Vehiculo*> coches;
@@ -91,28 +120,21 @@ private:
 	void render() const;
 	void update();
 	void handleEvents();
-	
+
 	bool exit;
 
-public:
-	Game();
-	~Game();
 
-	// Obtiene una textura por su nombre
-	Texture* getTexture(TextureName name) const;
+	std::list<SceneObject*> m_objects;
+	std::list<Anchor> m_toDelete; // anchors a borrar al final de update
 
-	void manageWasps();
-	void loadMap();
+	// recursos (texturas)
+	// map<string, SDL_Texture*> m_textures; // opcional
+	// path del mapa
+	std::string m_mapFile;
 
-	// Ejecuta el bucle principal del juego
-	void run();
+	// frog pointer por conveniencia (se puede buscar en m_objects)
+	SceneObject* m_frogObj;
 
-	int getRandomRange(int min, int max);
-
-	// Comprueba si hay algún objeto colocado en ese rectángulo
-	Collision checkCollision(const SDL_FRect& rect) const;
-
-	
 };
 
 inline Texture*

@@ -285,3 +285,13 @@ Game::manageWasps() {
 		wasps.pop_back();
 	}
 }
+
+void Game::addObject(SceneObject* obj) {
+	m_objects.push_back(obj);
+	// si es avispa, necesita su Anchor
+	auto it = m_objects.end();
+	--it;
+	// intentaremos downcast seguro en tiempo de ejecución
+	Wasp* w = dynamic_cast<Wasp*>(obj);
+	if (w) w->setAnchor(it);
+}

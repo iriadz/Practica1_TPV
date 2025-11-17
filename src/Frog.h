@@ -3,17 +3,18 @@
 #include "texture.h"
 #include "Vector2D.h"
 class Game;
-class Frog
+class Frog : public SceneObject
 {
 public:
-    Frog() { }
     Frog(Game* g, Texture* t, Point2D p);
 
     //Constructora por lectura de archivo
     Frog(Game* g, std::istream& in);
+    Frog(Game* game, const SDL_FRect& rect, Texture* tex = nullptr);
+    virtual ~Frog();
 
-    void render();
-    void update();
+    virtual void update(float dt) override;
+    virtual void render(SDL_Renderer* renderer) const override;
     void handleEvent(const SDL_Event&);
     void loseLife();
     void resetPosition();

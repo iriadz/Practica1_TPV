@@ -3,25 +3,25 @@
 #include "texture.h"
 #include "vector2D.h"
 #include "Collision.h"
+#include "Platform.h"
+
 
 class Game;
 
-class Turtles
+class Turtles : public Platform
 {
 public:
-	Turtles(Game* j, Texture* t, Point2D p, Vector2D<int> v);
-
+	Turtles(Game* game, const SDL_FRect& rect, Vector2D<float> vx, Texture* tex = nullptr);
+	virtual ~Turtles();
 	//Constructora por lectura de archivo
 	Turtles(Game* j, std::istream& in);
-	void render()const;
-	void update();
-	Collision checkCollision(const SDL_FRect& ref);
+	virtual void update(float dt) override;
+	virtual void render(SDL_Renderer* renderer) const override;
+
+	bool isSunk() const { return estado==5; }
+	virtual Collision checkCollision(const SDL_FRect& ref) const override;
 
 private:
-	Game* juego;
-	Texture* textura;
-	Point2D posicion;
-	Vector2D<int> velocidad;
 	int estado;
-	float tiempoEstado;
+	float m_sinkingPeriod;
 };

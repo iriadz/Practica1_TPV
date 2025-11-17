@@ -6,34 +6,21 @@
 #include <iostream>
 
 
-Frog::Frog(Game* g, Texture* t, Point2D p) :
-    juego(g),
-    textura(t),
-    posicion(p),
-    vidas(3)
+
+
+Frog::Frog(Game* g, const SDL_FRect& rect, Texture* tex) : SceneObject(g, rect, tex), vidas(0), sprite(0), angle(0)
 {
-    sprite = 0;
-    angle = 0; 
-    lastPosition = posicion;
+    posicion = { rect.x, rect.y };
 }
 
+Frog::~Frog() {}
 
-Frog::Frog(Game* g, std::istream& in) : juego(g) {
-    int x, y;
-     direccion = Point2D(0, 0);
-    in >> x >> y;
-    posicion = Point2D(x, y);
-    textura = juego->getTexture(juego->FROG);
-    vidas = 3;
-    sprite = 0;
-    angle = 0;
-}
-void Frog::render() {
+void Frog::render(SDL_Renderer* renderer) const {
     SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
     textura->renderFrame(rana, 0, sprite, angle);
 }
 
-void Frog::update() {
+void Frog::update(float dt) {
     SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
     Collision col = juego->checkCollision(rana);
 
@@ -50,7 +37,11 @@ void Frog::update() {
     if (col.tipo == HOME) {
         resetPosition();
     }
-    else if (col.tipo == PLATFORM) posicion = posicion + col.velocidad;
+    else if (col.tipo == PLATFORM) { 
+        int p;
+        p = col.velocidad.getX();
+        posicion = posicion +  Point2D(p, 0); 
+    }
     else if (col.tipo == ENEMY) {
         loseLife();
     }

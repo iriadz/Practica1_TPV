@@ -7,8 +7,8 @@ struct Collision
 {
 public:
 	Type tipo;
-	Vector2D<int> velocidad;
-	Collision(Type t, Vector2D<int> v): tipo(t), velocidad(v) { }
-	Collision(): tipo(ENEMY), velocidad(Vector2D<int>(0,0)) { }
+	Vector2D<float> velocidad;
+	Collision(Type t, Vector2D<float> v): tipo(t), velocidad(v) { }
+	Collision(): tipo(ENEMY), velocidad(Vector2D<float>(0,0)) { }
 };
 
