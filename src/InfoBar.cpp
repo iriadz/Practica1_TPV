@@ -1,4 +1,5 @@
 ﻿#include "InfoBar.h"
+#include "GameObject.h"
 
 InfoBar::InfoBar(Game* g): GameObject(g), numVidas(3)
 {
@@ -16,7 +17,7 @@ void InfoBar::render() const
 
 void InfoBar::update(float dt)
 {
-
+	return;
 }
 
 void InfoBar::setLives(int n)

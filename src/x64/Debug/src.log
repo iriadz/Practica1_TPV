@@ -1,388 +1,296 @@
-﻿  Crosser.cpp
+﻿  Collision.cpp
+  Crosser.cpp
   Frog.cpp
   game.cpp
+  GameError.cpp
   GameObject.cpp
   HomedFrog.cpp
   InfoBar.cpp
   Log.cpp
   main.cpp
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.h(8,28): error C2504: 'GameObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.h(11,17): error C2061: error de sintaxis: identificador 'Game'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.h(14,18): error C3668: 'SceneObject::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.h(15,18): error C3668: 'SceneObject::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Crosser.h(10,13): error C2061: error de sintaxis: identificador 'Game'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(7,23): error C2504: 'GameObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(13,7): error C3668: 'InfoBar::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(14,7): error C3668: 'InfoBar::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Vehiculo.h(9,25): error C2504: 'Crosser': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Vehiculo.h(13,8): error C2653: 'Crosser': no es un nombre de clase o espacio de nombres
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Vehiculo.h(13,2): error C2873: 'Crosser': el símbolo no se puede utilizar en una declaración using
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.h(7,25): error C2504: 'Crosser': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.h(9,10): error C2653: 'Crosser': no es un nombre de clase o espacio de nombres
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.h(9,4): error C2873: 'Crosser': el símbolo no se puede utilizar en una declaración using
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.h(11,23): error C3668: 'Platform::checkCollision': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.h(6,21): error C2504: 'SceneObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.h(16,18): error C3668: 'Frog::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.h(17,18): error C3668: 'Frog::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.h(7,26): error C2504: 'SceneObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.h(21,18): error C3668: 'HomedFrog::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.h(22,18): error C3668: 'HomedFrog::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(7,23): error C2504: 'GameObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(13,7): error C3668: 'InfoBar::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(14,7): error C3668: 'InfoBar::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(19,15): error C3668: 'Turtles::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(20,15): error C3668: 'Turtles::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,22): error C2065: 'SceneObject': identificador no declarado
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,34): error C2760: error de sintaxis: ">" no se esperaba aquí; se esperaba "expresión"
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,37): error C2039: "iterator": no es un miembro de "`global namespace'"
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,37): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(76,12): error C2065: 'SceneObject': identificador no declarado
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(76,24): error C2059: error de sintaxis: '>'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(91,17): error C2061: error de sintaxis: identificador 'SceneObject'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(92,19): error C2061: error de sintaxis: identificador 'It'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Vehiculo.h(9,25): error C2504: 'Crosser': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Vehiculo.h(13,8): error C2653: 'Crosser': no es un nombre de clase o espacio de nombres
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Vehiculo.h(13,2): error C2873: 'Crosser': el símbolo no se puede utilizar en una declaración using
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.h(6,21): error C2504: 'SceneObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.h(16,18): error C3668: 'Frog::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.h(17,18): error C3668: 'Frog::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.h(7,26): error C2504: 'SceneObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.h(21,18): error C3668: 'HomedFrog::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.h(22,18): error C3668: 'HomedFrog::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(7,23): error C2504: 'GameObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(13,7): error C3668: 'InfoBar::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(14,7): error C3668: 'InfoBar::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(11,24): error C2504: 'Platform': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(19,15): error C3668: 'Turtles::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(20,15): error C3668: 'Turtles::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(23,20): error C3668: 'Turtles::checkCollision': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,22): error C2065: 'SceneObject': identificador no declarado
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,34): error C2760: error de sintaxis: ">" no se esperaba aquí; se esperaba "expresión"
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,37): error C2039: "iterator": no es un miembro de "`global namespace'"
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,37): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(76,12): error C2065: 'SceneObject': identificador no declarado
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(76,24): error C2059: error de sintaxis: '>'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(91,17): error C2061: error de sintaxis: identificador 'SceneObject'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(92,19): error C2061: error de sintaxis: identificador 'It'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,12): error C2065: 'It': identificador no declarado
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,7): error C2923: 'std::list': 'It' no es un argumento de tipo plantilla válido para el parámetro '_Ty'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,7): error C2976: "std::list": no hay suficientes argumentos de plantilla
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,37): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,37): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,37): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,37): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,37): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,37): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,37): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,37): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,34): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,34): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,34): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,34): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,54): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,54): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,54): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,54): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,34): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,34): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,34): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,34): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,34): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,54): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,54): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,54): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,54): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,51): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,51): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,51): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,51): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,51): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,80): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,51): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,51): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,51): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,51): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,51): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,80): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,77): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,107): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,77): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,104): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(26,107): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(11,104): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,37): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,37): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,37): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,37): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,37): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,37): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,37): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,37): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,34): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,34): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,34): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,34): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,54): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,54): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,54): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,54): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.cpp(12,24): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,34): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,34): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,34): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,34): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,34): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,54): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,54): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,54): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,54): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,16): error C2955: 'std::list': el uso de clase plantilla requiere una lista de argumentos de plantilla
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.cpp(12,24): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,50): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,50): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,50): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,50): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,50): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,80): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.cpp(12,63): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,50): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,50): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,50): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,50): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,50): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,80): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.cpp(12,63): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,76): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,107): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,76): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(31,107): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,103): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.cpp(12,90): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.cpp(12,90): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(49,31): warning C4244: '=': conversión de 'const T' a 'int'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(49,31): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(49,31): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(49,31): warning C4244:             T=float
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(49,31): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.cpp(33,103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.cpp(17,15): error C2084: la función 'void InfoBar::update(float)' ya tiene un cuerpo
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.cpp(149,52): warning C4244: 'argumento': conversión de 'uint64_t' a 'Uint32'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Crosser.cpp(11,28): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,37): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,37): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,37): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,37): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,37): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,37): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,37): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,37): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,54): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,54): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,54): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,54): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,54): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,54): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,54): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,54): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,83): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,83): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,111): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.cpp(112,111): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
   Platform.cpp
   SceneObject.cpp
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,12): error C2065: 'It': identificador no declarado
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,7): error C2923: 'std::list': 'It' no es un argumento de tipo plantilla válido para el parámetro '_Ty'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,7): error C2976: "std::list": no hay suficientes argumentos de plantilla
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,16): error C2955: 'std::list': el uso de clase plantilla requiere una lista de argumentos de plantilla
+  texture.cpp
   Turtles.cpp
   Vehiculo.cpp
   Wasp.cpp
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Vehiculo.h(9,25): error C2504: 'Crosser': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Vehiculo.h(13,8): error C2653: 'Crosser': no es un nombre de clase o espacio de nombres
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Vehiculo.h(13,2): error C2873: 'Crosser': el símbolo no se puede utilizar en una declaración using
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Log.h(32,20): error C2504: 'Platform': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Log.h(34,11): error C2653: 'Platform': no es un nombre de clase o espacio de nombres
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Log.h(34,5): error C2873: 'Platform': el símbolo no se puede utilizar en una declaración using
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.h(6,21): error C2504: 'SceneObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.h(16,18): error C3668: 'Frog::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.h(17,18): error C3668: 'Frog::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.h(7,26): error C2504: 'SceneObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.h(21,18): error C3668: 'HomedFrog::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.h(22,18): error C3668: 'HomedFrog::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(7,23): error C2504: 'GameObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(13,7): error C3668: 'InfoBar::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(14,7): error C3668: 'InfoBar::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(11,24): error C2504: 'Platform': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(19,15): error C3668: 'Turtles::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(20,15): error C3668: 'Turtles::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(23,20): error C3668: 'Turtles::checkCollision': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,22): error C2065: 'SceneObject': identificador no declarado
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,34): error C2760: error de sintaxis: ">" no se esperaba aquí; se esperaba "expresión"
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,37): error C2039: "iterator": no es un miembro de "`global namespace'"
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,37): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(76,12): error C2065: 'SceneObject': identificador no declarado
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(76,24): error C2059: error de sintaxis: '>'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(91,17): error C2061: error de sintaxis: identificador 'SceneObject'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(92,19): error C2061: error de sintaxis: identificador 'It'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Wasp.cpp(10,58): warning C4244: 'inicializando': conversión de 'Uint64' a 'int'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,12): error C2065: 'It': identificador no declarado
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,7): error C2923: 'std::list': 'It' no es un argumento de tipo plantilla válido para el parámetro '_Ty'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Crosser.h(7,24): error C2504: 'SceneObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,7): error C2976: "std::list": no hay suficientes argumentos de plantilla
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Crosser.h(10,13): error C2061: error de sintaxis: identificador 'Game'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Crosser.h(13,18): error C3668: 'Crosser::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,16): error C2955: 'std::list': el uso de clase plantilla requiere una lista de argumentos de plantilla
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.h(11,23): error C3668: 'Platform::checkCollision': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.h(6,21): error C2504: 'SceneObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,33): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.h(16,18): error C3668: 'Frog::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,33): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,49): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,49): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Frog.h(17,18): error C3668: 'Frog::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,75): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,75): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,102): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Platform.cpp(6,102): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.h(7,26): error C2504: 'SceneObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.h(21,18): error C3668: 'HomedFrog::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\HomedFrog.h(22,18): error C3668: 'HomedFrog::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(7,23): error C2504: 'GameObject': clase base sin definir
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(13,7): error C3668: 'InfoBar::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\InfoBar.h(14,7): error C3668: 'InfoBar::update': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(20,15): error C3668: 'Turtles::render': el método con el especificador de invalidación 'override' no invalidó ningún método de clase base
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,22): error C2065: 'SceneObject': identificador no declarado
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,34): error C2760: error de sintaxis: ">" no se esperaba aquí; se esperaba "expresión"
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,37): error C2039: "iterator": no es un miembro de "`global namespace'"
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(36,37): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(76,12): error C2065: 'SceneObject': identificador no declarado
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(76,24): error C2059: error de sintaxis: '>'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(91,17): error C2061: error de sintaxis: identificador 'SceneObject'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(92,19): error C2061: error de sintaxis: identificador 'It'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(7,74): warning C4244: 'inicializando': conversión de 'Uint64' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(30,33): warning C4244: '=': conversión de 'Uint64' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,40): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,40): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,64): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,64): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,64): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,64): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,64): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,64): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,64): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,64): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,64): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,64): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,90): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,90): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,117): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(39,117): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,33): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,33): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,33): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,33): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,33): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,33): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,33): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,33): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,33): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,33): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,49): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,49): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,49): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,49): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,49): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,49): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,49): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,49): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,49): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,49): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,71): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,71): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,94): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.cpp(49,94): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\Turtles.h(18,2): error C2535: 'Turtles::Turtles(Game *,std::istream &)': función miembro ya definida o declarada
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(30,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,12): error C2065: 'It': identificador no declarado
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,7): error C2923: 'std::list': 'It' no es un argumento de tipo plantilla válido para el parámetro '_Ty'
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,7): error C2976: "std::list": no hay suficientes argumentos de plantilla
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\game.h(128,16): error C2955: 'std::list': el uso de clase plantilla requiere una lista de argumentos de plantilla
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4838:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4838:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4838:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4838:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4244:         with
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4244:         [
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4244:             T=int
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4244:         ]
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,76): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,76): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,103): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(18,103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario_local\source\repos\Practica1_TPV\src\SceneObject.cpp(33,60): error C2102: '&' necesita valor L
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\game.h(24,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
+  (compilando archivo de origen "InfoBar.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "Vehiculo.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "game.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\InfoBar.cpp(13,24): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\InfoBar.cpp(13,24): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\InfoBar.cpp(13,63): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\InfoBar.cpp(13,63): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\InfoBar.cpp(13,90): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\InfoBar.cpp(13,90): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\game.h(24,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
+  (compilando archivo de origen "HomedFrog.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "SceneObject.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,34): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,50): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,76): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,76): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,103): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(18,103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "Log.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\game.cpp(152,52): warning C4244: 'argumento': conversión de 'uint64_t' a 'Uint32'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "Frog.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,80): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,80): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,107): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,107): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "Platform.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,80): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,80): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,107): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,107): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(50,31): warning C4244: '=': conversión de 'const T' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(50,31): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(50,31): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(50,31): warning C4244:             T=float
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(50,31): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,51): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,51): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,51): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,51): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,51): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,51): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,51): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,51): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,51): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,51): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,77): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,77): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,75): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,104): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,75): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,104): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,102): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,102): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,34): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,34): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,34): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,34): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,34): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,34): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,34): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,34): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,34): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,50): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,50): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,50): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,50): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,50): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,50): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,50): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,50): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,50): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,50): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,76): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,76): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,103): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,83): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "Crosser.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,83): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,111): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,111): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Crosser.cpp(11,28): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "Turtles.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(7,74): warning C4244: 'inicializando': conversión de 'Uint64' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(30,33): warning C4244: '=': conversión de 'Uint64' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,40): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,40): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,64): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,64): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,64): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,64): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,64): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,64): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,64): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,64): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,64): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,64): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,90): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,90): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,117): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(39,117): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,33): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,33): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,33): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,33): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,33): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,33): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,33): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,33): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,33): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,33): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,49): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,49): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,49): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,49): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,49): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,49): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,49): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,49): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,49): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,49): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,71): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,71): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,94): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(49,94): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "Wasp.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Wasp.cpp(10,58): warning C4244: 'inicializando': conversión de 'Uint64' a 'int'; posible pérdida de datos
+  src.vcxproj -> C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\bin\srcDebug.exe

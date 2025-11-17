@@ -16,6 +16,10 @@ bool Wasp::isAlive() const {
     return SDL_GetTicks() >= tiempoVidaMax;
 }
 
+void Wasp::update(float dt) {
+
+}
+
 ////detectar colisiones(bool checkCollision(const SDL_FRect&)).
 //Collision Wasp::checkCollision(const SDL_FRect& ref)
 //{

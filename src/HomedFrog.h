@@ -1,8 +1,9 @@
 ﻿#pragma once
-#include "game.h"
 #include "texture.h"
 #include "Vector2D.h"
 #include "Collision.h"
+#include "SceneObject.h"
+class Game;
 
 class HomedFrog : public SceneObject
 {
@@ -16,7 +17,7 @@ public:
     //Constructora por lectura de archivo
     HomedFrog(Game* g);
     // Frog(Game* game, const SDL_FRect& rect, Texture* tex = nullptr);
-    virtual ~HomedFrog();
+    virtual ~HomedFrog() = default;
 
     virtual void update(float dt) override;
     virtual void render() const override;

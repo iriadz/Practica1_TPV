@@ -12,10 +12,10 @@ class Turtles : public Platform
 {
 public:
 	//Turtles(Game* game, const SDL_FRect& rect, Vector2D<float> vx, Texture* tex = nullptr);
+	//Constructora por lectura de archivo
 	Turtles(Game* game, std::istream& is);
 	virtual ~Turtles();
-	//Constructora por lectura de archivo
-	Turtles(Game* j, std::istream& in);
+	
 	virtual void update(float dt) override;
 	virtual void render() const override;
 

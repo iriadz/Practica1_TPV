@@ -13,13 +13,7 @@
 #include <memory>
 #include <random>
 #include <list>
-#include "Vehiculo.h"
-#include "Log.h"
-#include "Frog.h"
-#include "HomedFrog.h"
-#include "Collision.h"
-#include "InfoBar.h"
-#include "Turtles.h"
+
 
 // Declaraciones anticipadas
 class Texture;
@@ -31,6 +25,7 @@ class Collision;
 class Wasp;
 class InfoBar;
 class Turtles;
+class SceneObject;
 
 
 using It = std::list<SceneObject*>::iterator;

@@ -2,13 +2,13 @@
 #define SCENEOBJECT_H
 
 #include "GameObject.h"
-#include "COllision.h"
+#include "Collision.h"
 #include "texture.h"
 
 class SceneObject : public GameObject {
 public:
    /* SceneObject(Game* game, const SDL_FRect& rect, Texture* tex = nullptr);*/
-    SceneObject(Game* game); 
+    SceneObject(Game* game);
     virtual ~SceneObject();
 
     virtual void render() const override;

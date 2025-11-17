@@ -1,15 +1,20 @@
 ﻿#include "HomedFrog.h"
 #include "vector2D.h"
+#include "SceneObject.h"
 
 HomedFrog::HomedFrog(Game* g) : 
-		SceneObject(g),
-		ocupado(false)
-	{
-	textura = g->getTexture(g->FROG);
-	}
+	SceneObject(g),
+	ocupado(false)
+{
+textura = g->getTexture(g->FROG);
+}
 void HomedFrog::render() const {
 	SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
 	textura->renderFrame(rana, 0, 0);
+}
+
+void HomedFrog::update(float dt) {
+
 }
 
 bool HomedFrog::getOcupado() const {

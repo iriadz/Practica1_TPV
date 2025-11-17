@@ -3,6 +3,7 @@
 #include "game.h"
 #include "Collision.h"
 #include "Log.h"
+#include "SceneObject.h"
 #include <iostream>
 
 

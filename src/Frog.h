@@ -1,8 +1,8 @@
 ﻿#pragma once
-#include "game.h"
+#include "SceneObject.h"
 #include "texture.h"
 #include "Vector2D.h"
-class Game;
+#include "game.h"
 class Frog : public SceneObject
 {
 public:

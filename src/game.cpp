@@ -14,7 +14,10 @@
 #include "Wasp.h"
 #include "Log.h"
 #include "Frog.h"
+#include "HomedFrog.h"
 #include "Collision.h"
+#include "InfoBar.h"
+#include "Turtles.h"
 
 using namespace std;
 

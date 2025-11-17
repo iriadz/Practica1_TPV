@@ -29,8 +29,9 @@ SceneObject::checkCollision(const SDL_FRect& other) const {
    // SDL_FRect b = other;
    // bool ch = !(a.x + a.w <= b.x || b.x + b.w <= a.x || a.y + a.h <= b.y || b.y + b.h <= a.y);*/
    
+    SDL_FRect _rect = getBoundingBox();
         
-   if (SDL_HasRectIntersectionFloat(&other, &getBoundingBox())) {
+    if (SDL_HasRectIntersectionFloat(&other, &_rect)) {
         Collision col(ENEMY, Vector2D<float>(0, 0));
         return col;
     }
