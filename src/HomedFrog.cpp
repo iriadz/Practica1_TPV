@@ -1,7 +1,8 @@
 ﻿#include "HomedFrog.h"
 #include "vector2D.h"
 
-void HomedFrog::render() {
+
+void HomedFrog::render() const {
 	SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
 	textura->renderFrame(rana, 0, 0);
 }
@@ -18,7 +19,7 @@ void HomedFrog::onOcupar() {
 	ocupado = true;
 }
 
-Collision HomedFrog::checkCollision(const SDL_FRect& ref)
+ Collision HomedFrog::checkCollision(const SDL_FRect& ref) const
 {
 	SDL_FRect home = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
 	//return ;

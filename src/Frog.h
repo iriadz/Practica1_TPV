@@ -6,11 +6,11 @@ class Game;
 class Frog : public SceneObject
 {
 public:
-    Frog(Game* g, Texture* t, Point2D p);
+  /*  Frog(Game* g, Texture* t, Point2D p);*/
 
     //Constructora por lectura de archivo
     Frog(Game* g, std::istream& in);
-    Frog(Game* game, const SDL_FRect& rect, Texture* tex = nullptr);
+   // Frog(Game* game, const SDL_FRect& rect, Texture* tex = nullptr);
     virtual ~Frog();
 
     virtual void update(float dt) override;
@@ -22,12 +22,8 @@ public:
     Point2D getPosition() const;
     SDL_FRect frogHitbox() const;
 private:
-    Game* juego = nullptr;         // Referencia al juego principal
-    Texture* textura = nullptr;    // Textura de la rana
-    Point2D posicion;    // Posición actual (en píxeles)
     Point2D direccion;   // Dirección actual del movimiento
     int vidas;           // Vidas restantes
-    Point2D lastPosition;
     int sprite;
     int angle; 
 };

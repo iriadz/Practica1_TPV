@@ -8,14 +8,16 @@
 
 
 
-Frog::Frog(Game* g, const SDL_FRect& rect, Texture* tex) : SceneObject(g, rect, tex), vidas(0), sprite(0), angle(0)
-{
-    posicion = { rect.x, rect.y };
-}
+//Frog::Frog(Game* g, const SDL_FRect& rect, Texture* tex) : SceneObject(g, rect, te), vidas(0), sprite(0), angle(0)
+//{
+//    posicion = { rect.x, rect.y };
+//}
 
-Frog::Frog(Game* g, std::istream& is) : SceneObject(g, rect, tex), vidas(0), sprite(0), angle(0)
+Frog::Frog(Game* g, std::istream& is) : SceneObject(g), vidas(0), sprite(0), angle(0)
 {
-    posicion = { rect.x, rect.y };
+    int x, y, tipo;
+    is >> x >> y >> tipo;
+    posicion = Point2D((int)x, (int)y);
 }
 
 Frog::~Frog() {}
@@ -27,8 +29,8 @@ void Frog::render() const {
 
 void Frog::update(float dt) {
     SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
-    Collision col = juego->checkCollision(rana);
-
+   /* Collision col = game->checkCollision(rana);*/
+    Collision col = Collision(NONE, Vector2D<float>(0.0, 0.0));
     // Actualiza la posicion
     posicion = posicion + direccion * 32;
 
@@ -36,7 +38,7 @@ void Frog::update(float dt) {
     direccion = Point2D(0, 0); 
     
     // Mata a la rana si se sale de los bordes
-    if (posicion.getX() < 0 || posicion.getX() > juego->WINDOW_WIDTH || posicion.getY() < 0 || posicion.getY() > juego->WINDOW_HEIGHT) loseLife();
+    if (posicion.getX() < 0 || posicion.getX() > game->WINDOW_WIDTH || posicion.getY() < 0 || posicion.getY() > game->WINDOW_HEIGHT) loseLife();
 
     // Update dependiendo del tipo de colision
     if (col.tipo == HOME) {
