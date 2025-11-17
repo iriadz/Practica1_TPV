@@ -4,26 +4,14 @@
 #include "Vector2D.h"
 #include "Collision.h"
 
-class Wasp
+class Wasp: public SceneObject
 {
 public:
-    Wasp() {}
-    Wasp(Game* g, Texture* t, Point2D p, int v) :
-        juego(g),
-        textura(t),
-        posicion(p),
-        tiempoVidaMax(SDL_GetTicks() + v)
-    { }
-
-    void render();
+    Wasp(Game* g, int v);
+    virtual ~Wasp() = default;
+    //void render();
     bool isAlive() const;
-    Collision checkCollision(const SDL_FRect&);
-    
-
+   /* Collision checkCollision(const SDL_FRect&);*/
 private:
-    Game* juego;         // Referencia al juego principal
-    Texture* textura;    // Textura de la rana
-    Point2D posicion;    // Posición actual (en píxeles)
-   
     int tiempoVidaMax;
 };

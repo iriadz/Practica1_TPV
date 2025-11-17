@@ -1,15 +1,20 @@
 ﻿#include "InfoBar.h"
 
-InfoBar::InfoBar(Texture* t, int n) : textura(t), numVidas(n)
+InfoBar::InfoBar(Game* g): SceneObject(g), numVidas(3)
 {
 
 }
 
-void InfoBar::render(int lives)
+void InfoBar::render() const
 {
-	for (int i = 0; i < lives; i++)
+	for (int i = 0; i < numVidas; i++)
 	{
 		SDL_FRect rana = {10 + (i * 30),440 , textura->getFrameWidth(), textura->getFrameHeight()};
 		textura->renderFrame(rana, 0, 0);
 	}
+}
+
+void InfoBar::setLives(int n)
+{
+	numVidas = n;
 }
