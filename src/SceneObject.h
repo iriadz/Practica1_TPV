@@ -3,6 +3,7 @@
 
 #include "GameObject.h"
 #include "COllision.h"
+#include "texture.h"
 
 class SceneObject : public GameObject {
 public:
@@ -18,13 +19,12 @@ public:
 
     // acceso
     const SDL_FRect& getRect() const { return rect; }
-    void setTexture(Texture* t) { textura = t; }
+   
 
 protected:
     SDL_FRect rect;
-    Texture* textura;
     Point2D posicion;
-
+    Texture* textura;
     virtual SDL_FRect getBoundingBox() const;
 };
 

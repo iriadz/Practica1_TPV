@@ -89,9 +89,9 @@ Game::Game()
 
 Game::~Game()
 {
-	/*for (SceneObject* s )*/
+	for (SceneObject* so : sceneObjects) delete so;
 	if (renderer) SDL_DestroyRenderer(renderer);
-	//igual window
+	if (window) SDL_DestroyWindow(window);
 	SDL_Quit();
 }
 
@@ -103,19 +103,10 @@ Game::render() const
 
 	textures[1]->render(); // fondo
 
-	/*for (int i = 0; i < coches.size(); i++) coches[i]->render();
-
-	for (int i = 0; i < troncos.size(); i++) troncos[i]->render();
-
-	for (int i = 0; i < homedFrogs.size(); i++) if (homedFrogs[i]->getOcupado()) { homedFrogs[i]->render(); }
-
-	for (int i = 0; i < wasps.size(); i++) wasps[i]->render();
-
-	for (int i = 0; i < tortugas.size(); i++) tortugas[i]->render();
-
-	frog->render();*/
-
-	infoBar->render(frog->getLifes());
+	for (SceneObject* so : sceneObjects) so->render();
+	
+	infoBar->setLives(frog->getLifes());
+	infoBar->render();
 
 	
 
@@ -233,8 +224,8 @@ Game::loadMap() {
 	while (file >> id) {
 		//if (id == '#') { file.ignore(11, '\n'); }
 		if (id == 'F') {
-			Frog* f = new Frog(this, file);
-			sceneObjects.push_back(f);
+			frog = new Frog(this, file);
+			sceneObjects.push_back(frog);
 		}
 		else if (id == 'V') { 
 			sceneObjects.push_back(new Vehiculo(this, file));
@@ -257,7 +248,7 @@ Game::loadMap() {
 	}
 
 	
-	InfoBar* i = new InfoBar(this);
+	infoBar = new InfoBar(this);
 
 	
 }
@@ -272,7 +263,7 @@ Game::manageWasps() {
 		}
 		Point2D p;
 		p = p + homedFrogs[i]->getPos();
-		wasps.push_back(new Wasp(this, getRandomRange(1000, 3000))); // Crea una avispa en posicion aleatoria
+		sceneObjects.push_back(new Wasp(this, getRandomRange(1000, 3000))); // Crea una avispa en posicion aleatoria
 																					  // con duracion aleatoria entre 1 y 3 secs
 	}
 	else if (wasps[0]->isAlive()) {
@@ -282,9 +273,9 @@ Game::manageWasps() {
 }
 
 void Game::addObject(SceneObject* obj) {
-	m_objects.push_back(obj);
+	sceneObjects.push_back(obj);
 	// si es avispa, necesita su Anchor
-	auto it = m_objects.end();
+	auto it = sceneObjects.end();
 	--it;
 	// intentaremos downcast seguro en tiempo de ejecución
 	/*Wasp* w = dynamic_cast<Wasp*>(obj);

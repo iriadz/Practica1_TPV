@@ -1,8 +1,8 @@
 ﻿#include "InfoBar.h"
 
-InfoBar::InfoBar(Game* g): SceneObject(g), numVidas(3)
+InfoBar::InfoBar(Game* g): GameObject(g), numVidas(3)
 {
-	g->getTexture(g->FROG);
+	textura = g->getTexture(g->FROG);
 }
 
 void InfoBar::render() const

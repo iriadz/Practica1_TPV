@@ -24,5 +24,7 @@ public:
 
 private:
 	int estado;
+	int n;
+	int hundir;
 	float m_sinkingPeriod;
 };

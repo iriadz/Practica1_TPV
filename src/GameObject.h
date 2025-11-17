@@ -13,8 +13,8 @@ public:
     virtual ~GameObject() = default;
 
     // render debe ser const según enunciado
-    virtual void render() const;
-    virtual void update(float dt);
+    virtual void render() const = 0;
+    virtual void update(float dt) = 0;
 
 protected:
     Game* game;

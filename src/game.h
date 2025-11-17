@@ -32,9 +32,9 @@ class Wasp;
 class InfoBar;
 class Turtles;
 
-/**
- * Clase principal del juego.
- */
+
+using It = std::list<SceneObject*>::iterator;
+
 class Game
 {
 public:
@@ -74,7 +74,8 @@ public:
 
 public:
 	std::list<SceneObject*> sceneObjects;
-	using It = std::list<SceneObject*>::iterator;
+
+	
 	
 
 	Game();
@@ -124,17 +125,7 @@ private:
 
 	bool exit;
 
-
-	std::list<SceneObject*> m_objects;
 	std::list<It> m_toDelete; // anchors a borrar al final de update
-
-	// recursos (texturas)
-	// map<string, SDL_Texture*> m_textures; // opcional
-	// path del mapa
-	std::string m_mapFile;
-
-	// frog pointer por conveniencia (se puede buscar en m_objects)
-	SceneObject* m_frogObj;
 
 };
 

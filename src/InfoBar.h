@@ -10,12 +10,13 @@ public:
 	//InfoBar(Texture* t, int n);
 	
 	InfoBar(Game* g);
-	virtual void render() const override;
-	virtual void update(float dt) override;
+	void render() const override;
+	void update(float dt) override {};
 
 	void setLives(int n);
 
 private:
+	Texture* textura;
 	int numVidas;
 };
 

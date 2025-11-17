@@ -6,11 +6,13 @@
 //}
 Turtles::Turtles(Game* g, std::istream& is): Platform(g), m_sinkingPeriod(SDL_GetTicks()), estado(0)
 {
-	int x, y, tipo; float vel;
-	is >> x >> y >> vel >> tipo;
+	int x, y, num, hun; float vel;
+	is >> x >> y >> vel >> num >> hun;
 	posicion = Point2D((int)x, (int)y);
-	//velocidad = Vector2D<float>(vel, 0);ç
+	n = num;
+	hundir = hun;
 	velocidad = Vector2D<float>(vel, 0);
+	textura = g->getTexture(g->TURTLE);
 }
 
 
@@ -21,7 +23,7 @@ void Turtles::update(float dt){
 	Platform::update(dt);
 
 
-	if (SDL_GetTicks() >= m_sinkingPeriod + 400)
+	if (hundir == 1 && SDL_GetTicks() >= m_sinkingPeriod + 400)
 	{
 		if (estado != 6) estado++;
 		else estado = 0; 
@@ -32,7 +34,7 @@ void Turtles::update(float dt){
 void Turtles::render() const
 {
 	
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < n; i++)
 	{
 		SDL_FRect tronco = { posicion.getX() + (i * 31),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight()};
 		textura->renderFrame(tronco, 0, estado);
