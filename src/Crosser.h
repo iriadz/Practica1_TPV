@@ -6,7 +6,8 @@
 
 class Crosser : public SceneObject {
 public:
-    Crosser(Game* game, const SDL_FRect& rect, float vx, Texture* tex = nullptr);
+   // Crosser(Game* game, const SDL_FRect& rect, float vx, Texture* tex = nullptr);
+    Crosser(Game* g);
     virtual ~Crosser();
 
     virtual void update(float dt) override;

@@ -11,7 +11,8 @@ class Game;
 class Turtles : public Platform
 {
 public:
-	Turtles(Game* game, const SDL_FRect& rect, Vector2D<float> vx, Texture* tex = nullptr);
+	//Turtles(Game* game, const SDL_FRect& rect, Vector2D<float> vx, Texture* tex = nullptr);
+	Turtles(Game* game, std::istream& is);
 	virtual ~Turtles();
 	//Constructora por lectura de archivo
 	Turtles(Game* j, std::istream& in);

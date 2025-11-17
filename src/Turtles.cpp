@@ -1,9 +1,13 @@
 ﻿#include "Turtles.h"
 #include "Collision.h"
 
-Turtles::Turtles(Game* g, const SDL_FRect& rect, Vector2D<float> vx, Texture* tex): Platform(g, rect, vx.getX(), tex), m_sinkingPeriod(SDL_GetTicks()), estado(0)
+//Turtles::Turtles(Game* g, const SDL_FRect& rect, Vector2D<float> vx, Texture* tex): Platform(g, rect, vx.getX(), tex), m_sinkingPeriod(SDL_GetTicks()), estado(0)
+//{
+//}
+Turtles::Turtles(Game* g, std::istream& is): Platform(g), m_sinkingPeriod(SDL_GetTicks()), estado(0)
 {
 }
+
 
 Turtles::~Turtles() {}
 
@@ -36,7 +40,7 @@ Collision Turtles::checkCollision(const SDL_FRect& ref) const
 {
 	Texture* tex = game->getTexture(game->LOG2);
 	SDL_FRect log = { posicion.getX(),posicion.getY(), tex->getFrameWidth(), tex->getFrameHeight() };
-	//return ;
+	
 	if (SDL_HasRectIntersectionFloat(&ref, &log) && estado != 5) {
 		return Collision(PLATFORM, Vector2D<float>(velocidad.getX(), 0));
 		

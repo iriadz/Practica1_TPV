@@ -6,7 +6,8 @@
 
 class SceneObject : public GameObject {
 public:
-    SceneObject(Game* game, const SDL_FRect& rect, Texture* tex = nullptr);
+   /* SceneObject(Game* game, const SDL_FRect& rect, Texture* tex = nullptr);*/
+    SceneObject(Game* game); 
     virtual ~SceneObject();
 
     virtual void render() const override;

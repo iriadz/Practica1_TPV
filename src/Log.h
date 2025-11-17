@@ -32,7 +32,11 @@
 class Log : public Platform {
 public:
     using Platform::Platform;
+    Log(Game* g, std::istream& is);
     virtual ~Log() = default;
+
+private:
+    int tipo; 
 };
 
 #endif // LOG_H

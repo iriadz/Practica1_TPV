@@ -14,7 +14,7 @@ public:
     virtual ~Frog();
 
     virtual void update(float dt) override;
-    virtual void render(SDL_Renderer* renderer) const override;
+    virtual void render() const override;
     void handleEvent(const SDL_Event&);
     void loseLife();
     void resetPosition();
