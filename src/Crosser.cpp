@@ -15,17 +15,9 @@ Crosser::Crosser(Game* g)
 Crosser::~Crosser() {}
 
 void Crosser::update(float dt) {
-    // mover horizontalmente
-    rect.x += velocidad.getX() * dt;
+    posicion = posicion + Point2D(velocidad.getX()/20, velocidad.getY()/20);
 
-    // reaparecer si sale por un lado (ejemplo simple)
-    // usamos ancho de ventana desde Game
-   // int w = game->getWindowWidth();
-    int w = game->WINDOW_WIDTH;
-    if (velocidad.getX() > 0 && rect.x > w) {
-        rect.x = -rect.w + fmodf(rect.x - w, ancho + rect.w);
-    }
-    else if (velocidad.getX() < 0 && rect.x + rect.w < 0) {
-        rect.x = w + fmodf((rect.x + rect.w), ancho + rect.w);
-    }
+    //Recalcular posicion si llegan al limite
+//	if (posicion.getX() <= -150) posicion = posicion + Point2D(600, 0);
+    if (posicion.getX() >= 750) posicion = posicion - Point2D(game->WINDOW_WIDTH * 2, 0);
 }

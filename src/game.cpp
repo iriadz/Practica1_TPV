@@ -23,7 +23,7 @@ using namespace std;
 
 // Constantes
 constexpr const char* const WINDOW_TITLE = "Frogger 1.0";
-constexpr const char* const MAP_FILE = "../assets/maps/default.txt";
+constexpr const char* const MAP_FILE = "../assets/maps/Original.txt";
 
 uint64_t startTime, frameTime;
 
@@ -108,8 +108,8 @@ Game::render() const
 
 	for (SceneObject* so : sceneObjects) so->render();
 	
-	infoBar->setLives(frog->getLifes());
-	infoBar->render();
+	/*infoBar->setLives(frog->getLifes());
+	infoBar->render();*/
 
 	
 
@@ -119,6 +119,7 @@ Game::render() const
 void
 Game::update()
 {
+	for (SceneObject* so : sceneObjects) so->update(2.0f);
 	/*for (int i = 0; i < coches.size(); i++) coches[i]->update();
 
 	for (int i = 0; i < troncos.size(); i++) troncos[i]->update();
@@ -128,13 +129,13 @@ Game::update()
 	if (frog->getLifes() <= 0) {
 		exit = true;
 	}*/
-	int i = 0;
+	/*int i = 0;
 	while (i < HOMED_NUM - 1 && !homedFrogs[i]->getOcupado()) {
 		i++;
 	}
 	if (homedFrogs[i]->getOcupado() && i == HOMED_NUM - 1) {
 		exit = true;
-	}
+	}*/
 
 	/*for (int i = 0; i < tortugas.size(); i++) tortugas[i]->update();*/
 }
@@ -177,40 +178,42 @@ Game::handleEvents()
 Collision
 Game::checkCollision(const SDL_FRect& rect) const
 {
-	// TODO: cambiar el tipo de retorno a Collision e implementar
-	int i = 0, j = 0, k = 0, x = 0;
-	while (i < coches.size() && coches[i]->checkCollision(rect).tipo != ENEMY ) {
-		i++;
-	}
-	if (i < coches.size()) {
-		return coches[i]->checkCollision(rect);
-	}
 
-	while (k < homedFrogs.size() && homedFrogs[k]->checkCollision(rect).tipo != HOME) {
-		k++;
-	}
-	if (k < homedFrogs.size()) {
-		if (!homedFrogs[k]->getOcupado() && wasps[0]->checkCollision(rect).tipo != ENEMY) {
-			homedFrogs[k]->onOcupar();
-		}
-		return homedFrogs[k]->checkCollision(rect);
-	}
+	return Collision(NONE, Vector2D<float>(0, 0));
+	//// TODO: cambiar el tipo de retorno a Collision e implementar
+	//int i = 0, j = 0, k = 0, x = 0;
+	//while (i < coches.size() && coches[i]->checkCollision(rect).tipo != ENEMY ) {
+	//	i++;
+	//}
+	//if (i < coches.size()) {
+	//	return coches[i]->checkCollision(rect);
+	//}
 
-	while (x < tortugas.size() && tortugas[x]->checkCollision(rect).tipo != PLATFORM) {
+	//while (k < homedFrogs.size() && homedFrogs[k]->checkCollision(rect).tipo != HOME) {
+	//	k++;
+	//}
+	//if (k < homedFrogs.size()) {
+	//	if (!homedFrogs[k]->getOcupado() && wasps[0]->checkCollision(rect).tipo != ENEMY) {
+	//		homedFrogs[k]->onOcupar();
+	//	}
+	//	return homedFrogs[k]->checkCollision(rect);
+	//}
 
-		x++;
-	}
-	if (x < tortugas.size() && frog->getPosition().getY() < RIVER_LOW) {
+	//while (x < tortugas.size() && tortugas[x]->checkCollision(rect).tipo != PLATFORM) {
 
-		return tortugas[x]->checkCollision(rect);
-	}
+	//	x++;
+	//}
+	//if (x < tortugas.size() && frog->getPosition().getY() < RIVER_LOW) {
 
-	while (j < troncos.size() - 1 && troncos[j]->checkCollision(rect).tipo != PLATFORM) {
-		j++;
-	}
-	if (j < troncos.size() && frog->getPosition().getY() < RIVER_LOW) {
-		return troncos[j]->checkCollision(rect);
-	}
+	//	return tortugas[x]->checkCollision(rect);
+	//}
+
+	//while (j < troncos.size() - 1 && troncos[j]->checkCollision(rect).tipo != PLATFORM) {
+	//	j++;
+	//}
+	//if (j < troncos.size() && frog->getPosition().getY() < RIVER_LOW) {
+	//	return troncos[j]->checkCollision(rect);
+	//}
 
 	
 	return Collision(NONE, Vector2D<float>(0,0));
@@ -259,20 +262,20 @@ Game::loadMap() {
 //Carga los elementos en el mapa con valores dados por nosotros
 void
 Game::manageWasps() {
-	if (wasps.size() == 0) {
-		int i = getRandomRange(0, 4);
-		while (homedFrogs[i]->getOcupado()) {
-			i = getRandomRange(0, 4);
-		}
-		Point2D p;
-		p = p + homedFrogs[i]->getPos();
-		sceneObjects.push_back(new Wasp(this, getRandomRange(1000, 3000))); // Crea una avispa en posicion aleatoria
-																					  // con duracion aleatoria entre 1 y 3 secs
-	}
-	else if (wasps[0]->isAlive()) {
-		delete wasps[0];
-		wasps.pop_back();
-	}
+	//if (wasps.size() == 0) {
+	//	int i = getRandomRange(0, 4);
+	//	while (homedFrogs[i]->getOcupado()) {
+	//		i = getRandomRange(0, 4);
+	//	}
+	//	Point2D p;
+	//	p = p + homedFrogs[i]->getPos();
+	//	sceneObjects.push_back(new Wasp(this, getRandomRange(1000, 3000))); // Crea una avispa en posicion aleatoria
+	//																				  // con duracion aleatoria entre 1 y 3 secs
+	//}
+	//else if (wasps[0]->isAlive()) {
+	//	delete wasps[0];
+	//	wasps.pop_back();
+	//}
 }
 
 void Game::addObject(SceneObject* obj) {

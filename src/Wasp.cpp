@@ -9,7 +9,7 @@
 //}
 Wasp::Wasp(Game* g, int v): SceneObject(g), tiempoVidaMax(SDL_GetTicks() + v)
 {
-    g->getTexture(g->WASP);
+    textura = g->getTexture(g->WASP);
 }
 
 bool Wasp::isAlive() const {

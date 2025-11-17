@@ -7,8 +7,6 @@
 #include <iostream>
 
 
-
-
 //Frog::Frog(Game* g, const SDL_FRect& rect, Texture* tex) : SceneObject(g, rect, te), vidas(0), sprite(0), angle(0)
 //{
 //    posicion = { rect.x, rect.y };
@@ -19,6 +17,7 @@ Frog::Frog(Game* g, std::istream& is) : SceneObject(g), vidas(0), sprite(0), ang
     int x, y, tipo;
     is >> x >> y >> tipo;
     posicion = Point2D((int)x, (int)y);
+    textura = g->getTexture(g->FROG);
 }
 
 Frog::~Frog() {}
@@ -46,8 +45,7 @@ void Frog::update(float dt) {
         resetPosition();
     }
     else if (col.tipo == PLATFORM) { 
-        int p;
-        p = col.velocidad.getX();
+        int p; p = col.velocidad.getX();
         posicion = posicion +  Point2D(p, 0); 
     }
     else if (col.tipo == ENEMY) {

@@ -99,16 +99,8 @@ private:
 	SDL_Renderer* renderer;
 	std::array<Texture*, NUM_TEXTURES> textures;
 
-
-
-	// Elementos del juego
-	std::vector<Vehiculo*> coches;
-	std::vector<Log*> troncos;
 	Frog* frog;
-	std::vector<HomedFrog*> homedFrogs;
-	std::vector<Wasp*> wasps;
 	InfoBar* infoBar;
-	std::vector<Turtles*> tortugas;
 
 	//Generador numeros aleatorios
 	std::mt19937 generator;
