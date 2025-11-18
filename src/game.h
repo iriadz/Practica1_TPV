@@ -13,8 +13,9 @@
 #include <memory>
 #include <random>
 #include <list>
+#include <map>
 
-
+#include "Vector2D.h"
 // Declaraciones anticipadas
 class Texture;
 class Vehiculo;
@@ -68,7 +69,7 @@ public:
 
 
 public:
-	std::list<SceneObject*> sceneObjects;
+
 
 	
 	
@@ -112,12 +113,20 @@ private:
 	void reset();
 	void confirmReset();
 	void getArchiveLine();
+	void deleteWasps();
 
 	bool exit;
 	int line; 
 	std::string name = "../assets/maps/Original.txt";
+	std::list<SceneObject*> sceneObjects;
 	std::list<It> m_toDelete; // anchors a borrar al final de update
+	std::list<It> waspsDel; // anchors a borrar al final de update
+	float waspsSpawn = 3;
+	float nextWasp = 5;
 
+	
+	std::vector<std::pair<Vector2D<float>, bool>> homeFrogsPos;
+	
 };
 
 inline Texture*

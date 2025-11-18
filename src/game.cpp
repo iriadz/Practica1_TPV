@@ -81,10 +81,7 @@ Game::Game()
 		auto [name, nrows, ncols] = textureList[i];
 		textures[i] = new Texture(renderer, (string(imgBase) + name).c_str(), nrows, ncols);
 	}
-
-	//Cargar elementos -> rana, coches, troncos y avispas por archivo o a mano
-	//loadElems();
-
+	
 	loadMap();
 
 	// Configura que se pueden utilizar capas translúcidas
@@ -94,9 +91,19 @@ Game::Game()
 
 Game::~Game()
 {
-	for (SceneObject* so : sceneObjects) delete so;
+	delete infoBar;
+	delete frog;
+	//for (SceneObject* s : sceneObjects) {
+	//	delete s;
+	//}
+	
+	for (Texture* t : textures) {
+		delete t;
+	}
+
 	if (renderer) SDL_DestroyRenderer(renderer);
 	if (window) SDL_DestroyWindow(window);
+
 	SDL_Quit();
 }
 
@@ -122,7 +129,7 @@ Game::update()
 	for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->update(1.0f);
 	frog->update(1.0f);
 	infoBar->update(1.0f);
-	if (frog->getLifes() <= -10) {
+	if (frog->getLifes() <= 0) {
 		exit = true;
 	}
 
@@ -179,7 +186,7 @@ Game::checkCollision(const SDL_FRect& rect) const
 	return collision;
 }
 
-//Carga el mapa desde el archivo default, llamando a las constructoras correspondientes de cada elemento
+//Carga el mapa desde el archivo, llamando a las constructoras correspondientes de cada elemento
 void
 Game::loadMap() {
 	std::ifstream file; file.open(MAP_FILE);
@@ -213,7 +220,6 @@ Game::loadMap() {
 		sceneObjects.push_back(new HomedFrog(this));
 		pos = pos + Point2D(96, 0); // va al siguiente nenufar
 	}
-
 	
 	infoBar = new InfoBar(this);
 
@@ -237,6 +243,36 @@ Game::manageWasps() {
 	//	delete wasps[0];
 	//	wasps.pop_back();
 	//}
+	if (SDL_GetTicks() - waspsSpawn >= nextWasp)
+	{
+		waspsSpawn = SDL_GetTicks();
+		/*if (frog->getHomesReached() != Game::HOMED_NUM - 1)
+		{*/
+			// Genera nueva avispa
+			nextWasp = (float)getRandomRange(1000, 3000);
+			float lifeTime = (float)getRandomRange(1000, 3000);
+			bool encontrado = false;
+			int hf = getRandomRange(0, Game::HOMED_NUM - 1);
+
+			while (!encontrado)
+			{
+				if (!homeFrogsPos[hf].second) encontrado = true;
+				else {
+					hf++;
+					if (hf > Game::HOMED_NUM - 1) hf = 0;
+				}
+			}
+			Vector2D<float> pos = homeFrogsPos[hf].first;
+
+			pos = pos + Vector2D<float>(0, 4);
+			Vector2D<float> speed(0, 0);
+
+			sceneObjects.push_back(nullptr);  // reserva un hueco
+			It it = --sceneObjects.end();
+			*it = new Wasp(this, speed.getY());
+		//}
+		}
+
 }
 
 void Game::addObject(SceneObject* obj) {
@@ -244,7 +280,7 @@ void Game::addObject(SceneObject* obj) {
 	// si es avispa, necesita su Anchor
 	auto it = sceneObjects.end();
 	--it;
-	// intentaremos downcast seguro en tiempo de ejecución
+	
 	/*Wasp* w = dynamic_cast<Wasp*>(obj);
 	if (w) w->setAnchor(it);*/
 }
@@ -284,21 +320,21 @@ void Game::addObject(SceneObject* obj) {
 //}
 
 // Método para guardar los it de avispas a eliminar, para eliminar al terminar el update
-//void
-//Game::deleteAfter(It it) {
-//
-//	waspToDelete.push_back(it);
-//}
+void
+Game::deleteAfter(It it) {
 
-//void
-//Game::waspDelete()
-//{
-//	for (auto it : waspToDelete) {
-//		delete* it;             // primero liberar memoria
-//		sceneObjects.erase(it); // luego borrar de la lista
-//	}
-//	waspToDelete.clear();       // vaciar vector
-//}
+	waspsDel.push_back(it);
+}
+
+void
+Game::deleteWasps()
+{
+	for (auto it : waspsDel) {
+		delete* it;             
+		sceneObjects.erase(it);
+	}
+	waspsDel.clear();     
+}
 
 void
 Game::reset() {
