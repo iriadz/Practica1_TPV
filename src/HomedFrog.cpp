@@ -33,15 +33,13 @@ void HomedFrog::onOcupar() {
 }
 
 
- Collision HomedFrog::checkCollision(const SDL_FRect& ref) const
+Collision HomedFrog::checkCollision(const SDL_FRect& ref) const
 {
 	SDL_FRect home = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
 	//return ;
 	if (SDL_HasRectIntersectionFloat(&ref, &home)) {
-		Collision col(HOME, Vector2D<float>(0, 0));
-		return col;
+		return Collision (HOME, Vector2D<float>(0, 0));
 	}
 
 	return Collision(NONE, Vector2D<float>(0, 0));
-
 }

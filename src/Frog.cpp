@@ -29,10 +29,10 @@ void Frog::render() const {
 }
 
 void Frog::update(float dt) {
+    posicion = posicion + direccion * 32;
+
     SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
     Collision col = game->checkCollision(rana);
-
-    posicion = posicion + direccion * 32;
 
     // Reinicia la direccion a 0
     direccion = Point2D(0, 0); 
@@ -48,11 +48,12 @@ void Frog::update(float dt) {
         int p; p = col.velocidad.getX()/32;
         posicion = posicion +  Point2D(p, 0); 
     }
-
     else if (col.tipo == ENEMY) {
         loseLife();
     }
-   
+    else if (col.tipo == NONE && posicion.getY() < game->RIVER_LOW) {
+        loseLife();
+    }
 }
 
 void Frog::handleEvent(const SDL_Event& event) {
@@ -116,12 +117,6 @@ SDL_FRect Frog::frogHitbox() const {
 
 Collision
 Frog::checkCollision(const SDL_FRect& other) const {
-    SDL_FRect r = frogHitbox();
-    if (SDL_HasRectIntersectionFloat(&other, &r)) {
-        Collision col(ENEMY, Vector2D<float>(0, 0));
-        return col;
-    }
-
     return Collision(NONE, Vector2D<float>(0, 0));
 }
 

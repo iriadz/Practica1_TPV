@@ -108,7 +108,6 @@ private:
 	void reset();
 	void confirmReset();
 	void getArchiveLine();
-	void deleteWasps();
 
 	bool exit;
 	int line; 
@@ -116,6 +115,7 @@ private:
 	std::list<SceneObject*> sceneObjects;
 	std::list<It> m_toDelete; // anchors a borrar al final de update
 	std::list<It> waspsDel; // anchors a borrar al final de update
+	int numTotalObjects;
 	float waspsSpawn = 3;
 	float nextWasp = 5;
 

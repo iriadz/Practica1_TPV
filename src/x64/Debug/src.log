@@ -1,29 +1,19 @@
 ﻿  Collision.cpp
   Crosser.cpp
   Frog.cpp
+  game.cpp
   GameError.cpp
   GameObject.cpp
   HomedFrog.cpp
   InfoBar.cpp
   Log.cpp
+  main.cpp
   Platform.cpp
   SceneObject.cpp
+  texture.cpp
   Turtles.cpp
   Vehiculo.cpp
   Wasp.cpp
-  game.cpp
-  main.cpp
-  texture.cpp
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\game.h(25,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-  (compilando archivo de origen "InfoBar.cpp")
-      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
-      vea la declaración de 'Collision'
-  
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  (compilando archivo de origen "Log.cpp")
-      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
-      vea la declaración de 'Collision'
-  
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
   (compilando archivo de origen "Turtles.cpp")
       C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
@@ -52,11 +42,6 @@ C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(47,33): warnin
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(47,33): warning C4838:         [
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(47,33): warning C4838:             T=int
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(47,33): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  (compilando archivo de origen "Wasp.cpp")
-      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
-      vea la declaración de 'Collision'
-  
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(47,33): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(47,33): warning C4244:         with
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(47,33): warning C4244:         [
@@ -76,23 +61,122 @@ C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(47,71): warnin
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(47,71): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(47,94): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Turtles.cpp(47,94): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\game.h(25,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
+  (compilando archivo de origen "InfoBar.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "game.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\InfoBar.cpp(13,24): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\InfoBar.cpp(13,24): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\InfoBar.cpp(13,64): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\InfoBar.cpp(13,64): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\InfoBar.cpp(13,91): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\InfoBar.cpp(13,91): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "Wasp.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Wasp.cpp(10,58): warning C4244: 'inicializando': conversión de 'Uint64' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "SceneObject.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,76): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,76): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,103): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\game.cpp(143,52): warning C4244: 'argumento': conversión de 'uint64_t' a 'Uint32'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "Log.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,76): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,76): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,103): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,76): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,76): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,103): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
   (compilando archivo de origen "Crosser.cpp")
       C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
       vea la declaración de 'Collision'
   
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  (compilando archivo de origen "Platform.cpp")
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\game.h(25,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
+  (compilando archivo de origen "HomedFrog.cpp")
       C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
       vea la declaración de 'Collision'
   
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\game.cpp(217,37): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Crosser.cpp(11,28): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Crosser.cpp(19,72): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Crosser.cpp(19,72): warning C4244:         with
@@ -136,199 +220,6 @@ C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Crosser.cpp(28,76): warnin
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Crosser.cpp(28,76): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Crosser.cpp(28,103): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Crosser.cpp(28,103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,75): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,75): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,102): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,102): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  (compilando archivo de origen "SceneObject.cpp")
-      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
-      vea la declaración de 'Collision'
-  
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,34): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,50): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,76): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,76): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,103): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(19,103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,34): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,50): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,76): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,76): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,103): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(24,103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,34): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,50): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,76): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,76): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,103): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\SceneObject.cpp(30,103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  (compilando archivo de origen "Frog.cpp")
-      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
-      vea la declaración de 'Collision'
-  
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\game.h(25,7): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'struct' ahora se ve usando 'class'
-  (compilando archivo de origen "HomedFrog.cpp")
-      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
-      vea la declaración de 'Collision'
-  
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  (compilando archivo de origen "game.cpp")
-      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
-      vea la declaración de 'Collision'
-  
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,80): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,80): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,107): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,107): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,37): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,54): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,80): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,80): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,107): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(32,107): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,40): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,40): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,40): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,40): warning C4244:             T=float
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,40): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,37): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4838:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4838:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4838:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4838:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4244:         with
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4244:         [
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4244:             T=int
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,54): warning C4244:         ]
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,83): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,83): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,111): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(113,111): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4838:         with
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(12,34): warning C4838:         [
@@ -377,10 +268,120 @@ C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,76): warn
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,76): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,103): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\HomedFrog.cpp(38,103): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\game.cpp(144,52): warning C4244: 'argumento': conversión de 'uint64_t' a 'Uint32'; posible pérdida de datos
 C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
   (compilando archivo de origen "Vehiculo.cpp")
       C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
       vea la declaración de 'Collision'
   
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "Frog.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,37): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,54): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,80): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,80): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,107): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(27,107): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,37): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,37): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,37): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,37): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,37): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,37): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,37): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,37): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,54): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,54): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,54): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,54): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,54): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,54): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,54): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,54): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,80): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,80): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,107): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(34,107): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,40): warning C4244: '=': conversión de 'T' a 'int'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,40): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,40): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,40): warning C4244:             T=float
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,40): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,37): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,37): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,37): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,37): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,37): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,37): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,37): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,37): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,54): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,54): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,54): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,54): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,54): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,54): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,54): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,54): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,83): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,83): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,111): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Frog.cpp(114,111): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
+  (compilando archivo de origen "Platform.cpp")
+      C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
+      vea la declaración de 'Collision'
+  
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,33): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4838:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:         with
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:         [
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:             T=int
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,49): warning C4244:         ]
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,75): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,75): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,102): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\src\Platform.cpp(6,102): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
   src.vcxproj -> C:\Users\Alejandro\Documents\GitHub\Practica1_TPV\bin\srcDebug.exe

@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 #include <stdexcept>
 #include <ctime>
 #include <SDL3_image/SDL_image.h>
@@ -124,11 +125,10 @@ Game::update()
 	for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->update(1.0f);
 	frog->update(1.0f);
 	infoBar->update(1.0f);
-	if (frog->getLifes() <= -10) {
+	//manageWasps();
+	if (frog->getLifes() <= 0) {
 		exit = true;
 	}
-
-
 }
 
 void
@@ -137,7 +137,6 @@ Game::run()
 	while (!exit) { // Bucle principal del juego
 		startTime = SDL_GetTicks();
 		update();
-		//manageWasps();
 		handleEvents();
 		render();
 		frameTime = SDL_GetTicks() - startTime;
@@ -170,7 +169,6 @@ Game::handleEvents()
 Collision
 Game::checkCollision(const SDL_FRect& rect) const
 {
-
 	Collision collision;
 	collision.tipo = NONE;
 	auto it = sceneObjects.begin();
@@ -216,20 +214,20 @@ Game::loadMap() {
 		pos = pos + Point2D(96, 0); // va al siguiente nenufar
 	}
 
-	
-	infoBar = new InfoBar(this);
+	numTotalObjects = sceneObjects.size();
 
-	
+	infoBar = new InfoBar(this);
 }
 
 //Carga los elementos en el mapa con valores dados por nosotros
 void
 Game::manageWasps() {
-	//if (wasps.size() == 0) {
+	//if (sceneObjects.size() == numTotalObjects) {
 	//	int i = getRandomRange(0, 4);
-	//	while (homedFrogs[i]->getOcupado()) {
+	//	do {
 	//		i = getRandomRange(0, 4);
-	//	}
+	//		auto it = std::find(sceneObjects.begin(), sceneObjects.end(), )
+	//	} while (it->getOcupado());
 	//	Point2D p;
 	//	p = p + homedFrogs[i]->getPos();
 	//	sceneObjects.push_back(new Wasp(this, getRandomRange(1000, 3000))); // Crea una avispa en posicion aleatoria
@@ -308,8 +306,7 @@ Game::reset() {
 		delete s;
 	}
 	sceneObjects.clear();
-	//delete frog;
-	//delete infoBar;
+	delete infoBar;
 	loadMap();
 }
 

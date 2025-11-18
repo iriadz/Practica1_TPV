@@ -8,5 +8,5 @@ Platform::checkCollision(const SDL_FRect& other) const {
 		
 		return Collision(PLATFORM, Vector2D<float>(velocidad.getX(), 0));
 	}
-	return Collision(ENEMY, Vector2D<float>(0, 0));
+	return Collision(NONE, Vector2D<float>(0, 0));
 }
