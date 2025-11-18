@@ -109,6 +109,9 @@ private:
 	void render() const;
 	void update();
 	void handleEvents();
+	void reset();
+	void confirmReset();
+	void getArchiveLine();
 
 	bool exit;
 

@@ -12,12 +12,13 @@
 //    posicion = { rect.x, rect.y };
 //}
 
-Frog::Frog(Game* g, std::istream& is) : SceneObject(g), vidas(0), sprite(0), angle(0)
+Frog::Frog(Game* g, std::istream& is) : SceneObject(g), sprite(0), angle(0)
 {
-    int x, y, tipo;
-    is >> x >> y >> tipo;
+    int x, y, v;
+    is >> x >> y >> v;
     posicion = Point2D((int)x, (int)y);
     textura = g->getTexture(g->FROG);
+    vidas = v;
 }
 
 Frog::~Frog() {}
@@ -28,9 +29,9 @@ void Frog::render() const {
 }
 
 void Frog::update(float dt) {
-    SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
-   /* Collision col = game->checkCollision(rana);*/
-    Collision col = Collision(NONE, Vector2D<float>(0.0, 0.0));
+    SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth()/2, textura->getFrameHeight() };
+    Collision col = game->checkCollision(rana);
+   // Collision col = Collision(NONE, Vector2D<float>(0.0, 0.0));
     // Actualiza la posicion
     posicion = posicion + direccion * 32;
 
@@ -45,12 +46,15 @@ void Frog::update(float dt) {
         resetPosition();
     }
     else if (col.tipo == PLATFORM) { 
-        int p; p = col.velocidad.getX();
+        int p; p = col.velocidad.getX()/32;
         posicion = posicion +  Point2D(p, 0); 
     }
-    else if (col.tipo == ENEMY) {
+
+
+    else if (col.tipo == ENEMY && posicion.getX() < game->RIVER_LOW) {
         loseLife();
     }
+   
 }
 
 void Frog::handleEvent(const SDL_Event& event) {
@@ -111,3 +115,20 @@ SDL_FRect Frog::frogHitbox() const {
     SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth() / 2, textura->getFrameHeight() };
     return rana;
 }
+
+Collision
+Frog::checkCollision(const SDL_FRect& other) const {
+    ///* SDL_FRect a = getBoundingBox();
+    // SDL_FRect b = other;
+    // bool ch = !(a.x + a.w <= b.x || b.x + b.w <= a.x || a.y + a.h <= b.y || b.y + b.h <= a.y);*/
+
+    //SDL_FRect _rect = getBoundingBox();
+    SDL_FRect r = { posicion.getX(),posicion.getY(), textura->getFrameWidth()/2, textura->getFrameHeight() };
+    if (SDL_HasRectIntersectionFloat(&other, &r)) {
+        Collision col(ENEMY, Vector2D<float>(0, 0));
+        return col;
+    }
+
+    return Collision(NONE, Vector2D<float>(0, 0));
+}
+

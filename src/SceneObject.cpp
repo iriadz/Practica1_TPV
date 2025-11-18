@@ -6,6 +6,7 @@
 
 SceneObject::SceneObject(Game* g) : GameObject(g)
 {
+   
   /*  int x, y, tipo;
     float vel;
     is >> x >> y >> vel >> tipo;
@@ -20,22 +21,23 @@ void SceneObject::render() const {
 }
 
 SDL_FRect SceneObject::getBoundingBox() const {
-    return rect;
+    SDL_FRect r = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
+    return r;
 }
 
 Collision 
 SceneObject::checkCollision(const SDL_FRect& other) const {
-   ///* SDL_FRect a = getBoundingBox();
-   // SDL_FRect b = other;
-   // bool ch = !(a.x + a.w <= b.x || b.x + b.w <= a.x || a.y + a.h <= b.y || b.y + b.h <= a.y);*/
-   
-    SDL_FRect _rect = getBoundingBox();
-        
-    if (SDL_HasRectIntersectionFloat(&other, &_rect)) {
-        Collision col(ENEMY, Vector2D<float>(0, 0));
-        return col;
-    }
-
+//   ///* SDL_FRect a = getBoundingBox();
+//   // SDL_FRect b = other;
+//   // bool ch = !(a.x + a.w <= b.x || b.x + b.w <= a.x || a.y + a.h <= b.y || b.y + b.h <= a.y);*/
+//   
+//   // SDL_FRect _rect = getBoundingBox();
+//    SDL_FRect r = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight()};
+//    if (SDL_HasRectIntersectionFloat(&other, &r)) {
+//        Collision col(ENEMY, Vector2D<float>(0, 0));
+//        return col;
+//    }
+//
     return Collision(NONE, Vector2D<float>(0, 0));
 }
 

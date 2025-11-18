@@ -15,9 +15,12 @@ public:
     float getSpeed() const { return velocidad.getX(); }
     void setSpeed(float s) { velocidad = Vector2D<float>(s, 0); }
 
+    Collision checkCollision(const SDL_FRect& other) const override;
+
 protected:
     Vector2D<float> velocidad;
     int ancho; // desplazamiento para reaparecer por el lado opuesto (seteado por mapa)
 };
+
 
 #endif // CROSSER_H

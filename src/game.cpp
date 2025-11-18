@@ -106,12 +106,9 @@ Game::render() const
 
 	textures[1]->render(); // fondo
 
-	for (SceneObject* so : sceneObjects) so->render();
-	
-	/*infoBar->setLives(frog->getLifes());
-	infoBar->render();*/
-
-	
+	for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->render();
+	frog->render();
+	infoBar->render();
 
 	SDL_RenderPresent(renderer);
 }
@@ -119,16 +116,9 @@ Game::render() const
 void
 Game::update()
 {
-	for (SceneObject* so : sceneObjects) so->update(2.0f);
-	/*for (int i = 0; i < coches.size(); i++) coches[i]->update();
-
-	for (int i = 0; i < troncos.size(); i++) troncos[i]->update();
-
-	frog->update();
-
-	if (frog->getLifes() <= 0) {
-		exit = true;
-	}*/
+	for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->update(1.0f);
+	frog->update(1.0f);
+	infoBar->update(1.0f);
 	/*int i = 0;
 	while (i < HOMED_NUM - 1 && !homedFrogs[i]->getOcupado()) {
 		i++;
@@ -138,6 +128,11 @@ Game::update()
 	}*/
 
 	/*for (int i = 0; i < tortugas.size(); i++) tortugas[i]->update();*/
+	if (frog->getLifes() <= 0) {
+		exit = true;
+	}
+
+
 }
 
 void
@@ -171,6 +166,7 @@ Game::handleEvents()
 			exit = true;
 
 		// TODO
+		else if (event.type == SDL_EVENT_KEY_DOWN && event.key.key == SDLK_0) confirmReset();
 		frog->handleEvent(event);
 	}
 }
@@ -179,44 +175,14 @@ Collision
 Game::checkCollision(const SDL_FRect& rect) const
 {
 
-	return Collision(NONE, Vector2D<float>(0, 0));
-	//// TODO: cambiar el tipo de retorno a Collision e implementar
-	//int i = 0, j = 0, k = 0, x = 0;
-	//while (i < coches.size() && coches[i]->checkCollision(rect).tipo != ENEMY ) {
-	//	i++;
-	//}
-	//if (i < coches.size()) {
-	//	return coches[i]->checkCollision(rect);
-	//}
-
-	//while (k < homedFrogs.size() && homedFrogs[k]->checkCollision(rect).tipo != HOME) {
-	//	k++;
-	//}
-	//if (k < homedFrogs.size()) {
-	//	if (!homedFrogs[k]->getOcupado() && wasps[0]->checkCollision(rect).tipo != ENEMY) {
-	//		homedFrogs[k]->onOcupar();
-	//	}
-	//	return homedFrogs[k]->checkCollision(rect);
-	//}
-
-	//while (x < tortugas.size() && tortugas[x]->checkCollision(rect).tipo != PLATFORM) {
-
-	//	x++;
-	//}
-	//if (x < tortugas.size() && frog->getPosition().getY() < RIVER_LOW) {
-
-	//	return tortugas[x]->checkCollision(rect);
-	//}
-
-	//while (j < troncos.size() - 1 && troncos[j]->checkCollision(rect).tipo != PLATFORM) {
-	//	j++;
-	//}
-	//if (j < troncos.size() && frog->getPosition().getY() < RIVER_LOW) {
-	//	return troncos[j]->checkCollision(rect);
-	//}
-
-	
-	return Collision(NONE, Vector2D<float>(0,0));
+	Collision collision;
+	collision.tipo = NONE;
+	auto it = sceneObjects.begin();
+	while (it != sceneObjects.end() && collision.tipo == NONE) {
+		collision = (*it)->checkCollision(rect);
+		it++;
+	}
+	return collision;
 }
 
 //Carga el mapa desde el archivo default, llamando a las constructoras correspondientes de cada elemento
@@ -287,3 +253,102 @@ void Game::addObject(SceneObject* obj) {
 	/*Wasp* w = dynamic_cast<Wasp*>(obj);
 	if (w) w->setAnchor(it);*/
 }
+
+
+//void
+//Game::waspUpdate() {
+//	if (SDL_GetTicks() - waspSpawn >= nextWasp)
+//	{
+//		waspSpawn = SDL_GetTicks();
+//		if (frog->getHomesReached() != Game::HOMED_NUM - 1)
+//		{
+//			// Genera nueva avispa
+//			nextWasp = (float)getRandomRange(1000, 3000);
+//			float lifeTime = (float)getRandomRange(1000, 3000);
+//			bool encontrado = false;
+//			int hf = getRandomRange(0, Game::HOMED_NUM - 1);
+//
+//			while (!encontrado)
+//			{
+//				if (!homeFrogsPos[hf].second) encontrado = true;
+//				else {
+//					hf++;
+//					if (hf > Game::HOMED_NUM - 1) hf = 0;
+//				}
+//			}
+//			Vector2D<float> pos = homeFrogsPos[hf].first;
+//
+//			pos = pos + Vector2D<float>(0, 4);
+//			Vector2D<float> speed(0, 0);
+//
+//			sceneObjects.push_back(nullptr);  // reserva un hueco
+//			It it = --sceneObjects.end();
+//			*it = new Wasp(this, pos, lifeTime, speed);
+//		}
+//	}
+//}
+
+// Método para guardar los it de avispas a eliminar, para eliminar al terminar el update
+//void
+//Game::deleteAfter(It it) {
+//
+//	waspToDelete.push_back(it);
+//}
+
+//void
+//Game::waspDelete()
+//{
+//	for (auto it : waspToDelete) {
+//		delete* it;             // primero liberar memoria
+//		sceneObjects.erase(it); // luego borrar de la lista
+//	}
+//	waspToDelete.clear();       // vaciar vector
+//}
+
+void
+Game::reset() {
+	for (SceneObject* s : sceneObjects) {
+		delete s;
+	}
+	sceneObjects.clear();
+	//delete frog;
+	//delete infoBar;
+	loadMap();
+}
+
+void
+Game::confirmReset() {
+
+	SDL_MessageBoxButtonData buttons[] = {
+		{ SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT, 1, "Aceptar" },
+		{ SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 0, "Cancelar" }
+	};
+
+	const SDL_MessageBoxData messageboxdata = {
+		SDL_MESSAGEBOX_INFORMATION,
+		NULL,
+		"Quieres reiniciar la partida?",
+		"Pulsa Aceptar para reiniciar la partida.",
+		SDL_arraysize(buttons),
+		buttons,
+		NULL                          // Esquema de colores 
+	};
+
+	int buttonid = -1;
+
+	// Mostrar la caja de mensaje
+	SDL_ShowMessageBox(&messageboxdata, &buttonid);
+	if (buttonid == 1) {
+		reset();
+	}
+}
+
+//void
+//Game::homeReached(Point2D<float> position) {
+//	homeFrogsPos[position.getX() / POS_X_HOMEFROG].second = true;
+//}
+//
+//int
+//Game::getArchiveLine() {
+//	return ArchiveLine;
+//}

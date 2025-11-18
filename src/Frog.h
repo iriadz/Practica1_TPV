@@ -21,6 +21,7 @@ public:
     int getLifes() const;
     Point2D getPosition() const;
     SDL_FRect frogHitbox() const;
+    Collision checkCollision(const SDL_FRect& other) const override;
 private:
     Point2D direccion;   // Dirección actual del movimiento
     int vidas;           // Vidas restantes

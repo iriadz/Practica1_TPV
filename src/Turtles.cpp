@@ -19,9 +19,7 @@ Turtles::Turtles(Game* g, std::istream& is): Platform(g), m_sinkingPeriod(SDL_Ge
 Turtles::~Turtles() {}
 
 void Turtles::update(float dt){
-
 	Platform::update(dt);
-
 
 	if (hundir == 1 && SDL_GetTicks() >= m_sinkingPeriod + 400)
 	{

@@ -1,84 +1,8 @@
-﻿  Frog.cpp
+﻿  game.cpp
 C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4099: 'Collision': nombre de tipo visto anteriormente usando 'class' ahora se ve usando 'struct'
-  (compilando archivo de origen "Frog.cpp")
+  (compilando archivo de origen "game.cpp")
       C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
       vea la declaración de 'Collision'
   
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,37): warning C4838:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,37): warning C4838:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,37): warning C4838:             T=int
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,37): warning C4838:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,37): warning C4244:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,37): warning C4244:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,37): warning C4244:             T=int
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,37): warning C4244:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,54): warning C4838:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,54): warning C4838:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,54): warning C4838:             T=int
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,54): warning C4838:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,54): warning C4244:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,54): warning C4244:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,54): warning C4244:             T=int
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,54): warning C4244:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,80): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,80): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,107): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(26,107): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,37): warning C4838:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,37): warning C4838:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,37): warning C4838:             T=int
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,37): warning C4838:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,37): warning C4244:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,37): warning C4244:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,37): warning C4244:             T=int
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,37): warning C4244:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,54): warning C4838:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,54): warning C4838:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,54): warning C4838:             T=int
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,54): warning C4838:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,54): warning C4244:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,54): warning C4244:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,54): warning C4244:             T=int
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,54): warning C4244:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,80): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,80): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,107): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(31,107): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,38): warning C4244: '=': conversión de 'const T' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,38): warning C4244:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,38): warning C4244:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,38): warning C4244:             T=float
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(48,38): warning C4244:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,37): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,37): warning C4838:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,37): warning C4838:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,37): warning C4838:             T=int
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,37): warning C4838:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,37): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,37): warning C4244:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,37): warning C4244:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,37): warning C4244:             T=int
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,37): warning C4244:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,54): warning C4838: la conversión de 'const T' en 'float' requiere una conversión de restricción
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,54): warning C4838:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,54): warning C4838:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,54): warning C4838:             T=int
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,54): warning C4838:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,54): warning C4244: 'inicializando': conversión de 'const T' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,54): warning C4244:         with
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,54): warning C4244:         [
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,54): warning C4244:             T=int
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,54): warning C4244:         ]
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,83): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,83): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,111): warning C4838: la conversión de 'int' en 'float' requiere una conversión de restricción
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Frog.cpp(111,111): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\game.cpp(148,52): warning C4244: 'argumento': conversión de 'uint64_t' a 'Uint32'; posible pérdida de datos
   src.vcxproj -> C:\Users\Usuario\Documents\GitHub\Practica1_TPV\bin\srcDebug.exe
