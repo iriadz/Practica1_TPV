@@ -10,7 +10,7 @@ void InfoBar::render() const
 {
 	for (int i = 0; i < numVidas; i++)
 	{
-		SDL_FRect rana = {10 + (i * 30),440 , textura->getFrameWidth(), textura->getFrameHeight()};
+		SDL_FRect rana = {10 + (i * 30), 440 , textura->getFrameWidth(), textura->getFrameHeight()};
 		textura->renderFrame(rana, 0, 0);
 	}
 }

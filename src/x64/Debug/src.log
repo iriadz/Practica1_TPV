@@ -4,5 +4,11 @@ C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4
       C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
       vea la declaración de 'Collision'
   
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\game.cpp(142,52): warning C4244: 'argumento': conversión de 'uint64_t' a 'Uint32'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\game.cpp(149,52): warning C4244: 'argumento': conversión de 'uint64_t' a 'Uint32'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\game.cpp(248,28): warning C4244: '=': conversión de 'Uint64' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\game.cpp(272,35): warning C4244: 'argumento': conversión de 'const T' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\game.cpp(272,35): warning C4244:         with
+C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\game.cpp(272,35): warning C4244:         [
+C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\game.cpp(272,35): warning C4244:             T=float
+C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\game.cpp(272,35): warning C4244:         ]
   src.vcxproj -> C:\Users\Usuario\Documents\GitHub\Practica1_TPV\bin\srcDebug.exe
