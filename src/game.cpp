@@ -18,6 +18,8 @@
 #include "Collision.h"
 #include "InfoBar.h"
 #include "Turtles.h"
+#include "GameError.h"
+
 
 using namespace std;
 
@@ -108,6 +110,7 @@ Game::render() const
 
 	for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->render();
 	frog->render();
+	infoBar->setLives(frog->getLifes());
 	infoBar->render();
 
 	SDL_RenderPresent(renderer);
@@ -119,16 +122,7 @@ Game::update()
 	for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->update(1.0f);
 	frog->update(1.0f);
 	infoBar->update(1.0f);
-	/*int i = 0;
-	while (i < HOMED_NUM - 1 && !homedFrogs[i]->getOcupado()) {
-		i++;
-	}
-	if (homedFrogs[i]->getOcupado() && i == HOMED_NUM - 1) {
-		exit = true;
-	}*/
-
-	/*for (int i = 0; i < tortugas.size(); i++) tortugas[i]->update();*/
-	if (frog->getLifes() <= 0) {
+	if (frog->getLifes() <= -10) {
 		exit = true;
 	}
 
@@ -189,12 +183,12 @@ Game::checkCollision(const SDL_FRect& rect) const
 void
 Game::loadMap() {
 	std::ifstream file; file.open(MAP_FILE);
-	if (!file.is_open())
-		throw std::string("No se encuentra el mapa: ");
+	if (!file.is_open()) throw FileNotFoundError(name);
 
 	char id;
 	while (file >> id) {
 		//if (id == '#') { file.ignore(11, '\n'); }
+		line++;
 		if (id == 'F') {
 			frog = new Frog(this, file);
 			sceneObjects.push_back(frog);
@@ -208,7 +202,8 @@ Game::loadMap() {
 		else if (id == 'T') {
 			sceneObjects.push_back(new Turtles(this, file));
 		}
-		else file.ignore('#', '\n');
+		else if (id== '#')file.ignore('#', '\n');
+		else  throw FileFormatError(name, line, "Error de lectura sobre el tipo de elemento");
 		//else throw std::string("Formato erroneo");
 
 	}

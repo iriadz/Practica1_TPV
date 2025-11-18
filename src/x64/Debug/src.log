@@ -4,5 +4,5 @@ C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8): warning C4
       C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\Collision.h(6,8):
       vea la declaración de 'Collision'
   
-C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\game.cpp(148,52): warning C4244: 'argumento': conversión de 'uint64_t' a 'Uint32'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\Practica1_TPV\src\game.cpp(142,52): warning C4244: 'argumento': conversión de 'uint64_t' a 'Uint32'; posible pérdida de datos
   src.vcxproj -> C:\Users\Usuario\Documents\GitHub\Practica1_TPV\bin\srcDebug.exe

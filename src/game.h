@@ -42,7 +42,7 @@ public:
 	//static constexpr int RIVER_LOW = 210;
 	static constexpr int RIVER_LOW = 200;
 	
-	static constexpr char MAP_PATH[] = "../assets/maps/default.txt";
+	static constexpr char MAP_PATH[] = "../assets/maps/Original.txt";
 
 	//QUITAR LEER ARCHIVOS
 	//Coches. Ahora mismo esta a 5 (uno de cada) pero tienen q ser mas 
@@ -114,7 +114,8 @@ private:
 	void getArchiveLine();
 
 	bool exit;
-
+	int line; 
+	std::string name = "../assets/maps/Original.txt";
 	std::list<It> m_toDelete; // anchors a borrar al final de update
 
 };
