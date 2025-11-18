@@ -31,7 +31,7 @@ void Frog::render() const {
 void Frog::update(float dt) {
     posicion = posicion + direccion * 32;
 
-    SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
+    SDL_FRect rana = frogHitbox();
     Collision col = game->checkCollision(rana);
 
     // Reinicia la direccion a 0
@@ -105,6 +105,14 @@ void Frog::resetPosition() {
 int Frog::getLifes() const {
     return vidas;
 }
+
+int Frog::getHomesReached() {
+    int homes = 0;
+    /*game->homeReached(posicion);
+    if ()*/
+    return homes;
+}
+
 
 Point2D Frog::getPosition() const {
     return posicion;

@@ -2,11 +2,6 @@
 #include "Crosser.h"
 #include "Game.h"
 
-//Crosser::Crosser(Game* game, const SDL_FRect& rect, float vx, Texture* tex)
-//    : SceneObject(game, rect, tex), ancho(0.0f) {
-//
-//    velocidad = Vector2D<float>(vx, 0);
-//}
 Crosser::Crosser(Game* g)
     : SceneObject(g), ancho(0.0f) {
 
@@ -25,7 +20,8 @@ void Crosser::update(float dt) {
 Collision
 Crosser::checkCollision(const SDL_FRect& other) const {
  
-    SDL_FRect r = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
+  //  SDL_FRect r = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
+    SDL_FRect r = getBoundingBox();
     if (SDL_HasRectIntersectionFloat(&other, &r)) {
         Collision col(ENEMY, Vector2D<float>(0, 0));
         return col;

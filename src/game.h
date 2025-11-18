@@ -79,7 +79,6 @@ public:
 
 	void manageWasps();
 	void loadMap();
-	void addObject(SceneObject* obj);
 	void deleteAfter(It a); // llamado por un objeto al morir
 
 	// Ejecuta el bucle principal del juego
@@ -105,22 +104,27 @@ private:
 	void render() const;
 	void update();
 	void handleEvents();
-	void reset();
-	void confirmReset();
-	void getArchiveLine();
+	//Reiniciar partida
+	void reiniciar();
+	//Mensaje reinicio
+	void reiniciarMsg();
+	// Ha alcanzado una casa
+	void homeReached(Point2D pos);
+	void waspsDelete();
 
 	bool exit;
 	int line; 
 	std::string name = "../assets/maps/Original.txt";
 	std::list<SceneObject*> sceneObjects;
-	std::list<It> m_toDelete; // anchors a borrar al final de update
-	std::list<It> waspsDel; // anchors a borrar al final de update
+	std::list<It> m_toDelete; // it a borrar al final de update
+	std::list<It> waspsDel; // avistpas a borrar al final del update
 	int numTotalObjects;
 	float waspsSpawn = 3;
 	float nextWasp = 5;
-
+	/*std::vector<int>homedFrogs;*/
+	int homedfrogs;
 	
-	std::vector<std::pair<Vector2D<float>, bool>> homeFrogsPos;
+	std::vector<std::pair<Point2D, bool>> homes;// par con las posiciones de las casas y si estan ocupadas
 	
 };
 

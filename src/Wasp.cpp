@@ -3,12 +3,10 @@
 #include "game.h"
 #include "Collision.h"
 
-//void Wasp::render() {
-//    SDL_FRect avispa = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
-//    textura->render(avispa);
-//}
-Wasp::Wasp(Game* g, int v): SceneObject(g), tiempoVidaMax(SDL_GetTicks() + v)
+
+Wasp::Wasp(Game* g, float v, Point2D pos) : SceneObject(g), tiempoVidaMax(SDL_GetTicks() + v)
 {
+    posicion = pos;
     textura = g->getTexture(g->WASP);
 }
 

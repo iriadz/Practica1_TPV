@@ -19,6 +19,7 @@ public:
     void loseLife();
     void resetPosition();
     int getLifes() const;
+    int getHomesReached();
     Point2D getPosition() const;
     SDL_FRect frogHitbox() const;
     Collision checkCollision(const SDL_FRect& other) const override;

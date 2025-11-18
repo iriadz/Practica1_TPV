@@ -88,6 +88,8 @@ Game::Game()
 
 	loadMap();
 
+	nextWasp = getRandomRange(1000, 3000);
+	waspsSpawn = SDL_GetTicks();
 	// Configura que se pueden utilizar capas translúcidas
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
@@ -95,6 +97,7 @@ Game::Game()
 
 Game::~Game()
 {
+//	for (auto p: homes) delete begin();
 	for (SceneObject* so : sceneObjects) delete so;
 	for (Texture* t : textures) delete t;
 	delete infoBar;
@@ -112,7 +115,7 @@ Game::render() const
 	textures[1]->render(); // fondo
 
 	for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->render();
-	frog->render();
+	//frog->render();
 	infoBar->setLives(frog->getLifes());
 	infoBar->render();
 
@@ -125,15 +128,17 @@ Game::update()
 	for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->update(1.0f);
 	frog->update(1.0f);
 	infoBar->update(1.0f);
-	//manageWasps();
+	manageWasps();
 	if (frog->getLifes() <= 0) {
 		exit = true;
 	}
+	waspsDelete();
 }
 
 void
 Game::run()
 {
+
 	while (!exit) { // Bucle principal del juego
 		startTime = SDL_GetTicks();
 		update();
@@ -161,7 +166,7 @@ Game::handleEvents()
 			exit = true;
 
 		// TODO
-		else if (event.type == SDL_EVENT_KEY_DOWN && event.key.key == SDLK_0) confirmReset();
+		else if (event.type == SDL_EVENT_KEY_DOWN && event.key.key == SDLK_0) reiniciarMsg();
 		frog->handleEvent(event);
 	}
 }
@@ -209,9 +214,14 @@ Game::loadMap() {
 	}
 	
 	Point2D pos(14, 22); // posicion del primer nenufar
+	homes.push_back({ pos, false });
 	for (int i = 0; i < HOMED_NUM; i++) {
-		sceneObjects.push_back(new HomedFrog(this));
+		HomedFrog* hf = new HomedFrog(this, homes[i].first);
+		if (hf->getOcupado())sceneObjects.push_back(hf);
+		else
+			delete hf;
 		pos = pos + Point2D(96, 0); // va al siguiente nenufar
+		homes.push_back({ pos, false });
 	}
 
 	numTotalObjects = sceneObjects.size();
@@ -222,86 +232,55 @@ Game::loadMap() {
 //Carga los elementos en el mapa con valores dados por nosotros
 void
 Game::manageWasps() {
-	//if (sceneObjects.size() == numTotalObjects) {
-	//	int i = getRandomRange(0, 4);
-	//	do {
-	//		i = getRandomRange(0, 4);
-	//		auto it = std::find(sceneObjects.begin(), sceneObjects.end(), )
-	//	} while (it->getOcupado());
-	//	Point2D p;
-	//	p = p + homedFrogs[i]->getPos();
-	//	sceneObjects.push_back(new Wasp(this, getRandomRange(1000, 3000))); // Crea una avispa en posicion aleatoria
-	//																				  // con duracion aleatoria entre 1 y 3 secs
-	//}
-	//else if (wasps[0]->isAlive()) {
-	//	delete wasps[0];
-	//	wasps.pop_back();
-	//}
+
+	if (SDL_GetTicks() - waspsSpawn >= nextWasp)
+	{
+		waspsSpawn = SDL_GetTicks();
+		/*if (frog->getHomesReached() != Game::HOMED_NUM - 1)
+		{*/
+			nextWasp = (float)getRandomRange(1000, 3000);
+			float lifeTime = (float)getRandomRange(1000, 3000);
+			bool encontrado = false;
+			int home = getRandomRange(0, Game::HOMED_NUM - 1);
+
+			while (!encontrado)
+			{
+				if (!homes[home].second) encontrado = true;
+				else {
+					home++;
+					if (home > Game::HOMED_NUM - 1) home = 0;
+				}
+			}
+			Point2D pos = homes[home].first;
+			pos = pos + Point2D(0, 4);
+
+			sceneObjects.push_back(nullptr); 
+			It it = --sceneObjects.end();
+			*it = new Wasp(this, lifeTime, pos);
+		/*}*/
+	}
 }
 
-void Game::addObject(SceneObject* obj) {
-	sceneObjects.push_back(obj);
-	// si es avispa, necesita su Anchor
-	auto it = sceneObjects.end();
-	--it;
-	// intentaremos downcast seguro en tiempo de ejecución
-	/*Wasp* w = dynamic_cast<Wasp*>(obj);
-	if (w) w->setAnchor(it);*/
-}
-
-
-//void
-//Game::waspUpdate() {
-//	if (SDL_GetTicks() - waspSpawn >= nextWasp)
-//	{
-//		waspSpawn = SDL_GetTicks();
-//		if (frog->getHomesReached() != Game::HOMED_NUM - 1)
-//		{
-//			// Genera nueva avispa
-//			nextWasp = (float)getRandomRange(1000, 3000);
-//			float lifeTime = (float)getRandomRange(1000, 3000);
-//			bool encontrado = false;
-//			int hf = getRandomRange(0, Game::HOMED_NUM - 1);
-//
-//			while (!encontrado)
-//			{
-//				if (!homeFrogsPos[hf].second) encontrado = true;
-//				else {
-//					hf++;
-//					if (hf > Game::HOMED_NUM - 1) hf = 0;
-//				}
-//			}
-//			Vector2D<float> pos = homeFrogsPos[hf].first;
-//
-//			pos = pos + Vector2D<float>(0, 4);
-//			Vector2D<float> speed(0, 0);
-//
-//			sceneObjects.push_back(nullptr);  // reserva un hueco
-//			It it = --sceneObjects.end();
-//			*it = new Wasp(this, pos, lifeTime, speed);
-//		}
-//	}
-//}
-
-// Método para guardar los it de avispas a eliminar, para eliminar al terminar el update
-//void
-//Game::deleteAfter(It it) {
-//
-//	waspToDelete.push_back(it);
-//}
-
-//void
-//Game::waspDelete()
-//{
-//	for (auto it : waspToDelete) {
-//		delete* it;             // primero liberar memoria
-//		sceneObjects.erase(it); // luego borrar de la lista
-//	}
-//	waspToDelete.clear();       // vaciar vector
-//}
 
 void
-Game::reset() {
+Game::deleteAfter(It it) {
+
+	waspsDel.push_back(it);
+}
+
+void
+Game::waspsDelete()
+{
+	for (auto it : waspsDel) {
+		delete* it;             
+		sceneObjects.erase(it); 
+	}
+	waspsDel.clear();
+}
+
+//Reinicia la partida
+void
+Game::reiniciar() {
 	for (SceneObject* s : sceneObjects) {
 		delete s;
 	}
@@ -310,8 +289,9 @@ Game::reset() {
 	loadMap();
 }
 
+//Muestra una ventana con dos botones para confirmar si se quiere reiniciar la partida
 void
-Game::confirmReset() {
+Game::reiniciarMsg() {
 
 	SDL_MessageBoxButtonData buttons[] = {
 		{ SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT, 1, "Aceptar" },
@@ -325,24 +305,17 @@ Game::confirmReset() {
 		"Pulsa Aceptar para reiniciar la partida.",
 		SDL_arraysize(buttons),
 		buttons,
-		NULL                          // Esquema de colores 
+		NULL                         
 	};
 
 	int buttonid = -1;
-
-	// Mostrar la caja de mensaje
 	SDL_ShowMessageBox(&messageboxdata, &buttonid);
 	if (buttonid == 1) {
-		reset();
+		reiniciar();
 	}
 }
 
-//void
-//Game::homeReached(Point2D<float> position) {
-//	homeFrogsPos[position.getX() / POS_X_HOMEFROG].second = true;
-//}
-//
-//int
-//Game::getArchiveLine() {
-//	return ArchiveLine;
-//}
+void
+Game::homeReached(Point2D position) {
+	homes[position.getX() / 14].second = true;
+}

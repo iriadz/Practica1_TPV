@@ -8,14 +8,8 @@ class Game;
 class HomedFrog : public SceneObject
 {
 public:
-    /*HomedFrog(Game* g, Texture* t, Point2D p) :
-        juego(g),
-        textura(t),
-        posicion(p),
-        ocupado(false)
-    { }*/
     //Constructora por lectura de archivo
-    HomedFrog(Game* g);
+    HomedFrog(Game* g, Point2D pos);
     // Frog(Game* game, const SDL_FRect& rect, Texture* tex = nullptr);
     virtual ~HomedFrog() = default;
 

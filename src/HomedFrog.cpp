@@ -2,11 +2,12 @@
 #include "vector2D.h"
 #include "SceneObject.h"
 
-HomedFrog::HomedFrog(Game* g) : 
+HomedFrog::HomedFrog(Game* g, Point2D pos) :
 	SceneObject(g),
 	ocupado(false)
 {
-textura = g->getTexture(g->FROG);
+	textura = g->getTexture(g->FROG);
+	posicion = pos;
 }
 void HomedFrog::render() const {
 	SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
@@ -35,8 +36,8 @@ void HomedFrog::onOcupar() {
 
 Collision HomedFrog::checkCollision(const SDL_FRect& ref) const
 {
-	SDL_FRect home = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
-	//return ;
+	/*SDL_FRect home = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };*/
+	SDL_FRect home = getBoundingBox();;
 	if (SDL_HasRectIntersectionFloat(&ref, &home)) {
 		return Collision (HOME, Vector2D<float>(0, 0));
 	}

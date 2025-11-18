@@ -8,7 +8,7 @@
 class Wasp: public SceneObject
 {
 public:
-    Wasp(Game* g, int v);
+    Wasp(Game* g, float v, Point2D pos);
     virtual ~Wasp() = default;
     //void render();
     bool isAlive() const;
