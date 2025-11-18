@@ -370,3 +370,8 @@ src/x64/Debug/src.tlog/src.lastbuildstate
 src/x64/Debug/texture.obj
 src/x64/Debug/vc143.idb
 src/x64/Debug/vc143.pdb
+*.obj
+*.log
+*.tlog
+*.lastbuildstate
+*.idb
