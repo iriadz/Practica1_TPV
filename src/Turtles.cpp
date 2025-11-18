@@ -43,11 +43,10 @@ void Turtles::render() const
 
 Collision Turtles::checkCollision(const SDL_FRect& ref) const
 {
-	Texture* tex = game->getTexture(game->LOG1);
-	SDL_FRect log = { posicion.getX(),posicion.getY(), tex->getFrameWidth(), tex->getFrameHeight() };
+	Texture* tex = game->getTexture(game->TURTLE);
+	SDL_FRect log = { posicion.getX(),posicion.getY(), tex->getFrameWidth() * n, tex->getFrameHeight()};
 	
 	if (SDL_HasRectIntersectionFloat(&ref, &log) && estado != 5) {
-
 		return Collision(PLATFORM, Vector2D<float>(velocidad.getX(), 0));
 	}
 

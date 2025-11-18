@@ -1,4 +1,4 @@
-#ifndef VECTOR2D_H
+﻿#ifndef VECTOR2D_H
 #define VECTOR2D_H
 
 #include <iostream>
@@ -40,5 +40,5 @@ private:
 
 #endif // VECTOR2D_H
 
-using Point2D = Vector2D<int>;
+using Point2D = Vector2D<float>;
 

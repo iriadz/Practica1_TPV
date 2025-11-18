@@ -21,7 +21,7 @@ void SceneObject::render() const {
 }
 
 SDL_FRect SceneObject::getBoundingBox() const {
-    SDL_FRect r = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
+    SDL_FRect r = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() / 2 };
     return r;
 }
 

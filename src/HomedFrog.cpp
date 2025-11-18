@@ -10,8 +10,11 @@ HomedFrog::HomedFrog(Game* g, Point2D pos) :
 	posicion = pos;
 }
 void HomedFrog::render() const {
-	SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
-	textura->renderFrame(rana, 0, 0);
+	if (ocupado) 
+	{
+		SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
+		textura->renderFrame(rana, 0, 0);
+	}
 }
 
 void HomedFrog::update(float dt) {

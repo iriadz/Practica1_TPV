@@ -10,9 +10,8 @@ Crosser::Crosser(Game* g)
 Crosser::~Crosser() {}
 
 void Crosser::update(float dt) {
-
-	posicion = posicion + Point2D(velocidad.getX() / 20, velocidad.getY() / 20);
-
+	posicion = posicion + Point2D(velocidad.getX() * Game::DT, velocidad.getY());
+    
 	//Recalcular posicion si llegan al limite
 	if (posicion.getX() >= 750) posicion = posicion - Point2D(game->WINDOW_WIDTH * 2, 0);
 	if (posicion.getX() <= -150) posicion = posicion + Point2D(game->WINDOW_WIDTH * 2, 0);

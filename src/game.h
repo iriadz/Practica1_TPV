@@ -35,7 +35,8 @@ class Game
 {
 public:
 	// Se actualiza el juego cada tantos milisegundos
-	static constexpr int FRAME_RATE = 30;
+	static constexpr float FRAME_RATE = 30;
+	static constexpr float DT = FRAME_RATE /1000;
 	// Tamaño real de la ventana
 	static constexpr int WINDOW_WIDTH = 448;
 	static constexpr int WINDOW_HEIGHT = 484;
@@ -120,7 +121,8 @@ private:
 	std::list<It> waspsDel; // avistpas a borrar al final del update
 	int numTotalObjects;
 	float waspsSpawn = 3;
-	float nextWasp = 5;
+	int lifeTime = 0;
+	bool waspAlive = false;
 	/*std::vector<int>homedFrogs;*/
 	int homedfrogs;
 	

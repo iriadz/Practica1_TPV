@@ -45,7 +45,7 @@ void Frog::update(float dt) {
         resetPosition();
     }
     else if (col.tipo == PLATFORM) { 
-        int p; p = col.velocidad.getX()/32;
+        float p = col.velocidad.getX() * Game::DT;
         posicion = posicion +  Point2D(p, 0); 
     }
     else if (col.tipo == ENEMY) {
@@ -119,7 +119,7 @@ Point2D Frog::getPosition() const {
 }
 
 SDL_FRect Frog::frogHitbox() const {
-    SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth() / 2, textura->getFrameHeight() };
+    SDL_FRect rana = { posicion.getX(), posicion.getY(), textura->getFrameWidth() / 2, textura->getFrameHeight()};
     return rana;
 }
 

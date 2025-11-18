@@ -88,8 +88,6 @@ Game::Game()
 
 	loadMap();
 
-	nextWasp = getRandomRange(1000, 3000);
-	waspsSpawn = SDL_GetTicks();
 	// Configura que se pueden utilizar capas translúcidas
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
@@ -125,20 +123,18 @@ Game::render() const
 void
 Game::update()
 {
-	for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->update(1.0f);
-	frog->update(1.0f);
-	infoBar->update(1.0f);
+	for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->update(DT);
+	infoBar->update(DT);
 	manageWasps();
 	if (frog->getLifes() <= 0) {
 		exit = true;
 	}
-	waspsDelete();
+	/*waspsDelete();*/
 }
 
 void
 Game::run()
 {
-
 	while (!exit) { // Bucle principal del juego
 		startTime = SDL_GetTicks();
 		update();
@@ -217,9 +213,8 @@ Game::loadMap() {
 	homes.push_back({ pos, false });
 	for (int i = 0; i < HOMED_NUM; i++) {
 		HomedFrog* hf = new HomedFrog(this, homes[i].first);
-		if (hf->getOcupado())sceneObjects.push_back(hf);
-		else
-			delete hf;
+		sceneObjects.push_back(hf);
+		
 		pos = pos + Point2D(96, 0); // va al siguiente nenufar
 		homes.push_back({ pos, false });
 	}
@@ -232,32 +227,29 @@ Game::loadMap() {
 //Carga los elementos en el mapa con valores dados por nosotros
 void
 Game::manageWasps() {
-
-	if (SDL_GetTicks() - waspsSpawn >= nextWasp)
+	if (!waspAlive)
 	{
 		waspsSpawn = SDL_GetTicks();
-		/*if (frog->getHomesReached() != Game::HOMED_NUM - 1)
-		{*/
-			nextWasp = (float)getRandomRange(1000, 3000);
-			float lifeTime = (float)getRandomRange(1000, 3000);
-			bool encontrado = false;
-			int home = getRandomRange(0, Game::HOMED_NUM - 1);
+		
+		lifeTime = getRandomRange(1000, 3000);
+		int home = getRandomRange(0, Game::HOMED_NUM - 1);
+		while (homes[home].second)
+		{
+			home = getRandomRange(0, Game::HOMED_NUM - 1);
+		}
+		Point2D pos = homes[home].first;
+		pos = pos + Point2D(0, 4);
 
-			while (!encontrado)
-			{
-				if (!homes[home].second) encontrado = true;
-				else {
-					home++;
-					if (home > Game::HOMED_NUM - 1) home = 0;
-				}
-			}
-			Point2D pos = homes[home].first;
-			pos = pos + Point2D(0, 4);
-
-			sceneObjects.push_back(nullptr); 
-			It it = --sceneObjects.end();
-			*it = new Wasp(this, lifeTime, pos);
-		/*}*/
+		
+		sceneObjects.push_back(new Wasp(this, lifeTime, pos));
+		waspAlive = true;
+	}
+	else {
+		if (SDL_GetTicks() > waspsSpawn + lifeTime) {
+			delete sceneObjects.back();
+			sceneObjects.pop_back();
+			waspAlive = false;
+		}
 	}
 }
 
@@ -268,15 +260,15 @@ Game::deleteAfter(It it) {
 	waspsDel.push_back(it);
 }
 
-void
-Game::waspsDelete()
-{
-	for (auto it : waspsDel) {
-		delete* it;             
-		sceneObjects.erase(it); 
-	}
-	waspsDel.clear();
-}
+//void
+//Game::waspsDelete()
+//{
+//	for (auto it : waspsDel) {
+//		delete* it;             
+//		sceneObjects.erase(it); 
+//	}
+//	waspsDel.clear();
+//}
 
 //Reinicia la partida
 void
