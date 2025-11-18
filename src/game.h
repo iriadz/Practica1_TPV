@@ -70,16 +70,11 @@ public:
 public:
 	std::list<SceneObject*> sceneObjects;
 
-	
-	
-
 	Game();
 	~Game();
 
 	// Obtiene una textura por su nombre
 	Texture* getTexture(TextureName name) const;
-
-	
 
 	void manageWasps();
 	void loadMap();

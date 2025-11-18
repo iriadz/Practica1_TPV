@@ -95,6 +95,8 @@ Game::Game()
 Game::~Game()
 {
 	for (SceneObject* so : sceneObjects) delete so;
+	for (Texture* t : textures) delete t;
+	delete infoBar;
 	if (renderer) SDL_DestroyRenderer(renderer);
 	if (window) SDL_DestroyWindow(window);
 	SDL_Quit();

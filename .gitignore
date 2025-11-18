@@ -361,3 +361,12 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+src/x64/Debug/Collision.obj
+src/x64/Debug/GameError.obj
+src/x64/Debug/src.log
+src/x64/Debug/src.tlog/CL.command.1.tlog
+src/x64/Debug/src.tlog/CL.read.1.tlog
+src/x64/Debug/src.tlog/src.lastbuildstate
+src/x64/Debug/texture.obj
+src/x64/Debug/vc143.idb
+src/x64/Debug/vc143.pdb
