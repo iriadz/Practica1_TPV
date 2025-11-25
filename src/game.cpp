@@ -129,7 +129,7 @@ Game::update()
 	if (frog->getLifes() <= 0) {
 		exit = true;
 	}
-	/*waspsDelete();*/
+	waspsDelete();
 }
 
 void
@@ -240,35 +240,30 @@ Game::manageWasps() {
 		Point2D pos = homes[home].first;
 		pos = pos + Point2D(0, 4);
 
+		Wasp* w = new Wasp(this, lifeTime, waspsSpawn, pos);
+		sceneObjects.push_back(w);
 		
-		sceneObjects.push_back(new Wasp(this, lifeTime, pos));
 		waspAlive = true;
 	}
-	else {
-		if (SDL_GetTicks() > waspsSpawn + lifeTime) {
-			delete sceneObjects.back();
-			sceneObjects.pop_back();
-			waspAlive = false;
-		}
-	}
+
 }
 
 
 void
 Game::deleteAfter(It it) {
-
 	waspsDel.push_back(it);
 }
 
-//void
-//Game::waspsDelete()
-//{
-//	for (auto it : waspsDel) {
-//		delete* it;             
-//		sceneObjects.erase(it); 
-//	}
-//	waspsDel.clear();
-//}
+void
+Game::waspsDelete()
+{
+	for (auto it : waspsDel) {
+		delete (*it);             
+		sceneObjects.erase(it);
+		waspAlive = false;
+	}
+	waspsDel.clear();
+}
 
 //Reinicia la partida
 void

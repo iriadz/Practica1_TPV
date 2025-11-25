@@ -8,12 +8,15 @@
 class Wasp: public SceneObject
 {
 public:
-    Wasp(Game* g, float v, Point2D pos);
+    Wasp(Game* g, int max, int cr, Point2D pos);
     virtual ~Wasp() = default;
     //void render();
-    bool isAlive() const;
+    bool isDead() const;
     void update(float dt);
+    void setAnchor(It it);
    /* Collision checkCollision(const SDL_FRect&);*/
 private:
     int tiempoVidaMax;
+    int tiempoCreacion;
+    It it;
 };

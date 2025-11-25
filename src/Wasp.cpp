@@ -4,18 +4,26 @@
 #include "Collision.h"
 
 
-Wasp::Wasp(Game* g, float v, Point2D pos) : SceneObject(g), tiempoVidaMax(SDL_GetTicks() + v)
+Wasp::Wasp(Game* g, int max, int cr, Point2D pos) : SceneObject(g)
 {
     posicion = pos;
     textura = g->getTexture(g->WASP);
+    tiempoCreacion = cr;
+    tiempoVidaMax = max;
 }
 
-bool Wasp::isAlive() const {
-    return SDL_GetTicks() >= tiempoVidaMax;
+bool Wasp::isDead() const {
+    return SDL_GetTicks() >= tiempoVidaMax + tiempoCreacion;
 }
 
 void Wasp::update(float dt) {
+    if (isDead) {
+        game->deleteAfter(it);
+    }
+}
 
+void Wasp::setAnchor(It i) {
+    it = i;
 }
 
 ////detectar colisiones(bool checkCollision(const SDL_FRect&)).
