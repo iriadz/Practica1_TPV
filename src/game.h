@@ -16,6 +16,7 @@
 #include <map>
 
 #include "Vector2D.h"
+#include "gameStateMachine.h"
 // Declaraciones anticipadas
 class Texture;
 class Vehiculo;
@@ -27,11 +28,12 @@ class Wasp;
 class InfoBar;
 class Turtles;
 class SceneObject;
+class GameStateMachine;
 
 
 using It = std::list<SceneObject*>::iterator;
 
-class Game
+class Game : private GameStateMachine
 {
 public:
 	// Se actualiza el juego cada tantos milisegundos

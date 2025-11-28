@@ -5,6 +5,13 @@
 #include "EventHandler.h"
 class GameState
 {
+public:
+	GameState(Game* g):
+		game(g)
+	{ }
+	virtual void update();
+	virtual void render() const;
+	virtual void handleEvent();
 private:
 	std::list<GameObject*> objects;
 	std::list<EventHandler*> events;
