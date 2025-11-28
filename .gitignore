@@ -375,3 +375,7 @@ src/x64/Debug/vc143.pdb
 *.tlog
 *.lastbuildstate
 *.idb
+*.obj
+*.log
+*.tlog
+*.idb
