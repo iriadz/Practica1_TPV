@@ -3,11 +3,10 @@
 
 //Vehiculo::Vehiculo(Game* j, Texture* t, Point2D p, Point2D v) : juego(j), textura(t), posicion(p), velocidad(v) {};
 
-Vehiculo::Vehiculo(Game* j, std::istream& in) : Crosser(j) {
-	int x, y, tipo; float vel;
-	in >> x >> y >> vel >> tipo;
-	posicion = Point2D((int)x, (int)y);
-	//velocidad = Vector2D<float>(vel, 0);ç
+Vehiculo::Vehiculo(Game* j, GameState* gs, PlayState* ps, std::istream& in) : Crosser(j, gs, ps, in) {
+	int tipo; float vel;
+	in >> vel >> tipo;
+	
 	velocidad = Vector2D<float>(vel, 0);
 
 	switch (tipo) {

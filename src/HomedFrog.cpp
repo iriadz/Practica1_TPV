@@ -2,8 +2,8 @@
 #include "Vector2D.h"
 #include "SceneObject.h"
 
-HomedFrog::HomedFrog(Game* g, Point2D pos) :
-	SceneObject(g),
+HomedFrog::HomedFrog(Game* g, GameState* gs, PlayState* ps, std::istream& is,  Point2D pos) :
+	SceneObject(g, gs, ps, is),
 	ocupado(false)
 {
 	textura = g->getTexture(g->FROG);
@@ -17,7 +17,7 @@ void HomedFrog::render() const {
 	}
 }
 
-void HomedFrog::update(float dt) {
+void HomedFrog::update() {
 
 }
 

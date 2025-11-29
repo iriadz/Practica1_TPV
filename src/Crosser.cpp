@@ -2,14 +2,14 @@
 #include "Crosser.h"
 #include "Game.h"
 
-Crosser::Crosser(Game* g)
-    : SceneObject(g), ancho(0.0f) {
+Crosser::Crosser(Game* g, GameState* gs, PlayState* ps, std::istream& is)
+    : SceneObject(g, gs, ps, is), ancho(0.0f) {
 
     velocidad = Vector2D<float>(0, 0);
 }
 Crosser::~Crosser() {}
 
-void Crosser::update(float dt) {
+void Crosser::update() {
 	posicion = posicion + Point2D(velocidad.getX() * Game::DT, velocidad.getY());
     
 	//Recalcular posicion si llegan al limite

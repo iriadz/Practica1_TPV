@@ -7,12 +7,9 @@
 #include <iostream>
 
 
-//Frog::Frog(Game* g, const SDL_FRect& rect, Texture* tex) : SceneObject(g, rect, te), vidas(0), sprite(0), angle(0)
-//{
-//    posicion = { rect.x, rect.y };
-//}
 
-Frog::Frog(Game* g, std::istream& is) : SceneObject(g), sprite(0), angle(0)
+
+Frog::Frog(Game* g, GameState* gs, PlayState* ps, std::istream& is) : SceneObject(g, gs, ps, is), sprite(0), angle(0)
 {
     int x, y, v;
     is >> x >> y >> v;
@@ -28,7 +25,7 @@ void Frog::render() const {
     textura->renderFrame(rana, 0, sprite, angle);
 }
 
-void Frog::update(float dt) {
+void Frog::update() {
     posicion = posicion + direccion * 32;
 
     SDL_FRect rana = frogHitbox();

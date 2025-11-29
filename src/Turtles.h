@@ -13,10 +13,10 @@ class Turtles : public Platform
 public:
 	//Turtles(Game* game, const SDL_FRect& rect, Vector2D<float> vx, Texture* tex = nullptr);
 	//Constructora por lectura de archivo
-	Turtles(Game* game, std::istream& is);
+	Turtles(Game* game, GameState* gs, PlayState* ps, std::istream& is);
 	virtual ~Turtles();
 	
-	virtual void update(float dt) override;
+	virtual void update() override;
 	virtual void render() const override;
 
 	bool isSunk() const { return estado==5; }

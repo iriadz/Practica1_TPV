@@ -1,16 +1,12 @@
 ﻿#include "SceneObject.h"
 #include "Collision.h"
-//SceneObject::SceneObject(Game* game, const SDL_FRect& re, Texture* tex)
-//    : GameObject(game), rect(re), textura(tex) {
-//}
 
-SceneObject::SceneObject(Game* g) : GameObject(g)
+SceneObject::SceneObject(Game* g, GameState* gs, PlayState* ps, std:: istream &is) : GameObject(g, gs)
 {
-   
-  /*  int x, y, tipo;
-    float vel;
-    is >> x >> y >> vel >> tipo;
-    posicion = Point2D((int)x, (int)y);*/
+    playState = ps;
+    int x, y;
+    is >> x >> y;
+    posicion = Point2D((int)x, (int)y);
 }
 
 SceneObject::~SceneObject() {}

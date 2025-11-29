@@ -9,15 +9,16 @@ class Game; // forward
 
 class GameObject {
 public:
-    explicit GameObject(Game* g) : game(g) {}
+    explicit GameObject(Game* g, GameState* gs) : game(g), gameState(gs) {}
     virtual ~GameObject() = default;
 
     // render debe ser const según enunciado
     virtual void render() const = 0;
-    virtual void update(float dt) = 0;
+    virtual void update() = 0;
 
 protected:
     Game* game;
+    GameState* gameState;
 };
 
 #endif // GAMEOBJECT_H

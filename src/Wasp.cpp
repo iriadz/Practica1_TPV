@@ -4,7 +4,7 @@
 #include "Collision.h"
 
 
-Wasp::Wasp(Game* g, int max, int cr, Point2D pos) : SceneObject(g)
+Wasp::Wasp(Game* g, GameState* gs, PlayState* ps, std::istream& is, int max, int cr, Point2D pos) : SceneObject(g, gs, ps, is)
 {
     posicion = pos;
     textura = g->getTexture(g->WASP);
@@ -16,7 +16,7 @@ bool Wasp::isDead() const {
     return SDL_GetTicks() >= tiempoVidaMax + tiempoCreacion;
 }
 
-void Wasp::update(float dt) {
+void Wasp::update() {
     if (isDead) {
         game->deleteAfter(it);
     }

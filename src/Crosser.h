@@ -7,10 +7,10 @@
 class Crosser : public SceneObject {
 public:
    // Crosser(Game* game, const SDL_FRect& rect, float vx, Texture* tex = nullptr);
-    Crosser(Game* g);
+    Crosser(Game* g, GameState* gs, PlayState* ps, std::istream& is);
     virtual ~Crosser();
 
-    virtual void update(float dt) override;
+    virtual void update() override;
 
     float getSpeed() const { return velocidad.getX(); }
     void setSpeed(float s) { velocidad = Vector2D<float>(s, 0); }

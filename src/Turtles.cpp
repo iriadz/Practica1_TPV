@@ -4,7 +4,7 @@
 //Turtles::Turtles(Game* g, const SDL_FRect& rect, Vector2D<float> vx, Texture* tex): Platform(g, rect, vx.getX(), tex), m_sinkingPeriod(SDL_GetTicks()), estado(0)
 //{
 //}
-Turtles::Turtles(Game* g, std::istream& is): Platform(g), m_sinkingPeriod(SDL_GetTicks()), estado(0)
+Turtles::Turtles(Game* g, GameState* gs, PlayState* ps, std::istream& is): Platform(g, gs, ps, is), m_sinkingPeriod(SDL_GetTicks()), estado(0)
 {
 	int x, y, num, hun; float vel;
 	is >> x >> y >> vel >> num >> hun;
@@ -18,8 +18,8 @@ Turtles::Turtles(Game* g, std::istream& is): Platform(g), m_sinkingPeriod(SDL_Ge
 
 Turtles::~Turtles() {}
 
-void Turtles::update(float dt){
-	Platform::update(dt);
+void Turtles::update(){
+	Platform::update();
 
 	if (hundir == 1 && SDL_GetTicks() >= m_sinkingPeriod + 400)
 	{

@@ -11,9 +11,9 @@ class InfoBar: public GameObject
 public: 
 	//InfoBar(Texture* t, int n);
 	
-	InfoBar(Game* g);
+	InfoBar(Game* g, GameState* gs);
 	void render() const override;
-	void update(float dt) override;
+	void update() override;
 
 	void setLives(int n);
 

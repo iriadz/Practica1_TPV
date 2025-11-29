@@ -9,11 +9,11 @@ class HomedFrog : public SceneObject
 {
 public:
     //Constructora por lectura de archivo
-    HomedFrog(Game* g, Point2D pos);
+    HomedFrog(Game* g, GameState* gs, PlayState* ps, std::istream& is, Point2D pos);
     // Frog(Game* game, const SDL_FRect& rect, Texture* tex = nullptr);
     virtual ~HomedFrog() = default;
 
-    virtual void update(float dt) override;
+    virtual void update() override;
     virtual void render() const override;
     bool getOcupado() const;
     Point2D getPos() const;

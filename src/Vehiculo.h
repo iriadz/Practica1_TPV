@@ -13,7 +13,7 @@ public:
 	using Crosser::Crosser;
 	virtual ~Vehiculo() = default;
 	//Constructora por lectura de archivo
-	Vehiculo(Game* j, std::istream& in);
+	Vehiculo(Game* j, GameState* gs, PlayState* ps, std::istream& in);
 
 
 };

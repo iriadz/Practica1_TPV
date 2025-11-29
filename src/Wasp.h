@@ -8,11 +8,11 @@
 class Wasp: public SceneObject
 {
 public:
-    Wasp(Game* g, int max, int cr, Point2D pos);
+    Wasp(Game* g, GameState* gs, PlayState* ps, std::istream& is, int max, int cr, Point2D pos);
     virtual ~Wasp() = default;
     //void render();
     bool isDead() const;
-    void update(float dt);
+    void update();
     void setAnchor(It it);
    /* Collision checkCollision(const SDL_FRect&);*/
 private:

@@ -2,7 +2,7 @@
 #include "Collision.h"
 
 //Log::Log(Game* j, Texture* t, Point2D p, Vector2D<int> v) : juego(j), textura(t), posicion(p), velocidad(v) {};
-Log::Log(Game* j, std::istream& in) : Platform(j){
+Log::Log(Game* j, GameState* gs, PlayState* ps, std::istream& in) : Platform(j, gs, ps, in){
 	int x, y, tipo; float vel;
 	in >> x >> y >> vel >> tipo;
 	posicion = Point2D((int)x, (int)y);
