@@ -3,7 +3,7 @@
 GameState::GameState(Game* g) : game(g) {}
 
 void GameState::update() {
-    for (auto p : gameObjects) p->update(1.0f);
+    for (auto p : gameObjects) p->update();
     // run delayed callbacks at end of update
     for (auto& cb : callBacks) cb();
     callBacks.clear();

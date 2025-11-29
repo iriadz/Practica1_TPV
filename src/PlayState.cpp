@@ -9,7 +9,7 @@ void PlayState::update() {
     // update game objects
     GameState::update();
     // update scene objects separately if needed
-    for (auto so : sceneObjects) so->update(1.0f);
+    for (auto so : sceneObjects) so->update();
 }
 
 void PlayState::render() const {
