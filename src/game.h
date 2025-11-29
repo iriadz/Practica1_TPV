@@ -28,7 +28,6 @@ class Wasp;
 class InfoBar;
 class Turtles;
 class SceneObject;
-class GameStateMachine;
 
 
 using It = std::list<SceneObject*>::iterator;
@@ -91,6 +90,7 @@ public:
 
 	// Comprueba si hay algún objeto colocado en ese rectángulo
 	Collision checkCollision(const SDL_FRect& rect) const;
+
 
 private:
 	SDL_Window* window;

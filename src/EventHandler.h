@@ -1,7 +1,7 @@
-﻿
+﻿#include <SDL3/SDL.h>
 
 class EventHandler {
 public:
-    virtual void handleEvent(const SDL_Event& e) = 0;
+    virtual void handleEvent(const SDL_Event& e);
 };
 

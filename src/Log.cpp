@@ -1,5 +1,6 @@
 ﻿#include "Log.h"
 #include "Collision.h"
+#include "game.h"
 
 //Log::Log(Game* j, Texture* t, Point2D p, Vector2D<int> v) : juego(j), textura(t), posicion(p), velocidad(v) {};
 Log::Log(Game* j, GameState* gs, PlayState* ps, std::istream& in) : Platform(j, gs, ps, in){

@@ -5,6 +5,10 @@
 #include "EventHandler.h"
 
 using DelayedCallBack = std::function<void()>;
+
+class Game;
+class GameObject;
+
 class GameState
 {
 public:
@@ -19,6 +23,7 @@ public:
 
 	//getters
 	Game* getGame() const { return game; }
+	const GameState* getGameState() const { return this; }
 
 	//manejar lista de gameObjects
 	void addObject(GameObject* obj);
@@ -30,6 +35,7 @@ public:
 
 	//callbacks
 	void runLater(DelayedCallBack cb);
+
 
 private:
 	//coleccion de objetos del juego

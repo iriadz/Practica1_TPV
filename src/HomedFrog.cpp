@@ -1,5 +1,6 @@
 ﻿#include "HomedFrog.h"
 #include "Vector2D.h"
+#include "game.h"
 #include "SceneObject.h"
 
 HomedFrog::HomedFrog(Game* g, GameState* gs, PlayState* ps, std::istream& is,  Point2D pos) :

@@ -17,7 +17,7 @@ bool Wasp::isDead() const {
 }
 
 void Wasp::update() {
-    if (isDead) {
+    if (isDead()) {
         game->deleteAfter(it);
     }
 }

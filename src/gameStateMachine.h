@@ -1,6 +1,7 @@
-#ifndef GAME_STATE_MACHINE_H
+﻿#ifndef GAME_STATE_MACHINE_H
 #define GAME_STATE_MACHINE_H
 
+#include <SDL3/SDL.h>
 #include <memory>
 #include <stack>
 
@@ -12,6 +13,10 @@
  * Se comporta como una pila y proporciona métodos update, render y
  * handleEvent para aplicarlos sobre el estado actual.
  */
+
+// Forward
+class GameState;
+
 class GameStateMachine
 {
 	// Pila (como las de EDA) de punteros inteligentes a estados del juego
@@ -41,6 +46,7 @@ public:
 	void update();
 	void render() const;
 	void handleEvent(const SDL_Event& event);
+
 };
 
 inline void

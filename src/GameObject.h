@@ -1,11 +1,11 @@
 ﻿#pragma once
-#include "game.h"
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
 
-
-class Game; // forward
+// forward
+class Game; 
+class GameState;
 
 class GameObject {
 public:

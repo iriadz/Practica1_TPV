@@ -1,7 +1,5 @@
 ﻿#include "GameState.h"
 
-GameState::GameState(Game* g) : game(g) {}
-
 void GameState::update() {
     for (auto p : gameObjects) p->update();
     // run delayed callbacks at end of update

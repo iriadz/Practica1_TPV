@@ -5,7 +5,8 @@
 #include "Collision.h"
 #include "texture.h"
 #include "GameState.h"
-#include "PlayState.h"
+
+class PlayState;
 
 class SceneObject : public GameObject {
 public:
