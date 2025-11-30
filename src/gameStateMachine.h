@@ -47,6 +47,12 @@ public:
 	void render() const;
 	void handleEvent(const SDL_Event& event);
 
+	// Getter del gameState actual
+	template<typename T>
+	T* getCurrentState() {
+		if (gameStates.empty()) return nullptr;
+		return dynamic_cast<T*>(gameStates.top().get());
+	}
 };
 
 inline void

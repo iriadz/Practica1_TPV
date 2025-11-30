@@ -19,6 +19,10 @@ void GameState::addObject(GameObject* obj) {
     gameObjects.push_back(obj);
 }
 
+void GameState::setObjectList(std::list<GameObject*> obj) {
+    gameObjects = obj;
+}
+
 void GameState::removeObject(GameObject* obj) {
     gameObjects.remove(obj);
     delete obj;

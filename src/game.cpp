@@ -20,7 +20,8 @@
 #include "InfoBar.h"
 #include "Turtles.h"
 #include "GameError.h"
-
+#include "GameState.h"
+#include "PlayState.h"
 
 using namespace std;
 
@@ -186,42 +187,45 @@ Game::loadMap() {
 	std::ifstream file; file.open(MAP_FILE);
 	if (!file.is_open()) throw FileNotFoundError(name);
 
-	//char id;
-	//while (file >> id) {
-	//	//if (id == '#') { file.ignore(11, '\n'); }
-	//	line++;
-	//	if (id == 'F') {
-	//		frog = new Frog(this, gs, file);
-	//		sceneObjects.push_back(frog);
-	//	}
-	//	else if (id == 'V') { 
-	//		sceneObjects.push_back(new Vehiculo(this, file));
-	//	}
-	//	else if (id == 'L') { 
-	//		sceneObjects.push_back(new Log(this, file));
-	//	}
-	//	else if (id == 'T') {
-	//		sceneObjects.push_back(new Turtles(this, file));
-	//	}
-	//	else if (id== '#')file.ignore('#', '\n');
-	//	else  throw FileFormatError(name, line, "Error de lectura sobre el tipo de elemento");
-	//	//else throw std::string("Formato erroneo");
+	PlayState* ps = getCurrentState<PlayState>();
+    GameState* gs = ps;
 
-	//}
+	char id;
+	while (file >> id) {
+		//if (id == '#') { file.ignore(11, '\n'); }
+		line++;
+		if (id == 'F') {
+			frog = new Frog(this, gs, ps, file);
+			sceneObjects.push_back(frog);
+		}
+		else if (id == 'V') { 
+			sceneObjects.push_back(new Vehiculo(this, gs, ps, file));
+		}
+		else if (id == 'L') { 
+			sceneObjects.push_back(new Log(this, gs, ps, file));
+		}
+		else if (id == 'T') {
+			sceneObjects.push_back(new Turtles(this, gs, ps, file));
+		}
+		else if (id== '#')file.ignore('#', '\n');
+		else  throw FileFormatError(name, line, "Error de lectura sobre el tipo de elemento");
+		//else throw std::string("Formato erroneo");
+
+	}
 	
-	//Point2D pos(14, 22); // posicion del primer nenufar
-	//homes.push_back({ pos, false });
-	//for (int i = 0; i < HOMED_NUM; i++) {
-	//	HomedFrog* hf = new HomedFrog(this, homes[i].first);
-	//	sceneObjects.push_back(hf);
-	//	
-	//	pos = pos + Point2D(96, 0); // va al siguiente nenufar
-	//	homes.push_back({ pos, false });
-	//}
+	Point2D pos(14, 22); // posicion del primer nenufar
+	homes.push_back({ pos, false });
+	for (int i = 0; i < HOMED_NUM; i++) {
+		HomedFrog* hf = new HomedFrog(this, gs, ps, file, homes[i].first);
+		sceneObjects.push_back(hf);
+		
+		pos = pos + Point2D(96, 0); // va al siguiente nenufar
+		homes.push_back({ pos, false });
+	}
 
-	//numTotalObjects = sceneObjects.size();
+	ps->setSceneObjectList(sceneObjects);
 
-	//infoBar = new InfoBar(this);
+	infoBar = new InfoBar(this, gs);
 }
 
 //Carga los elementos en el mapa con valores dados por nosotros

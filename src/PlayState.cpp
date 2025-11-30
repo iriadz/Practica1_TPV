@@ -26,6 +26,13 @@ void PlayState::addSceneObject(SceneObject* so) {
     addObject(so);
 }
 
+void PlayState::setSceneObjectList(std::list<SceneObject*> so) {
+    sceneObjects = so;
+    for (auto i : so) {
+        addObject(i);
+    }
+}
+
 void PlayState::removeSceneObject(SceneObject* so) {
     sceneObjects.remove(so);
     removeObject(so);
@@ -34,6 +41,14 @@ void PlayState::removeSceneObject(SceneObject* so) {
 Collision 
 PlayState::checkCollision(const SDL_FRect& rect) const {
     for (auto so : sceneObjects) {
-        return so->checkCollision(rect);
+        Collision col = so->checkCollision(rect);  // col para cada objeto
+
+        if (col.tipo != NONE) {
+            // encontramos una colisión, la devolvemos inmediatamente
+            return col;
+        }
     }
+
+    // Si ningún objeto colisiona
+    return Collision(NONE, Vector2D<float>(0, 0));
 }

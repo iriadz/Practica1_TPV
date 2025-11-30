@@ -3,7 +3,10 @@
 #include "GameObject.h"
 #include "SceneObject.h"
 #include "Collision.h"
-class PlayState:public GameState
+
+using It = std::list<SceneObject*>::iterator;
+
+class PlayState : public GameState
 {
 public:
 	PlayState(Game* g);
@@ -14,6 +17,7 @@ public:
 
 	// manejar la lista de sceneObjects (especifica de playstate)
 	void addSceneObject(SceneObject* so);
+	void setSceneObjectList(std::list<SceneObject*> sol);
 	void removeSceneObject(SceneObject* so);
 
 	//colisiones

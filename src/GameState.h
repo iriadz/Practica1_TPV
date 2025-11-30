@@ -27,6 +27,7 @@ public:
 
 	//manejar lista de gameObjects
 	void addObject(GameObject* obj);
+	void setObjectList(std::list<GameObject*> obj);
 	void removeObject(GameObject* obj);
 
 	//manejar eventos
