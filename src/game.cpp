@@ -22,6 +22,7 @@
 #include "GameError.h"
 #include "GameState.h"
 #include "PlayState.h"
+#include "MainMenuState.h"
 
 using namespace std;
 
@@ -53,9 +54,22 @@ constexpr array<TextureSpec, Game::NUM_TEXTURES> textureList{
 	{"log1.png"},
 	{"log2.png"},
 	{"turtle.png", 1, 7},
-	//{"turtle.png"},
 	{"wasp.png"},
-
+	{"CONTINUAR.png"},		// textureList[11] 
+	{"ELIGE_UN_MAPA.png"},
+	{"VOLVER_AL_MENU.png"},
+	{"Original.png"},
+	{"Practica_1.png"},
+	{"Trivial.png"},
+	{"Veloz.png"},
+	{"Avispado.png"},
+	{"REINICIAR.png"},
+	{"GAME_OVER.png"},
+	{"HAS_GANADO.png"},
+	{"SALIR.png"},
+	{"left.png"},
+	{"right.png"},
+	{"menuBackground.png"}
 };
 
 Game::Game()
@@ -84,10 +98,14 @@ Game::Game()
 		textures[i] = new Texture(renderer, (string(imgBase) + name).c_str(), nrows, ncols);
 	}
 
+	MainMenuState* mainMenu = new MainMenuState(this);
+
+	pushState(mainMenu);
+
 	//Cargar elementos -> rana, coches, troncos y avispas por archivo o a mano
 	//loadElems();
 
-	loadMap();
+	//loadMap();
 
 	// Configura que se pueden utilizar capas translúcidas
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
@@ -111,12 +129,14 @@ Game::render() const
 {
 	SDL_RenderClear(renderer);
 
-	textures[1]->render(); // fondo
+	//textures[1]->render(); // fondo
 
-	for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->render();
-	//frog->render();
-	infoBar->setLives(frog->getLifes());
-	infoBar->render();
+	//for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->render();
+	////frog->render();
+	//infoBar->setLives(frog->getLifes());
+	//infoBar->render();
+
+	GameStateMachine::render();
 
 	SDL_RenderPresent(renderer);
 }
@@ -124,13 +144,15 @@ Game::render() const
 void
 Game::update()
 {
-	for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->update();
-	infoBar->update();
-	manageWasps();
-	if (frog->getLifes() <= 0) {
-		exit = true;
-	}
-	waspsDelete();
+	//for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->update();
+	//infoBar->update();
+	//manageWasps();
+	//if (frog->getLifes() <= 0) {
+	//	exit = true;
+	//}
+	//waspsDelete();
+
+	GameStateMachine::update();
 }
 
 void
@@ -157,15 +179,17 @@ Game::handleEvents()
 {
 	SDL_Event event;
 
-	// Only quit is handled directly, everything else is delegated
-	while (SDL_PollEvent(&event)) {
-		if (event.type == SDL_EVENT_QUIT)
-			exit = true;
+	//// Only quit is handled directly, everything else is delegated
+	//while (SDL_PollEvent(&event)) {
+	//	if (event.type == SDL_EVENT_QUIT)
+	//		exit = true;
 
-		// TODO
-		else if (event.type == SDL_EVENT_KEY_DOWN && event.key.key == SDLK_0) reiniciarMsg();
-		frog->handleEvent(event);
-	}
+	//	// TODO
+	//	else if (event.type == SDL_EVENT_KEY_DOWN && event.key.key == SDLK_0) reiniciarMsg();
+	//	frog->handleEvent(event);
+	//}
+
+	GameStateMachine::handleEvent(event);
 }
 
 Collision
