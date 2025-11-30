@@ -18,9 +18,7 @@ MainMenuState::MainMenuState(Game* game) : GameState(game), selected(0) {
     //CREAR UI
 }
 
-MainMenuState::~MainMenuState() {
-    for (auto b : buttons) delete b;
-}
+
 
 void MainMenuState::update() {
     GameState::update();

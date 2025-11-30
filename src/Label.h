@@ -1,11 +1,19 @@
-﻿#include "GameObject.h"
+﻿#ifndef LABEL_H
+#define LABEL_H
+#include "GameObject.h"
 #include <string>
 
 
-class Label : public GameObject
-{
+class Label : public GameObject {
 public:
-    Label(GameState* gs);
-    virtual void update(float dt) override {};
-    virtual void render() const override;
+    Label(GameState* gs, Game* g): GameObject(g, gs) {};
+   
+    virtual void update() override {}
+    virtual void render() const override {};
+
+  
+
+protected:
 };
+
+#endif

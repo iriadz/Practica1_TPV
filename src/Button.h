@@ -1,18 +1,32 @@
-﻿class Button : public Label, public EventHandler {
+﻿#ifndef BUTTON_H
+#define BUTTON_H
+#include <functional>
+#include <vector>
+#include <SDL3/SDL.h>
+
+// Forward declarations
+class GameState;
+class Texture;
+
+#include "Label.h"
+#include "EventHandler.h"   // Necesario para heredar correctamente
+
+class Button : public Label {
 public:
     using Callback = std::function<void()>;
 
-    Button(GameState* state);
-   
+    Button(GameState* gs, Game* g) : Label(gs, g) {};
+    virtual ~Button();
 
     void connect(Callback cb);
 
-    virtual void update(float dt) override;
-    virtual void render() const override;
-    virtual void handleEvent(const SDL_Event& e) override;
+    virtual void update() override {};
+    virtual void render() const override {};
+    //virtual void handleEvent(const SDL_Event& e) override;
 
 private:
-    //no estoy segura de si los callbacks hacen falta
-    std::vector<Callback> callbacks;
-    bool hover;
+    std::vector<Callback> m_callbacks;
+    bool m_hover;
 };
+
+#endif
