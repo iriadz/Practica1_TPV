@@ -27,30 +27,23 @@ PlayState::~PlayState() {
 void PlayState::update() {
     // update game objects
     GameState::update();
-<<<<<<< Updated upstream
     // update scene objects separately if needed
-	for (auto so : sceneObjects) so->update();
 	if (frog->getLifes() <= 0) game->exitGame();
-
-	
-
-}
-
-=======
 	infobar->update();
 }
 
 void PlayState::render() const {
-	game->getTexture(Game::BACKGROUND)->render();
-    GameState::render();
-    for (auto so : sceneObjects) so->render();
-	infobar->render();
+	GameState::render();
+	Texture* fondo = game->getTexture(Game::BACKGROUND);
+	fondo->render();
+	for (auto so : sceneObjects) so->render();
+	/*infoBar->setLives(frog->getLifes());
+	infoBar->render();*/
 }
 
 void PlayState::handleEvent(const SDL_Event& e) {
-    GameState::handleEvent(e);
+	GameState::handleEvent(e);
 }
->>>>>>> Stashed changes
 
 void PlayState::loadMap(std::string fileName) {
 	std::ifstream file; file.open(fileName);
@@ -95,27 +88,7 @@ void PlayState::loadMap(std::string fileName) {
 		homes.push_back({ pos, false });
 	}
 
-	setSceneObjectList(sceneObjects);
-
-<<<<<<< Updated upstream
-	/*infobar = new InfoBar(game, gs);*/
-=======
 	infobar = new InfoBar(game, gs);
-
->>>>>>> Stashed changes
-}
-
-void PlayState::render() const {
-    GameState::render();
-	Texture* fondo = game->getTexture(Game::BACKGROUND);
-	fondo->render();
-    for (auto so : sceneObjects) so->render();
-	/*infoBar->setLives(frog->getLifes());
-	infoBar->render();*/
-}
-
-void PlayState::handleEvent(const SDL_Event& e) {
-    GameState::handleEvent(e);
 }
 
 
