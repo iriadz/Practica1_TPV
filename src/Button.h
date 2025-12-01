@@ -16,13 +16,13 @@ public:
     using Callback = std::function<void()>;
 
     Button(GameState* gs, Game* g, Texture* t, Point2D p) :
-        Label(gs, g, t, p),
+        Label(gs, g, t, p)
     {};
     virtual ~Button();
 
     void connect(Callback cb);
 
-    virtual void update() override {};
+    virtual void update() override;
     virtual void render() const override;
     //virtual void handleEvent(const SDL_Event& e) override;
 private:
