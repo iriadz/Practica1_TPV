@@ -138,8 +138,8 @@ Game::update()
 {
 	//for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->update();
 	//infoBar->update();
-	//manageWasps();
-	//if (frog->getLifes() <= 0) {
+	////manageWasps();
+	//if (frog->getlifes() <= 0) {
 	//	exit = true;
 	//}
 	//waspsDelete();

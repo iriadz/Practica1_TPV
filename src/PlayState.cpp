@@ -24,6 +24,9 @@ void PlayState::update() {
     GameState::update();
     // update scene objects separately if needed
 	for (auto so : sceneObjects) so->update();
+	if (frog->getLifes() <= 0) game->exitGame();
+
+	
 
 }
 
@@ -73,7 +76,7 @@ void PlayState::loadMap(std::string fileName) {
 
 	setSceneObjectList(sceneObjects);
 
-	infobar = new InfoBar(game, gs);
+	/*infobar = new InfoBar(game, gs);*/
 }
 
 void PlayState::render() const {
