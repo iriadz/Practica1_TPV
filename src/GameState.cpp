@@ -1,4 +1,5 @@
 ﻿#include "GameState.h"
+#include <iostream>
 
 void GameState::update() {
     for (auto p : gameObjects) p->update();
@@ -8,11 +9,12 @@ void GameState::update() {
 }
 
 GameState::~GameState() {
+    std::cerr << "GameState::~GameState() called for " << typeid(*this).name() << "\n";
     for (auto obj : gameObjects) delete obj;
     gameObjects.clear();
 
-    for (auto h : events) delete h;
-    events.clear();
+    for (auto h : listeners) delete h;
+    listeners.clear();
 
     callBacks.clear();
 }
@@ -22,7 +24,7 @@ void GameState::render() const {
 }
 
 void GameState::handleEvent(const SDL_Event& e) {
-    for (auto h : events) h->handleEvent(e);
+    for (auto h : listeners) h->handleEvent(e);
 }
 
 void GameState::addObject(GameObject* obj) {
@@ -39,11 +41,11 @@ void GameState::removeObject(GameObject* obj) {
 }
 
 void GameState::addEventListener(EventHandler* h) {
-    events.push_back(h);
+    listeners.push_back(h);
 }
 
 void GameState::removeEventListener(EventHandler* h) {
-    events.remove(h);
+    listeners.remove(h);
 }
 
 void GameState::runLater(DelayedCallBack cb) {

@@ -114,9 +114,7 @@ Game::Game()
 Game::~Game()
 {
 //	for (auto p: homes) delete begin();
-	for (SceneObject* so : sceneObjects) delete so;
 	for (Texture* t : textures) delete t;
-	delete infoBar;
 	if (renderer) SDL_DestroyRenderer(renderer);
 	if (window) SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -178,17 +176,13 @@ Game::handleEvents()
 {
 	SDL_Event event;
 
-	//// Only quit is handled directly, everything else is delegated
-	//while (SDL_PollEvent(&event)) {
-	//	if (event.type == SDL_EVENT_QUIT)
-	//		exit = true;
+	while (SDL_PollEvent(&event)) {
+		if (event.type == SDL_EVENT_QUIT) {
+			exit = true;            // permite cerrar la ventana con la X
+		}
 
-	//	// TODO
-	//	else if (event.type == SDL_EVENT_KEY_DOWN && event.key.key == SDLK_0) reiniciarMsg();
-	//	frog->handleEvent(event);
-	//}
-
-	GameStateMachine::handleEvent(event);
+		GameStateMachine::handleEvent(event);  // pasa el evento real al estado
+	}
 }
 
 Collision
@@ -212,6 +206,8 @@ Game::loadMap() {
 
 	PlayState* ps = getCurrentState<PlayState>();
     GameState* gs = ps;
+
+	homes.clear();
 
 	char id;
 	while (file >> id) {
@@ -299,6 +295,7 @@ Game::reiniciar() {
 		delete s;
 	}
 	sceneObjects.clear();
+	homes.clear();
 	delete infoBar;
 	loadMap();
 }

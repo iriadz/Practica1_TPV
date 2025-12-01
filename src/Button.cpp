@@ -20,3 +20,9 @@
 		SDL_FRect r = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
 		textura->render(r);
 	}
+
+	void Button::handleEvent(const SDL_Event &event) {
+		if (event.type == SDL_EVENT_MOUSE_BUTTON_DOWN && m_hover) {
+
+		}
+	}

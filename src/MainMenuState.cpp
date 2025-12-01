@@ -56,14 +56,10 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
 }
 
 MainMenuState::~MainMenuState() {
-    for (auto l : labels) { delete l; }
+    std::cerr << "MainMenuState::~MainMenuState() called\n";
     labels.clear();
-    for (auto m : mapas) { delete m; }
     mapas.clear();
-    for (auto b : buttons) { delete b; }
     buttons.clear();
-    for (auto obj : gameObjects) { delete obj; }
-    gameObjects.clear();
 }
 
 void MainMenuState::update() {
@@ -96,7 +92,6 @@ void MainMenuState::render() const {
     mapas[selected]->render();
 }
 
-void MainMenuState::handleEvent(const SDL_Event& e) {
+void MainMenuState::handleEvent(const SDL_Event &e) {
     GameState::handleEvent(e);
-    // handle keyboard + select
 }

@@ -11,7 +11,7 @@ class Texture;
 #include "Label.h"
 #include "EventHandler.h"   // Necesario para heredar correctamente
 
-class Button : public Label {
+class Button : public Label, public EventHandler {
 public:
     using Callback = std::function<void()>;
 
@@ -24,7 +24,7 @@ public:
 
     virtual void update() override;
     virtual void render() const override;
-    //virtual void handleEvent(const SDL_Event& e) override;
+    virtual void handleEvent(const SDL_Event& e) override;
 private:
     std::vector<Callback> m_callbacks;
     bool m_hover;

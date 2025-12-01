@@ -43,7 +43,7 @@ protected:
 	//coleccion de objetos del juego
 	std::list<GameObject*> gameObjects;
 	//manejador de eventos
-	std::list<EventHandler*> events;
+	std::list<EventHandler*> listeners;
 	//callbacks pendientes
 	std::list<DelayedCallBack> callBacks;
 	Game* game;
