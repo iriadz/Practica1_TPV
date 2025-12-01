@@ -38,7 +38,7 @@ public:
 	void runLater(DelayedCallBack cb);
 
 
-private:
+protected:
 	//coleccion de objetos del juego
 	std::list<GameObject*> gameObjects;
 	//manejador de eventos

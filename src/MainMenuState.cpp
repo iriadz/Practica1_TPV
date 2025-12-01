@@ -7,7 +7,7 @@
 
 
 
-MainMenuState::MainMenuState(Game* game) : GameState(game), selected(0) {
+MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
     // discover maps
     namespace fs = std::filesystem;
     try {
@@ -62,6 +62,9 @@ void MainMenuState::update() {
 }
 
 void MainMenuState::render() const {
+
+    Texture* t = game->getTexture(Game::MENUBACKGROUND);
+    t->render();
     for (auto l : labels) {
         l->render();
     }
