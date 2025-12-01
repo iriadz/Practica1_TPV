@@ -17,7 +17,6 @@ public:
 
     Button(GameState* gs, Game* g, Texture* t, Point2D p) :
         Label(gs, g, t, p),
-        visible(true)
     {};
     virtual ~Button();
 
@@ -26,12 +25,9 @@ public:
     virtual void update() override {};
     virtual void render() const override;
     //virtual void handleEvent(const SDL_Event& e) override;
-
-    void swapVisbility();
 private:
     std::vector<Callback> m_callbacks;
     bool m_hover;
-    bool visible;
 };
-
+    
 #endif

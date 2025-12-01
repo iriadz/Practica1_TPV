@@ -25,55 +25,75 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
 
     std::vector<BotonInfo> datos = {
     {Game::SALIR,      Point2D (Game::WINDOW_WIDTH / 2 - game->getTexture(Game::ORIGINAL)->getFrameWidth() / 3,   350)},
-    {Game::LEFT,        {Game::WINDOW_WIDTH / 7,   180}},
-    {Game::RIGHT,       {Game::WINDOW_WIDTH / 1.20, 180}},
+    {Game::LEFT,        {Game::WINDOW_WIDTH / 7,   270}},
+    {Game::RIGHT,       {Game::WINDOW_WIDTH / 1.20, 270}},
     };
 
     std::vector<BotonInfo> maps = {
-    {Game::ORIGINAL,   Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::ORIGINAL)->getFrameWidth() / 2),   180)},
-    {Game::PRACTICA_1, Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::PRACTICA_1)->getFrameWidth() / 2),   180)},
-    {Game::TRIVIAL,    Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::TRIVIAL)->getFrameWidth() / 2),   180)},
-    {Game::VELOZ,      Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::VELOZ)->getFrameWidth() / 2),   180)},
-    {Game::AVISPADO,   Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::AVISPADO)->getFrameWidth() / 2),   180)},
+    {Game::ORIGINAL,   Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::ORIGINAL)->getFrameWidth() / 2),   270)},
+    {Game::PRACTICA_1, Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::PRACTICA_1)->getFrameWidth() / 2),   270)},
+    {Game::TRIVIAL,    Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::TRIVIAL)->getFrameWidth() / 2),   270)},
+    {Game::VELOZ,      Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::VELOZ)->getFrameWidth() / 2),   270)},
+    {Game::AVISPADO,   Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::AVISPADO)->getFrameWidth() / 2),   270)},
     };
 
     for (auto& d : datos) {
         Button* b = new Button(this, game, game->getTexture(d.id), d.pos);
         buttons.push_back(b);
+        addObject(b);
     }
 
-    for (auto& d : maps) {
-        Button* b = new Button(this, game, game->getTexture(d.id), d.pos);
+
+    for (auto& m : maps) {
+        Button* b = new Button(this, game, game->getTexture(m.id), m.pos);
         mapas.push_back(b);
+        addObject(b);
     }
 
-    //buttons[1]->swapVisbility();
-    for (int i = 1; i < mapas.size(); i++) {
-        mapas[i]->swapVisbility();
-    }
-    Label* eligeUnMapa = new Label(this, game, game->getTexture(Game::ELIGE_UN_MAPA), Point2D(Game::WINDOW_WIDTH/2 - game->getTexture(Game::ELIGE_UN_MAPA)->getFrameWidth()/2, 100));
+    Label* eligeUnMapa = new Label(this, game, game->getTexture(Game::ELIGE_UN_MAPA), Point2D(Game::WINDOW_WIDTH/2 - game->getTexture(Game::ELIGE_UN_MAPA)->getFrameWidth()/2, 200));
     labels.push_back(eligeUnMapa);
+    addObject(eligeUnMapa);
 }
 
-
+MainMenuState::~MainMenuState() {
+    for (auto l : labels) { delete l; }
+    labels.clear();
+    for (auto m : mapas) { delete m; }
+    mapas.clear();
+    for (auto b : buttons) { delete b; }
+    buttons.clear();
+    for (auto obj : gameObjects) { delete obj; }
+    gameObjects.clear();
+}
 
 void MainMenuState::update() {
     GameState::update();
+
 }
 
 void MainMenuState::render() const {
+    int left = 0, right = 1, salir = 2; // Puramente por comprension de codigo
 
     Texture* t = game->getTexture(Game::MENUBACKGROUND);
     t->render();
+
     for (auto l : labels) {
         l->render();
     }
-    for (auto b : buttons) {
-        b->render();
+
+    if (selected == 0) { // Depende de si esta al principio o al final de la lista de mapas
+        buttons[left]->render();
     }
-    for (auto m : mapas) {
-        m->render();
+    else if (selected == mapas.size() - 1) {
+        buttons[right]->render();
     }
+    else {
+        buttons[left]->render();
+        buttons[right]->render();
+    }
+    buttons[salir]->render();
+
+    mapas[selected]->render();
 }
 
 void MainMenuState::handleEvent(const SDL_Event& e) {

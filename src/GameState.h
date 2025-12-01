@@ -16,6 +16,7 @@ public:
 	GameState(Game* g):
 		game(g)
 	{ }
+	virtual ~GameState();
 
 	virtual void update();
 	virtual void render() const;

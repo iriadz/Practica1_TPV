@@ -7,6 +7,16 @@ void GameState::update() {
     callBacks.clear();
 }
 
+GameState::~GameState() {
+    for (auto obj : gameObjects) delete obj;
+    gameObjects.clear();
+
+    for (auto h : events) delete h;
+    events.clear();
+
+    callBacks.clear();
+}
+
 void GameState::render() const {
     for (auto p : gameObjects) p->render();
 }

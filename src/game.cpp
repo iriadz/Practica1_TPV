@@ -98,9 +98,8 @@ Game::Game()
 		textures[i] = new Texture(renderer, (string(imgBase) + name).c_str(), nrows, ncols);
 	}
 
-	MainMenuState* mainMenu = new MainMenuState(this);
+	pushState(std::make_shared<MainMenuState>(this));
 
-	pushState(mainMenu);
 
 	//Cargar elementos -> rana, coches, troncos y avispas por archivo o a mano
 	//loadElems();
