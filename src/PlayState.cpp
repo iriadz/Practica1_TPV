@@ -14,6 +14,7 @@
 #include "Log.h"
 #include "Turtles.h"
 #include "GameError.h"
+#include "EndState.h"
 
 PlayState::PlayState(Game* g, std::string fileName) : GameState(g) 
 {
@@ -37,7 +38,7 @@ void PlayState::update() {
 	while (i<homes.size() && homes[i]->getOcupado()) {
 		i++;
 	}
-	if (i == homes.size()) game->exitGame();
+	if (i == homes.size()) game->pushState(new EndState(game));
 }
 
 void PlayState::render() const {

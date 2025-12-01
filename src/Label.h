@@ -18,7 +18,7 @@ public:
     virtual void update() override {}
     virtual void render() const override;
 
-  
+    Texture* getTexture();
 
 protected:
     Texture* textura;

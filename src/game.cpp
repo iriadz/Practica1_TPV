@@ -23,6 +23,7 @@
 #include "GameState.h"
 #include "PlayState.h"
 #include "MainMenuState.h"
+#include "EndState.h"
 
 using namespace std;
 
@@ -99,7 +100,6 @@ Game::Game()
 	}
 
 	GameStateMachine::pushState(new MainMenuState(this));
-	//GameStateMachine::pushState(new PlayState(this, "../assets/maps/Original.txt"));
 
 	// Configura que se pueden utilizar capas translúcidas
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
@@ -337,4 +337,9 @@ Game::getRenderer() const {
 void
 Game::pushState(GameState* state) {
 	GameStateMachine::pushState(state);
+}
+
+void
+Game::popState() {
+	GameStateMachine::popState();
 }

@@ -109,6 +109,7 @@ public:
 	SDL_Renderer* getRenderer() const;
 
 	void pushState(GameState* state);
+	void popState();
 
 
 	void exitGame() {
