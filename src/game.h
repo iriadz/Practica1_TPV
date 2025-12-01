@@ -107,6 +107,10 @@ public:
 	Collision checkCollision(const SDL_FRect& rect) const;
 
 	SDL_Renderer* getRenderer() const;
+
+	void exitGame() {
+		exit = true;
+	}
 private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;

@@ -5,7 +5,13 @@
 		m_callbacks.clear();
 	}
 
-	void Button::update() {
+	void
+	Button::connect(Callback cb) {
+		m_callbacks.push_back(cb);
+	}
+
+	void 
+	Button::update() {
 		float mouseX, mouseY;
 		SDL_GetMouseState(&mouseX, &mouseY);
 		SDL_FRect mouseRect{ static_cast<float>(mouseX), static_cast<float>(mouseY), 1.0f, 1.0f};
@@ -29,6 +35,10 @@
 
 	void Button::handleEvent(const SDL_Event &event) {
 		if (event.type == SDL_EVENT_MOUSE_BUTTON_DOWN && m_hover) {
-
+			if (event.button.button == SDL_BUTTON_LEFT) {
+				for (Callback c : m_callbacks) {
+					c();
+				}
+			}
 		}
 	}

@@ -148,6 +148,9 @@ Game::update()
 	//	exit = true;
 	//}
 	//waspsDelete();
+	if (GameStateMachine::empty()) {
+		exit = true;
+	}
 
 	GameStateMachine::update();
 }

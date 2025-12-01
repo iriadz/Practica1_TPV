@@ -24,9 +24,9 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
     };
 
     std::vector<BotonInfo> datos = {
-    {Game::SALIR,      Point2D (Game::WINDOW_WIDTH / 2 - game->getTexture(Game::ORIGINAL)->getFrameWidth() / 3,   350)},
     {Game::LEFT,        {Game::WINDOW_WIDTH / 7,   270}},
     {Game::RIGHT,       {Game::WINDOW_WIDTH / 1.20, 270}},
+    {Game::SALIR,      Point2D(Game::WINDOW_WIDTH / 2 - game->getTexture(Game::ORIGINAL)->getFrameWidth() / 3,   350)},
     };
 
     std::vector<BotonInfo> maps = {
@@ -41,13 +41,19 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
         Button* b = new Button(this, game, game->getTexture(d.id), d.pos);
         buttons.push_back(b);
         addObject(b);
+        addEventListener(b);
     }
+
+    buttons[0]->connect([this]() {left();});
+    buttons[1]->connect([this]() {right();});
+    buttons[2]->connect([this]() {salir();});
 
 
     for (auto& m : maps) {
         Button* b = new Button(this, game, game->getTexture(m.id), m.pos);
         mapas.push_back(b);
         addObject(b);
+        addEventListener(b);
     }
 
     Label* eligeUnMapa = new Label(this, game, game->getTexture(Game::ELIGE_UN_MAPA), Point2D(Game::WINDOW_WIDTH/2 - game->getTexture(Game::ELIGE_UN_MAPA)->getFrameWidth()/2, 200));
@@ -77,14 +83,14 @@ void MainMenuState::render() const {
     }
 
     if (selected == 0) { // Depende de si esta al principio o al final de la lista de mapas
-        buttons[left]->render();
+        buttons[right]->render();
     }
     else if (selected == mapas.size() - 1) {
-        buttons[right]->render();
+        buttons[left]->render();
     }
     else {
-        buttons[left]->render();
         buttons[right]->render();
+        buttons[left]->render();
     }
     buttons[salir]->render();
 
@@ -93,4 +99,21 @@ void MainMenuState::render() const {
 
 void MainMenuState::handleEvent(const SDL_Event &e) {
     GameState::handleEvent(e);
+}
+
+void
+MainMenuState::left() {
+    if (selected == 0) return;
+    selected--;
+}
+
+void
+MainMenuState::right() {
+    if (selected == mapas.size() - 1) return;
+    selected++;
+}
+
+void
+MainMenuState::salir() {
+    game->exitGame();
 }

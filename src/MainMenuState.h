@@ -7,6 +7,7 @@
 #include <string>
 #include <unordered_map>
 
+
 class MainMenuState : public GameState {
 public:
     explicit MainMenuState(Game* game);
@@ -14,6 +15,11 @@ public:
     virtual void update() override;
     virtual void render() const override;
     virtual void handleEvent(const SDL_Event& e) override;
+
+    // Metodos Callback para los buttons
+    void left();
+    void right();
+    void salir();
 
 private:
     std::vector<std::string> mapNames;
