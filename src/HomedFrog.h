@@ -20,7 +20,7 @@ public:
     Point2D getPos() const;
     void onOcupar();
     void setPosition(Point2D pos);
-  virtual Collision checkCollision(const SDL_FRect& other) const;
+    virtual Collision checkCollision(const SDL_FRect& other) const override;
 
 
 private:

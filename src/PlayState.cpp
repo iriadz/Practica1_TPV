@@ -120,5 +120,13 @@ PlayState::checkCollision(const SDL_FRect& rect) const {
 		collision = (*it)->checkCollision(rect);
 		it++;
 	}
+	if (collision.tipo == HOME) {
+		it--;
+		SceneObject* obj = *it;
+
+		if (auto homed = dynamic_cast<HomedFrog*>(obj)) {
+			homed->onOcupar();
+		}
+	}
 	return collision;
 }
