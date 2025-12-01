@@ -18,6 +18,8 @@ public:
 
 	PlayState(Game* g, std::string fileName);
 
+	virtual ~PlayState() override;
+
 	virtual void update() override;
 	virtual void render() const override;
 	virtual void handleEvent(const SDL_Event& e) override;

@@ -25,10 +25,10 @@ public:
     void mapSelected();
 
 private:
-    std::vector<std::string> mapNames;
+    std::vector<std::string> mapFiles;
     int selected;
     // objetos de la ui
     std::vector<Button*> buttons;
-    std::vector<Button*> mapas;
+    std::vector<std::pair<Button*, std::string>> mapas;
     std::vector<Label*> labels;
 };

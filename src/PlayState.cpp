@@ -1,5 +1,6 @@
 ﻿#include <stdexcept>
 #include <SDL3/SDL.h>
+#include <limits>
 
 #include "PlayState.h"
 #include "SceneObject.h"
@@ -18,10 +19,15 @@ PlayState::PlayState(Game* g, std::string fileName) : GameState(g)
 	loadMap(fileName);
 }
 
+PlayState::~PlayState() {
+	delete infobar;
+}
+
 
 void PlayState::update() {
     // update game objects
     GameState::update();
+<<<<<<< Updated upstream
     // update scene objects separately if needed
 	for (auto so : sceneObjects) so->update();
 	if (frog->getLifes() <= 0) game->exitGame();
@@ -30,6 +36,21 @@ void PlayState::update() {
 
 }
 
+=======
+	infobar->update();
+}
+
+void PlayState::render() const {
+	game->getTexture(Game::BACKGROUND)->render();
+    GameState::render();
+    for (auto so : sceneObjects) so->render();
+	infobar->render();
+}
+
+void PlayState::handleEvent(const SDL_Event& e) {
+    GameState::handleEvent(e);
+}
+>>>>>>> Stashed changes
 
 void PlayState::loadMap(std::string fileName) {
 	std::ifstream file; file.open(fileName);
@@ -58,7 +79,7 @@ void PlayState::loadMap(std::string fileName) {
 		else if (id == 'T') {
 			sceneObjects.push_back(new Turtles(game, gs, this, file));
 		}
-		else if (id == '#')file.ignore('#', '\n');
+		else if (id == '#')file.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		else  throw FileFormatError(fileName, line, "Error de lectura sobre el tipo de elemento");
 		//else throw std::string("Formato erroneo");
 
@@ -76,7 +97,12 @@ void PlayState::loadMap(std::string fileName) {
 
 	setSceneObjectList(sceneObjects);
 
+<<<<<<< Updated upstream
 	/*infobar = new InfoBar(game, gs);*/
+=======
+	infobar = new InfoBar(game, gs);
+
+>>>>>>> Stashed changes
 }
 
 void PlayState::render() const {

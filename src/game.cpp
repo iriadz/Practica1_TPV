@@ -334,6 +334,7 @@ Game::getRenderer() const {
 	return renderer;
 }
 
-void pushState(GameState* state) {
-	pushState(state);
+void
+Game::pushState(GameState* state) {
+	GameStateMachine::pushState(state);
 }

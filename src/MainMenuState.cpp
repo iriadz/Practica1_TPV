@@ -20,8 +20,8 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
     try {
         for (auto& entry : fs::directory_iterator("../assets/maps")) {
 
-            mapNames.push_back(entry.path().stem().string());
-            std::cout << "Mapa encontrado: " << entry.path().stem().string() << std::endl;
+            mapFiles.push_back(entry.path().string());
+            std::cout << "Mapa encontrado: " << entry.path().string() << std::endl;
         }
     }
     catch (std::exception& ex) {
@@ -31,6 +31,7 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
     struct BotonInfo {
         Game::TextureName id;
         Point2D pos;
+        std::string fileName;
     };
 
     std::vector<BotonInfo> datos = {
@@ -40,11 +41,11 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
     };
 
     std::vector<BotonInfo> maps = {
-    {Game::ORIGINAL,   Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::ORIGINAL)->getFrameWidth() / 2),   270)},
-    {Game::PRACTICA_1, Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::PRACTICA_1)->getFrameWidth() / 2),   270)},
-    {Game::TRIVIAL,    Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::TRIVIAL)->getFrameWidth() / 2),   270)},
-    {Game::VELOZ,      Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::VELOZ)->getFrameWidth() / 2),   270)},
-    {Game::AVISPADO,   Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::AVISPADO)->getFrameWidth() / 2),   270)},
+    {Game::ORIGINAL,   Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::ORIGINAL)->getFrameWidth() / 2),   270), mapFiles[1]},
+    {Game::PRACTICA_1, Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::PRACTICA_1)->getFrameWidth() / 2),   270), mapFiles[2]},
+    {Game::TRIVIAL,    Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::TRIVIAL)->getFrameWidth() / 2),   270), mapFiles[3]},
+    {Game::VELOZ,      Point2D ((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::VELOZ)->getFrameWidth() / 2),   270), mapFiles[4]},
+    {Game::AVISPADO,   Point2D((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::AVISPADO)->getFrameWidth() / 2),   270), mapFiles[0]},
     };
 
     for (auto& d : datos) {
@@ -61,7 +62,8 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
 
     for (auto& m : maps) {
         Button* b = new Button(this, game, game->getTexture(m.id), m.pos);
-        mapas.push_back(b);
+        b->connect([this]() {mapSelected();});
+        mapas.push_back({ b, m.fileName });
         addObject(b);
         addEventListener(b);
     }
@@ -105,7 +107,7 @@ void MainMenuState::render() const {
     }
     buttons[salir]->render();
 
-    mapas[selected]->render();
+    mapas[selected].first->render();
 }
 
 void MainMenuState::handleEvent(const SDL_Event &e) {
@@ -131,5 +133,5 @@ MainMenuState::salir() {
 
 void
 MainMenuState::mapSelected() {
- /*   game->pushState(new PlayState(game, mapNames[selected]));*/
+    game->pushState(new PlayState(game, mapas[selected].second));
 }
