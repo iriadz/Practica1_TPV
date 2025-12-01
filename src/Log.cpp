@@ -4,10 +4,9 @@
 
 //Log::Log(Game* j, Texture* t, Point2D p, Vector2D<int> v) : juego(j), textura(t), posicion(p), velocidad(v) {};
 Log::Log(Game* j, GameState* gs, PlayState* ps, std::istream& in) : Platform(j, gs, ps, in){
-	int x, y, tipo; float vel;
-	in >> x >> y >> vel >> tipo;
-	posicion = Point2D((int)x, (int)y);
-	//velocidad = Vector2D<float>(vel, 0);ç
+	int tipo; float vel;
+	in >> vel >> tipo;
+
 	velocidad = Vector2D<float>(vel, 0);
 
 	switch (tipo) {

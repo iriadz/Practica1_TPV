@@ -98,13 +98,8 @@ Game::Game()
 		textures[i] = new Texture(renderer, (string(imgBase) + name).c_str(), nrows, ncols);
 	}
 
-	GameStateMachine::pushState(new MainMenuState(this));
-
-
-	//Cargar elementos -> rana, coches, troncos y avispas por archivo o a mano
-	//loadElems();
-
-	//loadMap();
+	/*GameStateMachine::pushState(new MainMenuState(this));*/
+	GameStateMachine::pushState(new PlayState(this, "../assets/maps/Original.txt"));
 
 	// Configura que se pueden utilizar capas translúcidas
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);

@@ -11,9 +11,8 @@
 
 Frog::Frog(Game* g, GameState* gs, PlayState* ps, std::istream& is) : SceneObject(g, gs, ps, is), sprite(0), angle(0)
 {
-    int x, y, v;
-    is >> x >> y >> v;
-    posicion = Point2D((int)x, (int)y);
+    int v;
+    is >> v;
     textura = g->getTexture(g->FROG);
     vidas = v;
 }
