@@ -37,8 +37,8 @@ void PlayState::render() const {
 	Texture* fondo = game->getTexture(Game::BACKGROUND);
 	fondo->render();
 	for (auto so : sceneObjects) so->render();
-	/*infoBar->setLives(frog->getLifes());
-	infoBar->render();*/
+	PlayState::infobar->setLives(frog->getLifes());
+	PlayState::infobar->render();
 }
 
 void PlayState::handleEvent(const SDL_Event& e) {
@@ -87,6 +87,8 @@ void PlayState::loadMap(std::string fileName) {
 		pos = pos + Point2D(96, 0); // va al siguiente nenufar
 		homes.push_back({ pos, false });
 	}
+
+	setSceneObjectList(sceneObjects);
 
 	infobar = new InfoBar(game, gs);
 }
