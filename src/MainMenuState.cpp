@@ -15,10 +15,11 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
     namespace fs = std::filesystem;
 
     std::string base = SDL_GetBasePath();
-    std::string mapsPath = base + "assets/maps";
+    std::string mapsPath = base + "../assets/maps";
 
     try {
-        for (auto& entry : fs::directory_iterator(mapsPath)) {
+        for (auto& entry : fs::directory_iterator("../assets/maps")) {
+
             mapNames.push_back(entry.path().stem().string());
             std::cout << "Mapa encontrado: " << entry.path().stem().string() << std::endl;
         }
@@ -78,6 +79,7 @@ MainMenuState::~MainMenuState() {
 
 void MainMenuState::update() {
     GameState::update();
+    
 
 }
 

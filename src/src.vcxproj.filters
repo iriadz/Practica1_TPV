@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de código fuente\GameObjects">
+      <UniqueIdentifier>{45ad81b6-8263-4b31-a466-0637ed80a96f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Estados">
+      <UniqueIdentifier>{ffef3737-28e1-48ec-99d6-f6d5b1dc12c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\GameObjects\SceneObjects">
+      <UniqueIdentifier>{52c9eb65-bbbe-4ca8-8586-75fe6f414613}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\GameObjects\Label">
+      <UniqueIdentifier>{c9382ce6-a5f3-499b-a3fd-08e24f96ba48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -24,68 +36,68 @@
     <ClCompile Include="texture.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="Frog.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="HomedFrog.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
     <ClCompile Include="Collision.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="Log.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="Wasp.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="Vehiculo.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="InfoBar.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="Turtles.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="GameError.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="SceneObject.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="Crosser.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="Platform.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
     <ClCompile Include="EventHandler.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="gameStateMachine.cpp">
-      <Filter>Archivos de código fuente</Filter>
+    <ClCompile Include="InfoBar.cpp">
+      <Filter>Archivos de código fuente\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="PlayState.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenuState.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="Label.cpp">
-      <Filter>Archivos de código fuente</Filter>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Archivos de código fuente\Estados</Filter>
     </ClCompile>
     <ClCompile Include="EndState.cpp">
-      <Filter>Archivos de código fuente</Filter>
+      <Filter>Archivos de código fuente\Estados</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Archivos de código fuente\Estados</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>Archivos de código fuente\Estados</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Archivos de código fuente\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Crosser.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Frog.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HomedFrog.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Turtles.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneObject.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehiculo.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Wasp.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Label.cpp">
+      <Filter>Archivos de código fuente\GameObjects\Label</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Archivos de código fuente\GameObjects\Label</Filter>
+    </ClCompile>
+    <ClCompile Include="gameStateMachine.cpp">
+      <Filter>Archivos de código fuente\Estados</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
