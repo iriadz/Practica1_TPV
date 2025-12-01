@@ -340,5 +340,5 @@ Game::getRenderer() const {
 }
 
 void pushState(GameState* state) {
-	/*pushState(state);*/
+	pushState(state);
 }

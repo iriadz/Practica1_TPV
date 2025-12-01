@@ -1,4 +1,5 @@
 ﻿#include "GameState.h"
+#include "gameStateMachine.h"
 #include <iostream>
 
 void GameState::update() {

@@ -1,7 +1,9 @@
 ﻿
 #include "GameState.h"
+#include "gameStateMachine.h"
 #include "Button.h"
 #include "Label.h"
+#include "game.h"
 #include "texture.h"
 #include <vector>
 #include <string>

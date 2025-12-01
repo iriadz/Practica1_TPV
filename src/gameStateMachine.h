@@ -6,6 +6,7 @@
 #include <stack>
 
 #include "gameState.h"
+#include "gameStateMachine.h"
 
 /**
  * Máquina de estados del juego.

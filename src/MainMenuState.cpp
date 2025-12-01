@@ -1,5 +1,6 @@
 ﻿#include "MainMenuState.h"
-#include "Game.h"
+#include "gameStateMachine.h"
+#include "game.h"
 #include "Button.h"
 #include "Label.h"
 #include "GameState.h"
@@ -12,13 +13,18 @@
 MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
     // discover maps
     namespace fs = std::filesystem;
+
+    std::string base = SDL_GetBasePath();
+    std::string mapsPath = base + "assets/maps";
+
     try {
-        for (auto& entry : fs::directory_iterator("assets/maps")) {
+        for (auto& entry : fs::directory_iterator(mapsPath)) {
             mapNames.push_back(entry.path().stem().string());
-            std::cout << entry.path().stem().string() << std::endl;
+            std::cout << "Mapa encontrado: " << entry.path().stem().string() << std::endl;
         }
     }
-    catch (...) {
+    catch (std::exception& ex) {
+        std::cout << "Error leyendo mapas: " << ex.what() << std::endl;
     }
     //CREAR UI
     struct BotonInfo {
@@ -123,5 +129,5 @@ MainMenuState::salir() {
 
 void
 MainMenuState::mapSelected() {
-    /*game->pushState(new PlayState(game, mapNames[selected]));*/
+ /*   game->pushState(new PlayState(game, mapNames[selected]));*/
 }
