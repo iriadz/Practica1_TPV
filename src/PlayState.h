@@ -37,7 +37,7 @@ protected:
 	//no hay que poner la lista de gameobjects, la hereda de gamestate
 	Frog* frog;
 	InfoBar* infobar;
-	std::vector<std::pair<Point2D, bool>> homes;
+	std::vector<HomedFrog*> homes;
 	std::list<SceneObject*> sceneObjects;
 
 };

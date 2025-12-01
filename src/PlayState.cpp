@@ -30,6 +30,12 @@ void PlayState::update() {
     // update scene objects separately if needed
 	if (frog->getLifes() <= 0) game->exitGame();
 	infobar->update();
+
+	int i = 0;
+	while (i<homes.size() && homes[i]->getOcupado()) {
+		i++;
+	}
+	if (i == homes.size()) game->exitGame();
 }
 
 void PlayState::render() const {
@@ -79,13 +85,12 @@ void PlayState::loadMap(std::string fileName) {
 	}
 
 	Point2D pos(14, 22); // posicion del primer nenufar
-	homes.push_back({ pos, false });
 	for (int i = 0; i < HOMED_NUM; i++) {
-		HomedFrog* hf = new HomedFrog(game, gs, this, file, homes[i].first);
+		HomedFrog* hf = new HomedFrog(game, gs, this, file, pos);
 		sceneObjects.push_back(hf);
+		homes.push_back(hf);
 
 		pos = pos + Point2D(96, 0); // va al siguiente nenufar
-		homes.push_back({ pos, false });
 	}
 
 	setSceneObjectList(sceneObjects);
