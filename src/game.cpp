@@ -98,7 +98,7 @@ Game::Game()
 		textures[i] = new Texture(renderer, (string(imgBase) + name).c_str(), nrows, ncols);
 	}
 
-	pushState(std::make_shared<MainMenuState>(this));
+	GameStateMachine::pushState(new MainMenuState(this));
 
 
 	//Cargar elementos -> rana, coches, troncos y avispas por archivo o a mano
@@ -337,4 +337,8 @@ Game::homeReached(Point2D position) {
 SDL_Renderer*
 Game::getRenderer() const {
 	return renderer;
+}
+
+void pushState(GameState* state) {
+	/*pushState(state);*/
 }

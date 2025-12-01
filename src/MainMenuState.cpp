@@ -2,6 +2,8 @@
 #include "Game.h"
 #include "Button.h"
 #include "Label.h"
+#include "GameState.h"
+#include "PlayState.h"
 #include <filesystem>
 #include <iostream>
 
@@ -13,6 +15,7 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
     try {
         for (auto& entry : fs::directory_iterator("assets/maps")) {
             mapNames.push_back(entry.path().stem().string());
+            std::cout << entry.path().stem().string() << std::endl;
         }
     }
     catch (...) {
@@ -24,9 +27,9 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
     };
 
     std::vector<BotonInfo> datos = {
-    {Game::LEFT,        {Game::WINDOW_WIDTH / 7,   270}},
-    {Game::RIGHT,       {Game::WINDOW_WIDTH / 1.20, 270}},
-    {Game::SALIR,      Point2D(Game::WINDOW_WIDTH / 2 - game->getTexture(Game::ORIGINAL)->getFrameWidth() / 3,   350)},
+    {Game::LEFT, {Game::WINDOW_WIDTH / 7,   270}},
+    {Game::RIGHT, {Game::WINDOW_WIDTH / 1.20, 270}},
+    {Game::SALIR,  Point2D (Game::WINDOW_WIDTH / 2 - game->getTexture(Game::ORIGINAL)->getFrameWidth() / 3,   350)},
     };
 
     std::vector<BotonInfo> maps = {
@@ -116,4 +119,9 @@ MainMenuState::right() {
 void
 MainMenuState::salir() {
     game->exitGame();
+}
+
+void
+MainMenuState::mapSelected() {
+    /*game->pushState(new PlayState(game, mapNames[selected]));*/
 }

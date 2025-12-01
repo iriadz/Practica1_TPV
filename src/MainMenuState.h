@@ -20,6 +20,7 @@ public:
     void left();
     void right();
     void salir();
+    void mapSelected();
 
 private:
     std::vector<std::string> mapNames;
