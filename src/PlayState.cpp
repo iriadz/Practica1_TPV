@@ -8,6 +8,7 @@
 #include "Frog.h"
 #include "Collision.h"
 #include "InfoBar.h"
+
 #include "HomedFrog.h"
 #include "Vehiculo.h"
 #include "Log.h"
@@ -17,6 +18,7 @@
 PlayState::PlayState(Game* g, std::string fileName) : GameState(g) 
 {
 	loadMap(fileName);
+	file = fileName;
 }
 
 PlayState::~PlayState() {
@@ -49,6 +51,7 @@ void PlayState::render() const {
 
 void PlayState::handleEvent(const SDL_Event& e) {
 	GameState::handleEvent(e);
+	 if (e.type == SDL_EVENT_KEY_DOWN && e.key.key == SDLK_0) reiniciarMsg();
 }
 
 void PlayState::loadMap(std::string fileName) {
@@ -134,4 +137,43 @@ PlayState::checkCollision(const SDL_FRect& rect) const {
 		}
 	}
 	return collision;
+}
+
+//Reinicia la partida
+void
+PlayState::reiniciar() {
+	for (SceneObject* s : sceneObjects) {
+		delete s;
+	}
+	sceneObjects.clear();
+	homes.clear();
+	delete PlayState::infobar;
+	//loadMap(file);
+	game->pushState(new PlayState(game, file));
+}
+
+//Muestra una ventana con dos botones para confirmar si se quiere reiniciar la partida
+void
+PlayState::reiniciarMsg() {
+
+	SDL_MessageBoxButtonData buttons[] = {
+		{ SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT, 1, "Aceptar" },
+		{ SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 0, "Cancelar" }
+	};
+
+	const SDL_MessageBoxData messageboxdata = {
+		SDL_MESSAGEBOX_INFORMATION,
+		NULL,
+		"Quieres reiniciar la partida?",
+		"Pulsa Aceptar para reiniciar la partida.",
+		SDL_arraysize(buttons),
+		buttons,
+		NULL
+	};
+
+	int buttonid = -1;
+	SDL_ShowMessageBox(&messageboxdata, &buttonid);
+	if (buttonid == 1) {
+		reiniciar();
+	}
 }

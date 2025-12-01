@@ -178,7 +178,7 @@ Game::handleEvents()
 		if (event.type == SDL_EVENT_QUIT) {
 			exit = true;            // permite cerrar la ventana con la X
 		}
-
+		
 		GameStateMachine::handleEvent(event);  // pasa el evento real al estado
 	}
 }

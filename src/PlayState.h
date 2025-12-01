@@ -29,7 +29,8 @@ public:
 	void addSceneObject(SceneObject* so);
 	void setSceneObjectList(std::list<SceneObject*> sol);
 	void removeSceneObject(SceneObject* so);
-
+	void reiniciarMsg();
+	void reiniciar();
 	//colisiones
 	Collision checkCollision(const SDL_FRect& rect) const;
 
@@ -39,6 +40,7 @@ protected:
 	InfoBar* infobar;
 	std::vector<HomedFrog*> homes;
 	std::list<SceneObject*> sceneObjects;
+	std::string file; // variable para guardar la ruta del mapa actual
 
 };
 
