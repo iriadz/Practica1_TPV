@@ -4,7 +4,9 @@
 #include "Collision.h"
 #include "Log.h"
 #include "SceneObject.h"
+#include "PlayState.h"
 #include <iostream>
+
 
 
 
@@ -28,7 +30,8 @@ void Frog::update() {
     posicion = posicion + direccion * 32;
 
     SDL_FRect rana = frogHitbox();
-    Collision col = game->checkCollision(rana);
+    Collision col = playState->checkCollision(rana);
+    
 
     // Reinicia la direccion a 0
     direccion = Point2D(0, 0); 

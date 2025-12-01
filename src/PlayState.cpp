@@ -5,6 +5,7 @@
 #include "SceneObject.h"
 #include "game.h"
 #include "Frog.h"
+#include "Collision.h"
 #include "InfoBar.h"
 #include "HomedFrog.h"
 #include "Vehiculo.h"
@@ -22,19 +23,10 @@ void PlayState::update() {
     // update game objects
     GameState::update();
     // update scene objects separately if needed
-    for (auto so : sceneObjects) so->update();
+	for (auto so : sceneObjects) so->update();
+
 }
 
-void PlayState::render() const {
-    GameState::render();
-	Texture* fondo = game->getTexture(Game::BACKGROUND);
-	fondo->render();
-    for (auto so : sceneObjects) so->render();
-}
-
-void PlayState::handleEvent(const SDL_Event& e) {
-    GameState::handleEvent(e);
-}
 
 void PlayState::loadMap(std::string fileName) {
 	std::ifstream file; file.open(fileName);
@@ -84,6 +76,20 @@ void PlayState::loadMap(std::string fileName) {
 	infobar = new InfoBar(game, gs);
 }
 
+void PlayState::render() const {
+    GameState::render();
+	Texture* fondo = game->getTexture(Game::BACKGROUND);
+	fondo->render();
+    for (auto so : sceneObjects) so->render();
+	/*infoBar->setLives(frog->getLifes());
+	infoBar->render();*/
+}
+
+void PlayState::handleEvent(const SDL_Event& e) {
+    GameState::handleEvent(e);
+}
+
+
 void PlayState::addSceneObject(SceneObject* so) {
     sceneObjects.push_back(so);
     addObject(so);
@@ -103,15 +109,12 @@ void PlayState::removeSceneObject(SceneObject* so) {
 
 Collision 
 PlayState::checkCollision(const SDL_FRect& rect) const {
-    for (auto so : sceneObjects) {
-        Collision col = so->checkCollision(rect);  // col para cada objeto
-
-        if (col.tipo != NONE) {
-            // encontramos una colisión, la devolvemos inmediatamente
-            return col;
-        }
-    }
-
-    // Si ningún objeto colisiona
-    return Collision(NONE, Vector2D<float>(0, 0));
+	Collision collision;
+	collision.tipo = NONE;
+	auto it = sceneObjects.begin();
+	while (it != sceneObjects.end() && collision.tipo == NONE) {
+		collision = (*it)->checkCollision(rect);
+		it++;
+	}
+	return collision;
 }

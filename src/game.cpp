@@ -124,7 +124,7 @@ Game::render() const
 	//textures[1]->render(); // fondo
 
 	//for (auto it = sceneObjects.begin(); it != sceneObjects.end(); ++it) (*it)->render();
-	////frog->render();
+	//////frog->render();
 	//infoBar->setLives(frog->getLifes());
 	//infoBar->render();
 
