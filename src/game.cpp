@@ -330,3 +330,8 @@ void
 Game::homeReached(Point2D position) {
 	homes[position.getX() / 14].second = true;
 }
+
+SDL_Renderer*
+Game::getRenderer() const {
+	return renderer;
+}

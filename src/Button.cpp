@@ -17,6 +17,12 @@
 	}
 
 	void Button::render() const {
+		if (m_hover) {
+			SDL_SetTextureColorMod(textura->getTexture(), 255, 255, 0); // Color amarillo
+		}
+		else {
+			SDL_SetTextureColorMod(textura->getTexture(), 255, 255, 255); // Color normal
+		}
 		SDL_FRect r = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
 		textura->render(r);
 	}

@@ -106,10 +106,7 @@ public:
 	// Comprueba si hay algún objeto colocado en ese rectángulo
 	Collision checkCollision(const SDL_FRect& rect) const;
 
-	SDL_Renderer* getRenderer() const {
-		return renderer;
-	}
-
+	SDL_Renderer* getRenderer() const;
 private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;

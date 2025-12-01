@@ -1,4 +1,4 @@
-#include "texture.h"
+﻿#include "texture.h"
 
 #include <SDL3_image/SDL_image.h>
 #include <string>
@@ -137,4 +137,9 @@ Texture::render(const SDL_FRect& rect, SDL_Color color) const
 	SDL_SetTextureColorMod(texture, color.r, color.g, color.b);
 	render(rect);
 	SDL_SetTextureColorMod(texture, original.r, original.g, original.b);
+}
+
+SDL_Texture*
+Texture::getTexture() const {
+	return texture;
 }

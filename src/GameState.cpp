@@ -9,7 +9,6 @@ void GameState::update() {
 }
 
 GameState::~GameState() {
-    std::cerr << "GameState::~GameState() called for " << typeid(*this).name() << "\n";
     for (auto obj : gameObjects) delete obj;
     gameObjects.clear();
 

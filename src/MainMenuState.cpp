@@ -56,7 +56,6 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
 }
 
 MainMenuState::~MainMenuState() {
-    std::cerr << "MainMenuState::~MainMenuState() called\n";
     labels.clear();
     mapas.clear();
     buttons.clear();
