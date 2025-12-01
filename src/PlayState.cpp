@@ -3,7 +3,7 @@
 
 #include "PlayState.h"
 #include "SceneObject.h"
-#include "Game.h"
+#include "game.h"
 #include "Frog.h"
 #include "InfoBar.h"
 #include "HomedFrog.h"
@@ -27,6 +27,8 @@ void PlayState::update() {
 
 void PlayState::render() const {
     GameState::render();
+	Texture* fondo = game->getTexture(Game::BACKGROUND);
+	fondo->render();
     for (auto so : sceneObjects) so->render();
 }
 
@@ -50,6 +52,7 @@ void PlayState::loadMap(std::string fileName) {
 		if (id == 'F') {
 			frog = new Frog(game, gs, this, file);
 			sceneObjects.push_back(frog);
+			addEventListener(frog);
 		}
 		else if (id == 'V') {
 			sceneObjects.push_back(new Vehiculo(game, gs, this, file));

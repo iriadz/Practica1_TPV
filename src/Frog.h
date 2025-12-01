@@ -3,7 +3,7 @@
 #include "texture.h"
 #include "Vector2D.h"
 #include "game.h"
-class Frog : public SceneObject
+class Frog : public SceneObject, public EventHandler
 {
 public:
   /*  Frog(Game* g, Texture* t, Point2D p);*/
@@ -15,7 +15,7 @@ public:
 
     virtual void update() override;
     virtual void render() const override;
-    void handleEvent(const SDL_Event&);
+    void handleEvent(const SDL_Event&) override;
     void loseLife();
     void resetPosition();
     int getLifes() const;
