@@ -15,7 +15,7 @@
 #include <list>
 #include <map>
 
-#include "Vector2D.h"
+#include "vector2D.h"
 #include "gameStateMachine.h"
 // Declaraciones anticipadas
 class Texture;
@@ -140,7 +140,7 @@ private:
 
 	bool exit;
 	int line; 
-	std::string name = "../assets/maps/Original.txt";
+	//std::string name = "../assets/maps/Original.txt";
 	std::list<SceneObject*> sceneObjects;
 	std::list<It> m_toDelete; // it a borrar al final de update
 	std::list<It> waspsDel; // avistpas a borrar al final del update

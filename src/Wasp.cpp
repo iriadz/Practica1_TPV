@@ -1,5 +1,5 @@
 ﻿#include "Wasp.h"
-#include "Vector2D.h"
+#include "vector2D.h"
 #include "game.h"
 #include "Collision.h"
 #include "PlayState.h"
@@ -23,23 +23,15 @@ void Wasp::update() {
     posicion = posicion + Point2D(velocidad.getX() , velocidad.getY() );
 
     //Recalcular posicion si llegan al limite
-    if (posicion.getX() >= Game::WINDOW_WIDTH) isdead = true;
-    if (posicion.getX() <= Game::WINDOW_WIDTH) isdead = true;
-    if (posicion.getX() >= Game::WINDOW_HEIGHT) isdead = true;
+    if (posicion.getX() > Game::WINDOW_WIDTH) isdead = true;
+    if (posicion.getX() < Game::WINDOW_WIDTH) isdead = true;
+    if (posicion.getX() > Game::WINDOW_HEIGHT) isdead = true;
 
-    /*if (isdead)
+    if (isdead)
     {
-        GameState* gs = gameState;
-
-        gs->runLater([gs, this]()
-            {
-                gs->removeObject(this);
-
-                if (playState)
-                    playState->removeObject(this);
-                delete this;
+        gameState->runLater([this]() {
             });
-    }*/
+    }
 
 }
 

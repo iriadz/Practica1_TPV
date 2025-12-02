@@ -4,13 +4,13 @@
 #include "Button.h"
 #include "gameStateMachine.h"
 #include "Label.h"
-#include "Texture.h"
+#include "texture.h"
 #include "EndState.h"
 
 #include <SDL3/SDL.h>
 
-PauseState::PauseState(Game* g)
-    : GameState(g)
+PauseState::PauseState(Game* g, PlayState* ps)
+    : GameState(g), playState(ps)
 {
     SDL_Renderer* r = g->getRenderer();
 
@@ -44,10 +44,10 @@ PauseState::PauseState(Game* g)
     addEventListener(backToMenu);
 
     // Botón menu
-    reiniciar = new Button(this, game, game->getTexture(Game::REINICIAR), Point2D(Game::WINDOW_WIDTH / 2 - game->getTexture(Game::VOLVER_AL_MENU)->getFrameWidth() / 2, 350));
+    reiniciar = new Button(this, game, game->getTexture(Game::REINICIAR), Point2D(Game::WINDOW_WIDTH / 2 - game->getTexture(Game::REINICIAR)->getFrameWidth() / 2, 350));
     reiniciar->connect([this]() {
        
-        game->popState();
+        game->swapState(new PlayState(game, playState->getFile()) );
         });
     uiElements.push_back(reiniciar);
     addObject(reiniciar);

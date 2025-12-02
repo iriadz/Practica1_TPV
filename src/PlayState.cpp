@@ -33,7 +33,8 @@ void PlayState::update() {
     // update game objects
     GameState::update();
     // update scene objects separately if needed
-	if (frog->getLifes() <= 0) game->exitGame();
+	if (frog->getLifes() <= 0)game->swapState(new EndState(game, false));
+	infobar->setLives(frog->getLifes());
 	infobar->update();
 
 	int i = 0;
@@ -55,7 +56,7 @@ void PlayState::render() const {
 void PlayState::handleEvent(const SDL_Event& e) {
 	GameState::handleEvent(e);
 	// if (e.type == SDL_EVENT_KEY_DOWN && e.key.key == SDLK_0) reiniciarMsg();
-	if (e.type == SDL_EVENT_KEY_DOWN && e.key.key == SDLK_P)game->pushState(new PauseState (game));
+	if (e.type == SDL_EVENT_KEY_DOWN && e.key.key == SDLK_P)game->pushState(new PauseState (game, this));
 		 return;
 }
 
@@ -186,7 +187,7 @@ PlayState::reiniciarMsg() {
 	}
 }
 
-void
-PlayState::manageWasps() {
-	
+std::string
+PlayState::getFile() {
+	return file;
 }

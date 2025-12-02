@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "texture.h"
-#include "Vector2D.h"
+#include "vector2D.h"
 #include "Collision.h"
 #include "SceneObject.h"
 

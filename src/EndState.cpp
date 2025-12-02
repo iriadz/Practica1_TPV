@@ -1,4 +1,6 @@
 ﻿#include "EndState.h"
+#include "PlayState.h"
+#include "MainMenuState.h"
 #include "Button.h"
 #include "Label.h"
 #include "game.h"
@@ -31,10 +33,17 @@ EndState::EndState(Game* g, bool w)
 
     if (won)
     {
-        Label* hasGanado = new Label(this, game, game->getTexture(Game::HAS_GANADO), Point2D(Game::WINDOW_WIDTH / 2 - game->getTexture(Game::ELIGE_UN_MAPA)->getFrameWidth() / 2, 100));
+        Label* hasGanado = new Label(this, game, game->getTexture(Game::HAS_GANADO), Point2D(Game::WINDOW_WIDTH / 2 - game->getTexture(Game::HAS_GANADO)->getFrameWidth() / 2, 100));
         SDL_SetTextureColorMod(hasGanado->getTexture()->getTexture(), 0, 255, 0); // Color normal
         labels.push_back(hasGanado);
         addObject(hasGanado);
+    }
+    else 
+    {
+        Label* perdido = new Label(this, game, game->getTexture(Game::GAME_OVER), Point2D(Game::WINDOW_WIDTH / 2 - game->getTexture(Game::GAME_OVER)->getFrameWidth() / 2, 100));
+        SDL_SetTextureColorMod(perdido->getTexture()->getTexture(), 255, 0, 0); // Color normal
+        labels.push_back(perdido);
+        addObject(perdido);
     }
     
 }
@@ -69,5 +78,5 @@ EndState::salir() {
 
 void
 EndState::volverMenu() {
-    game->popState();
+    game->swapState(new MainMenuState(game));
 }

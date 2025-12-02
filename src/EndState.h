@@ -18,6 +18,7 @@ public:
     void volverMenu();
 
 private:
+   
     std::string msg;
     std::vector<Button*> buttons;
     std::vector<Label*> labels;

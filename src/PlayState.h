@@ -37,7 +37,7 @@ public:
 	Collision checkCollision(const SDL_FRect& rect) const;
 
 	//avispas
-	void manageWasps();
+	std::string getFile();
 
 protected:
 	//no hay que poner la lista de gameobjects, la hereda de gamestate

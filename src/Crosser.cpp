@@ -1,6 +1,5 @@
 ﻿#include "Crosser.h"
-#include "Crosser.h"
-#include "Game.h"
+#include "game.h"
 
 Crosser::Crosser(Game* g, GameState* gs, PlayState* ps, std::istream& is)
     : SceneObject(g, gs, ps, is), ancho(0.0f) {

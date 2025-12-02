@@ -198,7 +198,7 @@
       <Filter>Archivos de encabezado\Estados</Filter>
     </ClInclude>
     <ClInclude Include="PauseState.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Estados</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

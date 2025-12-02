@@ -2,6 +2,7 @@
 #define PAUSESTATE_H
 
 #include "GameState.h"
+#include "PlayState.h"
 #include <vector>
 
 class Button;
@@ -10,7 +11,7 @@ class Game;
 
 class PauseState : public GameState {
 public:
-    PauseState(Game* g);
+    PauseState(Game* g, PlayState* ps);
     virtual ~PauseState();
 
     virtual void update() override;
@@ -22,7 +23,7 @@ private:
     Button* exit;
     Button* backToMenu;
     Button* reiniciar;
-
+    PlayState* playState;
     std::vector<GameObject*> uiElements;
 };
 

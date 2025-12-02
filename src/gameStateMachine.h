@@ -5,7 +5,7 @@
 #include <memory>
 #include <stack>
 
-#include "gameState.h"
+#include "GameState.h"
 #include "gameStateMachine.h"
 
 /**
