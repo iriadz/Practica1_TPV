@@ -64,7 +64,7 @@ void PlayState::loadMap(std::string fileName) {
 	std::ifstream file; file.open(fileName);
 	if (!file.is_open()) throw FileNotFoundError(fileName);
 
-	GameState* gs = static_cast<GameState*>(this);
+	GameState* gs = this;
 
 	homesList.clear();
 
