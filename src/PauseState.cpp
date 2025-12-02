@@ -25,7 +25,7 @@ PauseState::PauseState(Game* g)
     addEventListener(continuar);
 
     // Botón salir
-    exit = new Button(this, game, game->getTexture(Game::SALIR) , Point2D(Game::WINDOW_WIDTH / 2 -game->getTexture(Game::SALIR)->getFrameWidth() / 2, 270));
+    exit = new Button(this, game, game->getTexture(Game::SALIR) , Point2D(Game::WINDOW_WIDTH / 2 -game->getTexture(Game::SALIR)->getFrameWidth() / 2, 250));
     exit->connect([this]() {
        
         game->pushState(new EndState(game, false));
@@ -33,15 +33,25 @@ PauseState::PauseState(Game* g)
     uiElements.push_back(exit);
     addObject(exit);
     addEventListener(exit);
-    // Botón continuar
-    backToMenu = new Button(this, game, game->getTexture(Game::VOLVER_AL_MENU), Point2D(Game::WINDOW_WIDTH / 2 - game->getTexture(Game::VOLVER_AL_MENU)->getFrameWidth() / 2, 340));
-    backToMenu->connect([this]() {
-        game->swapState(new MainMenuState(game));  
 
+    // Botón menu
+    backToMenu = new Button(this, game, game->getTexture(Game::VOLVER_AL_MENU), Point2D(Game::WINDOW_WIDTH / 2 - game->getTexture(Game::VOLVER_AL_MENU)->getFrameWidth() / 2, 300));
+    backToMenu->connect([this]() {
+        game->swapState(new MainMenuState(game));
         });
     uiElements.push_back(backToMenu);
     addObject(backToMenu);
     addEventListener(backToMenu);
+
+    // Botón menu
+    reiniciar = new Button(this, game, game->getTexture(Game::REINICIAR), Point2D(Game::WINDOW_WIDTH / 2 - game->getTexture(Game::VOLVER_AL_MENU)->getFrameWidth() / 2, 350));
+    reiniciar->connect([this]() {
+       
+        game->popState();
+        });
+    uiElements.push_back(reiniciar);
+    addObject(reiniciar);
+    addEventListener(reiniciar);
 }
 
 PauseState::~PauseState() {

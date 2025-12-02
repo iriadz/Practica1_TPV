@@ -7,6 +7,7 @@
 #include "PauseState.h"
 #include "game.h"
 #include "Frog.h"
+#include "Wasp.h"
 #include "Collision.h"
 #include "InfoBar.h"
 
@@ -36,10 +37,10 @@ void PlayState::update() {
 	infobar->update();
 
 	int i = 0;
-	while (i<homes.size() && homes[i]->getOcupado()) {
+	while (i<homesList.size() && homesList[i]->getOcupado()) {
 		i++;
 	}
-	if (i == homes.size()) game->swapState(new EndState(game, true));
+	if (i == homesList.size()) game->swapState(new EndState(game, true));
 }
 
 void PlayState::render() const {
@@ -53,7 +54,7 @@ void PlayState::render() const {
 
 void PlayState::handleEvent(const SDL_Event& e) {
 	GameState::handleEvent(e);
-	 if (e.type == SDL_EVENT_KEY_DOWN && e.key.key == SDLK_0) reiniciarMsg();
+	// if (e.type == SDL_EVENT_KEY_DOWN && e.key.key == SDLK_0) reiniciarMsg();
 	if (e.type == SDL_EVENT_KEY_DOWN && e.key.key == SDLK_P)game->pushState(new PauseState (game));
 		 return;
 }
@@ -64,7 +65,7 @@ void PlayState::loadMap(std::string fileName) {
 
 	GameState* gs = static_cast<GameState*>(this);
 
-	homes.clear();
+	homesList.clear();
 
 	char id;
 	int line = 0;
@@ -85,6 +86,9 @@ void PlayState::loadMap(std::string fileName) {
 		else if (id == 'T') {
 			sceneObjects.push_back(new Turtles(game, gs, this, file));
 		}
+		else if (id == 'W') {
+			sceneObjects.push_back(new Wasp(game, gs, this, file));
+		}
 		else if (id == '#')file.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		else  throw FileFormatError(fileName, line, "Error de lectura sobre el tipo de elemento");
 		//else throw std::string("Formato erroneo");
@@ -95,7 +99,7 @@ void PlayState::loadMap(std::string fileName) {
 	for (int i = 0; i < HOMED_NUM; i++) {
 		HomedFrog* hf = new HomedFrog(game, gs, this, file, pos);
 		sceneObjects.push_back(hf);
-		homes.push_back(hf);
+		homesList.push_back(hf);
 
 		pos = pos + Point2D(96, 0); // va al siguiente nenufar
 	}
@@ -141,6 +145,7 @@ PlayState::checkCollision(const SDL_FRect& rect) const {
 		}
 	}
 	return collision;
+	//return Collision(NONE, Vector2D<float>(0, 0));
 }
 
 //Reinicia la partida
@@ -150,7 +155,7 @@ PlayState::reiniciar() {
 		delete s;
 	}
 	sceneObjects.clear();
-	homes.clear();
+	homesList.clear();
 	delete PlayState::infobar;
 	//loadMap(file);
 	game->pushState(new PlayState(game, file));
@@ -179,4 +184,9 @@ PlayState::reiniciarMsg() {
 	if (buttonid == 1) {
 		reiniciar();
 	}
+}
+
+void
+PlayState::manageWasps() {
+	
 }

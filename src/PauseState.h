@@ -21,6 +21,7 @@ private:
     Button* continuar;
     Button* exit;
     Button* backToMenu;
+    Button* reiniciar;
 
     std::vector<GameObject*> uiElements;
 };

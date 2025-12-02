@@ -100,7 +100,7 @@ Game::Game()
 	}
 
 	GameStateMachine::pushState(new MainMenuState(this));
-
+	//GameStateMachine::pushState(new PlayState(this, "../assets/maps/Avispado.txt"));
 	// Configura que se pueden utilizar capas translúcidas
 	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
@@ -244,30 +244,30 @@ Game::loadMap() {
 
 	infoBar = new InfoBar(this, gs);
 }
-
-//Carga los elementos en el mapa con valores dados por nosotros
-void
-Game::manageWasps() {
-	/*if (!waspAlive)
-	{
-		waspsSpawn = SDL_GetTicks();
-		
-		lifeTime = getRandomRange(1000, 3000);
-		int home = getRandomRange(0, Game::HOMED_NUM - 1);
-		while (homes[home].second)
-		{
-			home = getRandomRange(0, Game::HOMED_NUM - 1);
-		}
-		Point2D pos = homes[home].first;
-		pos = pos + Point2D(0, 4);
-
-		Wasp* w = new Wasp(this, lifeTime, waspsSpawn, pos);
-		sceneObjects.push_back(w);
-		
-		waspAlive = true;
-	}*/
-
-}
+//
+////Carga los elementos en el mapa con valores dados por nosotros
+//void
+//Game::manageWasps() {
+//	if (!waspAlive)
+//	{
+//		waspsSpawn = SDL_GetTicks();
+//		
+//		lifeTime = getRandomRange(1000, 3000);
+//		int home = getRandomRange(0, Game::HOMED_NUM - 1);
+//		while (homes[home].second)
+//		{
+//			home = getRandomRange(0, Game::HOMED_NUM - 1);
+//		}
+//		Point2D pos = homes[home].first;
+//		pos = pos + Point2D(0, 4);
+//
+//		Wasp* w = new Wasp(this, lifeTime, waspsSpawn, pos);
+//		sceneObjects.push_back(w);
+//		
+//		waspAlive = true;
+//	}
+//
+//}
 
 
 void

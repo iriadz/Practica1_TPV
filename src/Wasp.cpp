@@ -2,39 +2,53 @@
 #include "Vector2D.h"
 #include "game.h"
 #include "Collision.h"
+#include "PlayState.h"
+#include "GameState.h"
 
-
-Wasp::Wasp(Game* g, GameState* gs, PlayState* ps, std::istream& is, int max, int cr, Point2D pos) : SceneObject(g, gs, ps, is)
+Wasp::Wasp(Game* g, GameState* gs, PlayState* ps, std::istream& is) : SceneObject(g, gs, ps, is)
 {
-    posicion = pos;
-    textura = g->getTexture(g->WASP);
-    tiempoCreacion = cr;
-    tiempoVidaMax = max;
+    float vx, vy; int vida;
+    is >> vx >> vy >> vida;
+    velocidad = Vector2D<float>(vx, vy);
+    textura = game->getTexture(Game::WASP);
+    isdead = false;
 }
 
+
 bool Wasp::isDead() const {
-    return SDL_GetTicks() >= tiempoVidaMax + tiempoCreacion;
+    return false;
 }
 
 void Wasp::update() {
-    if (isDead()) {
-        game->deleteAfter(it);
-    }
+    posicion = posicion + Point2D(velocidad.getX() , velocidad.getY() );
+
+    //Recalcular posicion si llegan al limite
+    if (posicion.getX() >= Game::WINDOW_WIDTH) isdead = true;
+    if (posicion.getX() <= Game::WINDOW_WIDTH) isdead = true;
+    if (posicion.getX() >= Game::WINDOW_HEIGHT) isdead = true;
+
+    /*if (isdead)
+    {
+        GameState* gs = gameState;
+
+        gs->runLater([gs, this]()
+            {
+                gs->removeObject(this);
+
+                if (playState)
+                    playState->removeObject(this);
+                delete this;
+            });
+    }*/
+
+}
+
+void Wasp::render() const{
+    SDL_FRect r = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
+   
+    textura->render(r);
 }
 
 void Wasp::setAnchor(It i) {
     it = i;
 }
-
-////detectar colisiones(bool checkCollision(const SDL_FRect&)).
-//Collision Wasp::checkCollision(const SDL_FRect& ref)
-//{
-//	SDL_FRect wasp = { posicion.getX(),posicion.getY(), textura->getFrameWidth(), textura->getFrameHeight() };
-//	//return ;
-//	if (SDL_HasRectIntersectionFloat(&ref, &wasp)) {
-//		Collision col(ENEMY, Vector2D<float>(0, 0));
-//		return col;
-//	}
-//
-//	return Collision(NONE, Vector2D<float>(0, 0));
-//}

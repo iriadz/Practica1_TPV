@@ -7,6 +7,7 @@ void GameState::update() {
     
     for (auto& cb : callBacks) cb();
     callBacks.clear();
+
 }
 
 GameState::~GameState() {
