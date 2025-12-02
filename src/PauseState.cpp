@@ -28,7 +28,8 @@ PauseState::PauseState(Game* g, PlayState* ps)
     exit = new Button(this, game, game->getTexture(Game::SALIR) , Point2D(Game::WINDOW_WIDTH / 2 -game->getTexture(Game::SALIR)->getFrameWidth() / 2, 250));
     exit->connect([this]() {
        
-        game->exitGame();
+        game->pushState(new EndState(game, false));
+        });
     uiElements.push_back(exit);
     addObject(exit);
     addEventListener(exit);
