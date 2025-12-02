@@ -65,16 +65,14 @@ void PauseState::update() {
 
 void PauseState::render() const {
 
+    playState->render();
+
     // Dibujamos un overlay oscuro encima del PlayState
-    SDL_SetRenderDrawBlendMode(game->getRenderer(), SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(game->getRenderer(), 0, 0, 0, 150);
     SDL_FRect overlay = { 0, 0,
                           (float)game->WINDOW_WIDTH,
                           (float)game->WINDOW_HEIGHT };
     SDL_RenderFillRect(game->getRenderer(), &overlay);
-    
-
-    SDL_SetRenderDrawBlendMode(game->getRenderer(), SDL_BLENDMODE_NONE);
 
     // Ahora dibujamos la UI
     GameState::render();

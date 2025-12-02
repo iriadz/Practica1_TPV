@@ -76,6 +76,7 @@ constexpr array<TextureSpec, Game::NUM_TEXTURES> textureList{
 Game::Game()
 	: exit(false)
 {
+
 	// Carga SDL y sus bibliotecas auxiliares
 	SDL_Init(SDL_INIT_VIDEO);
 
@@ -101,8 +102,9 @@ Game::Game()
 
 	GameStateMachine::pushState(new MainMenuState(this));
 	//GameStateMachine::pushState(new PlayState(this, "../assets/maps/Avispado.txt"));
+	
 	// Configura que se pueden utilizar capas translúcidas
-	// SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
 
 
