@@ -38,7 +38,7 @@ void PlayState::update() {
 	while (i<homes.size() && homes[i]->getOcupado()) {
 		i++;
 	}
-	if (i == homes.size()) game->pushState(new EndState(game));
+	if (i == homes.size()) game->swapState(new EndState(game));
 }
 
 void PlayState::render() const {

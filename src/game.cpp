@@ -340,6 +340,11 @@ Game::pushState(GameState* state) {
 }
 
 void
+Game::swapState(GameState* state) {
+	GameStateMachine::replaceState(state);
+}
+
+void
 Game::popState() {
 	GameStateMachine::popState();
 }

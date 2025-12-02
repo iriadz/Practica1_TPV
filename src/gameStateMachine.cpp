@@ -1,4 +1,5 @@
-#include "gameStateMachine.h"
+﻿#include "gameStateMachine.h"
+#include <iostream>
 
 using namespace std;
 
@@ -21,6 +22,7 @@ GameStateMachine::popState()
 	if (!gameStates.empty())
 		gameStates.pop();
 }
+
 
 bool
 GameStateMachine::empty() const

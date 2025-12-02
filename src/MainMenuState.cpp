@@ -111,7 +111,10 @@ void MainMenuState::render() const {
 }
 
 void MainMenuState::handleEvent(const SDL_Event &e) {
-    GameState::handleEvent(e);
+    mapas[selected].first->handleEvent(e);
+    buttons[0]->handleEvent(e);
+    buttons[1]->handleEvent(e);
+    buttons[2]->handleEvent(e);
 }
 
 void

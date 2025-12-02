@@ -50,7 +50,7 @@ public:
 
 	// Getter del gameState actual
 	template<typename T>
-	T* getCurrentState() {
+	T* getCurrentState() {	
 		if (gameStates.empty()) return nullptr;
 		return dynamic_cast<T*>(gameStates.top().get());
 	}
