@@ -25,6 +25,24 @@
     <Filter Include="Archivos de código fuente\GameObjects\Label">
       <UniqueIdentifier>{c9382ce6-a5f3-499b-a3fd-08e24f96ba48}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\GameObjects">
+      <UniqueIdentifier>{ec1d604d-1d87-481d-ba2e-6b73f975b149}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\GameObjects\SceneObjects">
+      <UniqueIdentifier>{e9153db1-1653-4121-b3f4-0f2059b27283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\GameObjects\Labels">
+      <UniqueIdentifier>{0a39b33b-98ce-4b2c-937e-0cd640864c8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\GameObjects\SceneObjects\Crossers">
+      <UniqueIdentifier>{211994a0-358a-4acf-8675-0890df06d995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Estados">
+      <UniqueIdentifier>{69ac0575-fb7a-448f-b075-bea5c64afb28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\GameObjects\SceneObjects\Crossers">
+      <UniqueIdentifier>{80bd15b8-71af-4fdf-98aa-bcad20383a7f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp">
@@ -34,9 +52,6 @@
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="texture.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="Collision.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="GameError.cpp">
@@ -63,28 +78,13 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Archivos de código fuente\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Crosser.cpp">
-      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Frog.cpp">
       <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
     </ClCompile>
     <ClCompile Include="HomedFrog.cpp">
       <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Log.cpp">
-      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Platform.cpp">
-      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Turtles.cpp">
-      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
-    </ClCompile>
     <ClCompile Include="SceneObject.cpp">
-      <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Vehiculo.cpp">
       <Filter>Archivos de código fuente\GameObjects\SceneObjects</Filter>
     </ClCompile>
     <ClCompile Include="Wasp.cpp">
@@ -99,6 +99,27 @@
     <ClCompile Include="gameStateMachine.cpp">
       <Filter>Archivos de código fuente\Estados</Filter>
     </ClCompile>
+    <ClCompile Include="Platform.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects\Crossers</Filter>
+    </ClCompile>
+    <ClCompile Include="Turtles.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects\Crossers</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehiculo.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects\Crossers</Filter>
+    </ClCompile>
+    <ClCompile Include="Crosser.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects\Crossers</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Archivos de código fuente\GameObjects\SceneObjects\Crossers</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseState.cpp">
+      <Filter>Archivos de código fuente\Estados</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h">
@@ -110,70 +131,73 @@
     <ClInclude Include="vector2D.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Frog.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="HomedFrog.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Collision.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Log.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Wasp.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Vehiculo.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="InfoBar.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Turtles.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="GameError.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneObject.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Crosser.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Platform.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="GameState.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="EventHandler.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="gameStateMachine.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="InfoBar.h">
+      <Filter>Archivos de encabezado\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="PlayState.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="Frog.h">
+      <Filter>Archivos de encabezado\GameObjects\SceneObjects</Filter>
     </ClInclude>
-    <ClInclude Include="MainMenuState.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="HomedFrog.h">
+      <Filter>Archivos de encabezado\GameObjects\SceneObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="SceneObject.h">
+      <Filter>Archivos de encabezado\GameObjects\SceneObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Wasp.h">
+      <Filter>Archivos de encabezado\GameObjects\SceneObjects</Filter>
     </ClInclude>
     <ClInclude Include="Label.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\GameObjects\Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Archivos de encabezado\GameObjects\Labels</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Archivos de encabezado\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Crosser.h">
+      <Filter>Archivos de encabezado\GameObjects\SceneObjects\Crossers</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Archivos de encabezado\GameObjects\SceneObjects\Crossers</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform.h">
+      <Filter>Archivos de encabezado\GameObjects\SceneObjects\Crossers</Filter>
+    </ClInclude>
+    <ClInclude Include="Turtles.h">
+      <Filter>Archivos de encabezado\GameObjects\SceneObjects\Crossers</Filter>
+    </ClInclude>
+    <ClInclude Include="Vehiculo.h">
+      <Filter>Archivos de encabezado\GameObjects\SceneObjects\Crossers</Filter>
     </ClInclude>
     <ClInclude Include="EndState.h">
+      <Filter>Archivos de encabezado\Estados</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Archivos de encabezado\Estados</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayState.h">
+      <Filter>Archivos de encabezado\Estados</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Archivos de encabezado\Estados</Filter>
+    </ClInclude>
+    <ClInclude Include="gameStateMachine.h">
+      <Filter>Archivos de encabezado\Estados</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseState.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,7 +7,7 @@
 
 class EndState : public GameState {
 public:
-    explicit EndState(Game* game);
+    explicit EndState(Game* game, bool w);
     virtual ~EndState();
 
     virtual void update() override;
@@ -18,7 +18,8 @@ public:
     void volverMenu();
 
 private:
-    std::string m_message;
+    std::string msg;
     std::vector<Button*> buttons;
     std::vector<Label*> labels;
+    bool won;
 };

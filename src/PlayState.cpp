@@ -4,6 +4,7 @@
 
 #include "PlayState.h"
 #include "SceneObject.h"
+#include "PauseState.h"
 #include "game.h"
 #include "Frog.h"
 #include "Collision.h"
@@ -38,7 +39,7 @@ void PlayState::update() {
 	while (i<homes.size() && homes[i]->getOcupado()) {
 		i++;
 	}
-	if (i == homes.size()) game->swapState(new EndState(game));
+	if (i == homes.size()) game->swapState(new EndState(game, true));
 }
 
 void PlayState::render() const {
@@ -53,6 +54,8 @@ void PlayState::render() const {
 void PlayState::handleEvent(const SDL_Event& e) {
 	GameState::handleEvent(e);
 	 if (e.type == SDL_EVENT_KEY_DOWN && e.key.key == SDLK_0) reiniciarMsg();
+	if (e.type == SDL_EVENT_KEY_DOWN && e.key.key == SDLK_P)game->pushState(new PauseState (game));
+		 return;
 }
 
 void PlayState::loadMap(std::string fileName) {
@@ -156,7 +159,6 @@ PlayState::reiniciar() {
 //Muestra una ventana con dos botones para confirmar si se quiere reiniciar la partida
 void
 PlayState::reiniciarMsg() {
-
 	SDL_MessageBoxButtonData buttons[] = {
 		{ SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT, 1, "Aceptar" },
 		{ SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 0, "Cancelar" }

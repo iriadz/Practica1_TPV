@@ -5,8 +5,9 @@
 
 #include <SDL3/SDL.h>
 
-EndState::EndState(Game* game)
-    : GameState(game) {
+EndState::EndState(Game* g, bool w)
+    : GameState(g), won(w) {
+
 
     struct BotonInfo {
         Game::TextureName id;
@@ -28,12 +29,14 @@ EndState::EndState(Game* game)
     buttons[0]->connect([this]() {salir();});
     buttons[1]->connect([this]() {volverMenu();});
 
-    Label* hasGanado = new Label(this, game, game->getTexture(Game::ELIGE_UN_MAPA), Point2D(Game::WINDOW_WIDTH / 2 - game->getTexture(Game::ELIGE_UN_MAPA)->getFrameWidth() / 2, 100));
-    SDL_SetTextureColorMod(hasGanado->getTexture()->getTexture(), 0, 255, 0); // Color normal
-    labels.push_back(hasGanado);
-    addObject(hasGanado);
+    if (won)
+    {
+        Label* hasGanado = new Label(this, game, game->getTexture(Game::HAS_GANADO), Point2D(Game::WINDOW_WIDTH / 2 - game->getTexture(Game::ELIGE_UN_MAPA)->getFrameWidth() / 2, 100));
+        SDL_SetTextureColorMod(hasGanado->getTexture()->getTexture(), 0, 255, 0); // Color normal
+        labels.push_back(hasGanado);
+        addObject(hasGanado);
+    }
     
-
 }
 
 EndState::~EndState() {

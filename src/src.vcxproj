@@ -111,6 +111,7 @@
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="SceneObject.cpp" />
@@ -136,6 +137,7 @@
     <ClInclude Include="Label.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="PauseState.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="resource.h" />
