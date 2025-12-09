@@ -115,6 +115,9 @@ public:
 	void exitGame() {
 		exit = true;
 	}
+
+	using GameStateMachine::replaceState;
+
 private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;

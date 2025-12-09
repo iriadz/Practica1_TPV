@@ -12,11 +12,6 @@ void GameState::update() {
 
 GameState::~GameState() {
     for (auto obj : gameObjects) delete obj;
-    gameObjects.clear();
-
-    listeners.clear(); // los listeners son gameObjects tambien y haria crash de double delete
-
-    callBacks.clear();
 }
 
 void GameState::render() const {

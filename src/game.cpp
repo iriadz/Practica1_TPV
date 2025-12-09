@@ -73,6 +73,8 @@ constexpr array<TextureSpec, Game::NUM_TEXTURES> textureList{
 	{"menuBackground.png"}
 };
 
+
+
 Game::Game()
 	: exit(false)
 {

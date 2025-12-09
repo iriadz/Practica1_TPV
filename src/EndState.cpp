@@ -53,10 +53,6 @@ EndState::~EndState() {
     labels.clear();
 }
 
-void EndState::update() {
-    GameState::update();
-}
-
 void EndState::render() const {
     for (Label* l : labels) {
         l->render();

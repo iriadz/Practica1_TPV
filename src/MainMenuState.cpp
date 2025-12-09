@@ -48,7 +48,7 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
     {Game::AVISPADO,   Point2D((Game::WINDOW_WIDTH / 2 - game->getTexture(Game::AVISPADO)->getFrameWidth() / 2),   270), mapFiles[0]},
     };
 
-    for (auto& d : datos) {
+    for (auto& d : datos) { // auto con la finalidad de ahorrar codigo
         Button* b = new Button(this, game, game->getTexture(d.id), d.pos);
         buttons.push_back(b);
         addObject(b);
@@ -65,7 +65,6 @@ MainMenuState::MainMenuState(Game* g) : GameState(g), selected(0) {
         b->connect([this]() {mapSelected();});
         mapas.push_back({ b, m.fileName });
         addObject(b);
-        addEventListener(b);
     }
 
     Label* eligeUnMapa = new Label(this, game, game->getTexture(Game::ELIGE_UN_MAPA), Point2D(Game::WINDOW_WIDTH/2 - game->getTexture(Game::ELIGE_UN_MAPA)->getFrameWidth()/2, 200));
@@ -111,10 +110,8 @@ void MainMenuState::render() const {
 }
 
 void MainMenuState::handleEvent(const SDL_Event &e) {
+    GameState::handleEvent(e);
     mapas[selected].first->handleEvent(e);
-    buttons[0]->handleEvent(e);
-    buttons[1]->handleEvent(e);
-    buttons[2]->handleEvent(e);
 }
 
 void
