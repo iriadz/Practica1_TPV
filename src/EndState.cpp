@@ -78,5 +78,5 @@ EndState::salir() {
 
 void
 EndState::volverMenu() {
-    game->swapState(new MainMenuState(game));
+    game->popState();
 }
