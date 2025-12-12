@@ -10,9 +10,6 @@ public:
     using Platform::Platform;
     Log(Game* g, GameState* gs, PlayState* ps, std::istream& is);
     virtual ~Log() = default;
-
-private:
-    int tipo; 
 };
 
 #endif // LOG_H

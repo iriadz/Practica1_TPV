@@ -18,8 +18,6 @@ public:
     void setAnchor(It it);
    /* Collision checkCollision(const SDL_FRect&);*/
 private:
-    int tiempoVidaMax;
-    int tiempoCreacion;
     Vector2D<float>velocidad;
     bool isdead;
     It it;

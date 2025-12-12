@@ -12,7 +12,6 @@
 PauseState::PauseState(Game* g, PlayState* ps)
     : GameState(g), playState(ps)
 {
-    SDL_Renderer* r = g->getRenderer();
 
     // Botón continuar
     continuar = new Button(this, game, game->getTexture(Game::CONTINUAR), Point2D(Game::WINDOW_WIDTH / 2 -game->getTexture(Game::CONTINUAR)->getFrameWidth() / 2, 200));

@@ -23,7 +23,7 @@ class Vehiculo;
 class Log;
 class Frog;
 class HomedFrog;
-class Collision;
+struct Collision;
 class Wasp;
 class InfoBar;
 class Turtles;

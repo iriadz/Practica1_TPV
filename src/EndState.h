@@ -10,7 +10,6 @@ public:
     explicit EndState(Game* game, bool w);
     virtual ~EndState();
 
-    virtual void update();
     virtual void render() const override;
     virtual void handleEvent(const SDL_Event& e) override;
 

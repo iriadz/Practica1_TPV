@@ -29,8 +29,7 @@ void Wasp::update() {
 
     if (isdead)
     {
-        gameState->runLater([this]() {
-            });
+        gameState->runLater([]() {});
     }
 
 }
